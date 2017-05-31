@@ -1,0 +1,253 @@
+/*#############################################################
+Name: The Hobbit
+Date: 2006-10-11
+Description: Submission for OWD template contest "Favourite Book".
+Author: Viktor Persson
+URL: http://templates.arcsin.se
+
+Feel free to use and modify but please provide credits.
+#############################################################*/
+
+/* standard elements */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {color: #36C;}
+
+a:hover {color: #06F;}
+
+body {
+	background: #4E5D3C url(img/bg.jpg);
+	color: #444;
+	font: normal 62.5% "Lucida Sans Unicode",sans-serif;
+	margin: 0;
+}
+
+p,blockquote,ul {margin-bottom: 1.2em;}
+
+h1 {font: normal 1.6em serif;}
+h3 {font: normal 1em serif;}
+h2 {
+	font: bold 1em Verdana,serif;
+	margin: 3px 0 1px;
+}
+
+h12 {
+	font: bold 1.3em Verdana,serif;
+	margin: 3px 0 1px;
+}
+
+ul {margin-left: 1.8em;}
+
+blockquote {
+	background: url(img/quote.gif) no-repeat;
+	color: #555;
+	font: normal 1.4em serif;
+	padding-left: 22px;
+}
+
+blockquote p {padding: 6px;}
+
+/* misc */
+.clearer {clear: both;}
+
+.left {float: left;}
+
+.right {float: right;}
+
+img.left {margin: 0 18px 6px 0;}
+
+.divider {
+	background: url(img/divider.gif) no-repeat;
+	height: 20px;
+	margin: 24px 0;
+}
+
+/* structure */
+.container {
+	background: url(img/bgcontainer.jpg) repeat-y center top;
+	margin: 0 auto;
+	width: 736px;
+}
+
+.gfx {
+	background: url(img/gfx.jpg) no-repeat;
+	float: left;
+	height: 140px;
+	margin-top: 12px;
+	width: 52px;
+}
+
+.top {
+	background: url(img/bgcontent.gif) no-repeat 0 -4%;
+	float: left;
+	text-align: center;
+	width: 632px;
+}
+
+.header {
+	background: #56644A url(img/header.jpg) no-repeat;
+	color: #FFFF00;
+	font-size: 1.8em;
+	font-weight: 900;
+	height: 232px;
+	padding-right: 270px;
+	text-shadow: 3px 1px 1px #000000  ;
+}
+
+.header1 {
+	background: #56644A url(img/header1.jpg) no-repeat;
+	color: #adc299;
+	font-size: 1.8em;
+	font-weight: 900;
+	height: 232px;
+	padding-right: 270px;
+	}
+
+	
+.header1:first-letter {
+	display: block;
+	font-size: 2em;
+}
+	
+.header h1 {
+	font: normal 2em serif,sans-serif;
+	padding: 62px 0 34px 0;
+}
+
+.pattern {
+	background: #334127 url(img/pattern.gif) repeat-x;
+	clear: both;
+	height: 12px;
+}
+
+/* navigation */
+.navigation {margin: 0 24px;}
+
+.navigation a {
+	color: #6C7151;
+	font: normal 1.9em serif;
+	line-height: 50px;
+	margin: 0 16px;
+	text-decoration: none;
+}
+.navigation a:hover,.navigation #selected {
+	color: #2C3111;
+}
+
+/* content */
+.content {
+	background: url(img/bgcontent.gif) no-repeat;
+	clear: both;
+	font-size: 1.5em;
+	margin: 0 52px;
+	padding: 0 38px 12px;
+}
+.content .spacer {
+	height: 42px;
+}
+
+/* content item */
+.item {clear: both;}
+
+.item img {border: 1px dashed #8A6;}
+
+.item .title {
+	color: #445044;
+	font: normal 2em serif;
+}
+
+.item .title:first-letter {
+	display: block;
+	float: left;
+	font-size: 2.4em;
+}
+
+.item .metadata {
+	color: #666;
+	font-size: 0.9em;
+	float: left;
+	padding: 0 0 6px 4px;
+}
+
+.item .body {
+	clear: both;
+}
+
+/* footer */
+.footer {
+	background: url(img/bgfooter.gif) no-repeat;
+	color: #666;
+	font-size: 1.1em;
+	line-height: 41px; 
+	margin: 0 auto;
+	text-align: center;
+	width: 632px;
+}
+
+.footer a {
+	color: #666;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+
+
+/* Resume */
+
+/* //-- header, body, footer -- */
+#hd { margin: 2.5em 0 3em 0; padding-bottom: 1.5em; border-bottom: 1px solid #ccc }
+#hd h21 { text-transform: uppercase; letter-spacing: 2px; }
+#bd, #ft { margin-bottom: 2em; }
+
+/* //-- footer -- */
+#ft { padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc; text-align: center; }
+#ft p { margin-bottom: 0; text-align: center;   }
+
+/* //-- core typography and style -- */
+#hd h11 { font-size: 42px; text-transform: uppercase; letter-spacing: 3px; }
+h21 { font-size: 100% }
+h31, h41 { font-size: 122%; }
+h11, h21, h31, h41 { color: #333; }
+p { font-size: 100%; line-height: 18px; padding-right: 3em; }
+a { color: #990003 }
+a:hover { text-decoration: none; }
+strong { font-weight: bold; }
+li { line-height: 24px; border-bottom: 1px solid #ccc; }
+p.enlarge { font-size: 144%; padding-right: 6.5em; line-height: 24px; }
+p.enlarge span { color: #000 }
+.contact-info { margin-top: 7px; }
+.first h21 { font-style: italic; }
+.last { border-bottom: 0 }
+
+
+/* //-- section styles -- */
+
+a#pdf { display: block; float: left; background: #666; color: white; padding: 6px 50px 6px 12px; margin-bottom: 6px; text-decoration: none;  }
+a#pdf:hover { background: #222; }
+
+.job { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+.job h41 { position: absolute; top: 0.35em; right: 0 }
+.job p { margin: 0.75em 0 3em 0; }
+
+.last { border: none; }
+.skills-list {  }
+.skills-list ul { margin: 0; }
+.skills-list li { margin: 3px 0; padding: 3px 0; }
+.skills-list li span { font-size: 152%; display: block; margin-bottom: -2px; padding: 0 }
+.talent { width: 32%; float: left }
+.talent h21 { margin-bottom: 6px; }
+
+#srt-ttab { margin-bottom: 100px; text-align: center;  }
+#srt-ttab img.last { margin-top: 20px }
+
+/* --// override to force 1/8th width grids -- */
+.yui-gf .yui-u{width:80.2%;}
+.yui-gf div.first{width:12.3%;}
+

@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+<title>YOUNG JOON OH</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="gfx"><span></span></div>
+
+	<div class="top">
+
+		<div class="navigation">
+			<a href="index.html">Home</a>
+			<a href="cv.html">CV</a>
+			<a href="research.html">My Research</a>
+			<a href="class.html">For Classes</a>
+			<a href="tips.html" id="selected">Tips</a>
+			
+		</div>
+
+		<div class="pattern"><span></span></div>
+
+		<div class="header1">
+			<h1>Useful Tips</h1>
+			
+		</div>
+
+		<div class="pattern"><span></span></div>
+
+	</div>
+
+	<div class="content">
+
+		<div class="spacer"></div>
+
+		<div class="item">
+
+			<div class="title">Tips on R, Latex, Netlogo, Python etc.</div>
+			<div class="metadata">updated in Mar. 2017</div>
+			
+			
+			<div class="divider"><span></span></div>
+			
+			
+			<div class="body">
+				<h1> Python :  urllib.request.urlopen - HTTP error and solution</h1>
+							<p>  </p>
+				<ul>
+					<p> <b>The server may try to block a bot</b></p>
+					<p>When you use urllib.request.uropen to scrape a webpage, you may get some HTTP errors. 
+					I suppose the server think you could be a bot and block your scraping.</p>
+					
+					<p><br><b>Solution : </b> We need to reset the browser user agent to avoid the blocking.</br>
+					   <br><i> import urllib.request </i> </br> 
+					   <br><i> url = 'http://..........' </i> </br> 
+					   <br><i> req = urllib.request.Request(url, </i> <b>headers={'User-Agent': 'Mozilla/5.0'}) </b> </br>   
+                       <br><i> page = urllib.request.urlopen(req).read() </i> </br> 					
+					   <br>Now, you can scrape the webpage without error messages.</br>  </p>
+									
+					
+					<br></br>				
+			
+				
+			
+			
+     			</ul>
+			</div> <!--body -->
+						
+				<div class="divider"><span></span></div>
+			
+			
+			
+			
+			<div class="body">
+				<h1>Sweave and Latex</h1>
+							<p>  </p>
+				
+				<ul>
+					<p>Sweave is a good tool for R and Latex users. But, you may find an error message when you make your first tex file using Sweave.<p></p>
+					<b>"Sweave.sty not found."</b> </p>
+					
+					<p>There is no package for Sweave.sty in MikTex. You can find the file in the R folder. <i> C\..\R\share\texmf\tex </i> <br>
+					There are several ways to use this file in the folder. But, this is easy and efficient way.</p>
+					
+					<p>First of all, find and clink <b>'mo'</b> file in <i>C\...MiKTex2.9\miktex\bin </i> </p>
+					
+					 <p>Second, choose <b>Roots</b> tap.</p>
+					
+					<p>Third, click <b>add</b> and choose <i>C\....\R\share\texmf</i> </p>
+					
+					<p>That's all. Super easy!!!! </p>
+					<p>If you are looking for another option using R and Latex, I recommend R package <b>knitr</b>. 
+					   It is convenient and you can make a good-looking document </p>
+										
+				</ul>
+			</div> <!--body -->
+			
+						
+				<div class="divider"><span></span></div>
+				
+				
+			<div class="body">
+				<h1> Renaissance Network : Web crawling and Data Visualizing </h1>
+							<p>  </p>
+				
+				<ul>
+					<img class="left" src="img/rena.png" width="220" height="150" alt="sample image"> <p></p>
+					<p> You can find a <b>tutorial</b> video to create Renaissance Network in my Youtube channel.
+                     To make a data set for the network, I use R for scraping data and web crawling.  					
+					Click <a href="https://www.youtube.com/watch?v=FOLTJ-Tg8dg"> Here. </a> </p>
+					<p> You can download <a id="session" href="files/re_nodes.csv">nodes data</a> and  
+					    <a id="session" href="files/re_edges.csv">edges data.</a> 
+					</p> 
+					<p> </p>
+					<br></br>				
+				</ul>
+			</div> <!--body -->
+			
+			
+			
+			<div class="body">
+				<h1> Gephi : Visualizing Airline routes Network </h1>
+							<p>  </p>
+				
+				<ul>
+					<img class="left" src="img/airline.jpg" width="200" height="150" alt="sample image"> <p></p>
+					<p> In my Youtube channel, I uploaded a <b>Gephi tutorial</b> video to make Airline routes network. 
+					Click <a href="https://www.youtube.com/watch?v=DvSJQRx9Jss"> Here </a> </p>
+					<p> You can download <a id="session" href="files/nodes.csv">nodes data</a> and  
+					    <a id="session" href="files/links.csv">links data.</a> 
+					</p> 
+					<p> </p>
+					<br></br>				
+				</ul>
+			</div> <!--body -->
+			
+
+			<div class="body">
+				<h1> Gephi : Visualizing Facebook Network </h1>
+							<p>  </p>
+				
+				<ul>
+					<p>You can see my facebook network in the <i>My Research</i> tab of this website. You can visualize your own facebook network.</p>
+					<p>I use <b>Gephi</b> as a visualizing tool. It is an easy and convenient program. Download it. </p>
+					
+					<p>In the facebook webpage, search <b>netvizz</b> which is a facebook application. Then, netvizz will show several options you can choose.
+					   Let's choose <b>personal network</b>. Then, in the next page, click <b>start</b>   </p>
+					
+					<p>netvizz makes two files. One is <i>gdf</i> file and the other one is <i>tab</i> file. Here, we need <i>gdf</i> file. Download it.</p>
+					
+					<img class="left" src="img/initial.jpg" width="150" height="100" alt="sample image"> <p></p>
+					<p>Open the file in Gephi. You will find chaotic dots and lines in your Gephi like the left figure. Our aim is visualizing the facebook network, not showing just dots and lines.</p>
+					
+					<p>For a good-looking network, you can change color of nodes and links and its layout in Gephi. Use the left panel in Gephi.</p>
+					
+					<img class="left" src="img/layout.jpg" width="150" height="100" alt="sample image"> <p></p>
+					<p> When you change some of them, you can get better-looking facebook network. Now, play with your data </p>
+					<p> Facebook changed its policy on extracting data, so Netvizz does not work properly. 
+					    Alternatively, we can use R package <b>Rfacebook</b> to extract data. </p>
+					<br></br>				
+				</ul>
+			</div> <!--body -->
+			
+						
+				
+			
+			
+						
+				<div class="divider"><span></span></div>
+				
+				
+				
+				
+				
+				<div class="body">
+				<h1> Understanding Netlogo Code</h1>
+							<p>  </p>
+				<ul>
+					<p> <b>reduce</b></p>
+					<p>'reduce' has a little bit complicating process. </p> 
+					<p><i>show reduce [?1] [1 2 3]  => 1</i> 
+					and <i>show reduce [?2] [1 2 3]  => 3 </i> Now, what value can we get from 
+					<i>show reduce [?2] [1 2 3 4 5]</i> ? <br> It will be 5.</br>
+					'reduce' does the given task from left to right of the list. In the beginning, it finds the second value([?2]) from the first value of the list. 
+					<br>The first value in the list is 1 and the second value is also 1.</br> </p> 
+					</p> Next, 'reduce' finds the second value from [1,2], which is 2. Then, the list becomes [2,3]. 
+					Here, 2 is the result of the last round. 
+					 Thus, the second value is 3. In the next round, the list is [3,4], and the second value is 4. 
+					 By doing this, in the final round, we can get 5.</p>
+					<p>This is useful for coding math, like &#931 Xi. 
+					When X = [1,2,3,4,5], <br><b>&#931 Xi</b> can be rewritten as <i>reduce + [1 2 3 4 5].</i> </br>
+					<b>Max Xi</b> can be expressed by <i>reduce [ifelse-value (?1 > ?2) [?1] [?2]] [1 2 3 4 5] </i>. 
+					</p>
+					<br></br>				
+			
+				
+			
+			
+     			</ul>
+			</div> <!--body -->
+						
+				<div class="divider"><span></span></div>
+				
+				
+				
+				
+				<div class="body">
+				<h1> R-extension error and Solution</h1>
+							<p>  </p>
+				<ul>
+					<p> <b>r-extension</b></p>
+					<p>r-extension is a very useful tool to connect Netlogo to R. We can use R in the Netlogo model with this extension.
+					   But, it is a little bit tricky to use it. I had some trouble with loading a package in the Netlogo. My error was that Netlogo could not load R package. 
+					   Here are two solutions</p>
+					<p><br><b>Use R function : </b> First of all, make a R function for your purpose. For example, my function is `mykurtosis'.</br>
+					 <br>In the Netlogo, Type :</br> <i> let mykurtosis (word "source('C:/..path../mykurtosis.R')")
+                        <br> r:eval mykurtosis </i> </br> 
+					    Now, you can use your R function with your Netlogo model data</p>
+						
+					<p><br><b>Change package Path : </b> Type <i>r:interactiveShell</i>  into NetLogo's Command Center.</br>
+					<br>In the interactiveShell, Type <i>.libPaths()</i> </br>
+					Check the path for R package. If it is different from yours, do as follows :
+					<br>In the Netlogo code, Type :</br> <i> r:put "path" "C:/...your R library path .../Documents/R/R-3.2/library"</i> 
+					<br><i> r:eval ".libPaths(c(path,.libPaths()))"    </i></br>
+					 Now, you can load your R package in the Netlogo.</p>
+									
+					
+					<br></br>				
+			
+				
+			
+			
+     			</ul>
+			</div> <!--body -->
+						
+				<div class="divider"><span></span></div>
+				
+				
+				
+				
+				
+				<div class="body">
+				<h1> RNetlogo error and Solution</h1>
+							<p>  </p>
+				<ul>
+					<p> <b>RNetlogo</b></p>
+					<p>Another extension for R and Netlogo is RNetlogo. With this extension, we can use Netlogo in R interface. 
+					 <br>  But, you may find an error message, like </br> <i> WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002.... </i>  
+					<br></br>
+					<br> Here is a solution </br> </p>
+					
+					<p><br> First, go to Start menu and type <b>regedit</b></br>
+					 <br> Login as the administrator, and find <i>HKEY_LOCAL_MACHINE\Software\JavaSoft </i> </br> 
+					 <br> Click right button of your mouse, and <b> create key, Prefs</b>. We need <i>HKEY_LOCAL_MACHINE\Software\JavaSoft\Prefs </i>.   </br>   
+					 <br>Done!! Try it again. There will be no error.</br>
+						
+					</p>
+															
+					
+					<br></br>				
+			
+				
+			
+			
+     			</ul>
+			</div> <!--body -->
+						
+				<div class="divider"><span></span></div>
+				
+				
+				
+				
+					
+
+		</div>
+
+		
+
+				
+	</div>
+		
+	<div class="footer">
+
+		&copy; 2006 <a href="index.html">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>. Template design by <a href="http://arcsin.se">Arcsin</a>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>
