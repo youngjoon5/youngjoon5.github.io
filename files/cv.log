@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9) (preloaded format=xelatex 2015.7.9)  2 OCT 2017 16:45
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9) (preloaded format=xelatex 2015.7.9)  2 OCT 2017 16:56
 entering extended mode
 **cv.tex
 (C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.tex
@@ -962,14 +962,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--198
 [1
 
 ]
-Overfull \hbox (134.86012pt too wide) in paragraph at lines 199--209
+Overfull \hbox (39.80011pt too wide) in paragraph at lines 199--210
 [][] 
  []
 
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 
-Overfull \hbox (41.49013pt too wide) in paragraph at lines 214--229
+Overfull \hbox (41.49013pt too wide) in paragraph at lines 215--230
 [][] 
  []
 
@@ -983,17 +983,17 @@ Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 
-Overfull \hbox (65.57106pt too wide) in paragraph at lines 237--278
+Overfull \hbox (65.57106pt too wide) in paragraph at lines 238--279
 [][] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 331.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 332.
 [2] [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 331.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
  (C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 331.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 331.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 331.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 332.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 332.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
  22056 strings out of 429025
