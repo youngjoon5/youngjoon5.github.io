@@ -1,7 +1,7 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9) (preloaded format=xelatex 2015.7.9)  25 MAR 2017 12:46
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (MiKTeX 2.9) (preloaded format=xelatex 2015.7.9)  2 OCT 2017 16:45
 entering extended mode
 **cv.tex
-(C:\Users\YoungJoon\Dropbox\homepage\files\cv.tex
+(C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -683,7 +683,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 26.
 Package hyperref Info: Option `breaklinks' set `true' on input line 26.
 \g__file_internal_ior=\read1
 Requested font "[Fontin.otf]/ICU" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 .................................................
 . fontspec info: "no-scripts"
 . 
@@ -691,11 +691,14 @@ Requested font "[Fontin.otf]/ICU" at 10.0pt
 .................................................
 \g_fontspec_family_Fontin.otf_int=\count140
 Requested font "[Fontin-SmallCaps.otf]/ICU" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-SmallCaps.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Small
+Caps.otf
 Requested font "[Fontin-Bold.otf]/ICU" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-Bold.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Bold.
+otf
 Requested font "[Fontin-Italic.otf]/ICU" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-Italic.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Itali
+c.otf
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -724,7 +727,7 @@ Requested font "[Fontin-Italic.otf]/ICU" at 10.0pt
 . <->"[Fontin-SmallCaps.otf]/ICU:mapping=tex-text;"
 .................................................
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\textpos\textpos.sty"
 Package: textpos 2014/01/03 v1.7j
@@ -749,7 +752,7 @@ Grid set 16 x 16 = 37.34424pt x 52.81541pt
 TextBlockOrigin set to 0pt x 0pt
 )
 TextBlockOrigin set to 2mm x 0.65\paperheight 
-(C:\Users\YoungJoon\Dropbox\homepage\files\cv.aux)
+(C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
@@ -894,42 +897,47 @@ LaTeX Info: Redefining \ref on input line 60.
 LaTeX Info: Redefining \pageref on input line 60.
 LaTeX Info: Redefining \nameref on input line 60.
 
-(C:\Users\YoungJoon\Dropbox\homepage\files\cv.out)
-(C:\Users\YoungJoon\Dropbox\homepage\files\cv.out)
+(C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.out)
+(C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.out)
 \@outlinefile=\write3
 
 ABD: EveryShipout initializing macros
 Requested font "[cmr10]" scaled 1000
  -> C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 20.74pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 Requested font "[Fontin-SmallCaps.otf]/ICU:mapping=tex-text;" at 20.74pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-SmallCaps.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Small
+Caps.otf
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 14.4pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 Requested font "[Fontin-SmallCaps.otf]/ICU:mapping=tex-text;" at 14.4pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-SmallCaps.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Small
+Caps.otf
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\se-ascii-print.def"
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 7.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 5.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 94.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 94.
 Requested font "[Fontin-SmallCaps.otf]/ICU:mapping=tex-text;" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-SmallCaps.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Small
+Caps.otf
 Requested font "[Fontin-Bold.otf]/ICU:mapping=tex-text;" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-Bold.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Bold.
+otf
 Requested font "[Fontin.otf]/ICU:mapping=tex-text;" at 9.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin.otf
 Requested font "[Fontin-SmallCaps.otf]/ICU:mapping=tex-text;" at 9.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-SmallCaps.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Small
+Caps.otf
 
 Overfull \hbox (12.09341pt too wide) in paragraph at lines 109--133
 [][] 
@@ -937,7 +945,8 @@ Overfull \hbox (12.09341pt too wide) in paragraph at lines 109--133
 
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Requested font "[Fontin-Italic.otf]/ICU:mapping=tex-text;" at 10.0pt
- -> C:/Users/YoungJoon/Dropbox/homepage/files/Fontin-Italic.otf
+ -> C:/Users/YoungJoon/Documents/GitHub/youngjoon5.github.io/files/Fontin-Itali
+c.otf
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/ICU:mapping=tex-text;!
@@ -953,7 +962,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--198
 [1
 
 ]
-Overfull \hbox (39.80011pt too wide) in paragraph at lines 199--209
+Overfull \hbox (134.86012pt too wide) in paragraph at lines 199--209
 [][] 
  []
 
@@ -981,15 +990,15 @@ Overfull \hbox (65.57106pt too wide) in paragraph at lines 237--278
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 331.
 [2] [3]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 331.
- (C:\Users\YoungJoon\Dropbox\homepage\files\cv.aux)
+ (C:\Users\YoungJoon\Documents\GitHub\youngjoon5.github.io\files\cv.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 331.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 331.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 331.
  ) 
 Here is how much of TeX's memory you used:
  22056 strings out of 429025
- 400926 string characters out of 3166799
- 470347 words of memory out of 3000000
+ 401031 string characters out of 3166799
+ 471347 words of memory out of 3000000
  25181 multiletter control sequences out of 15000+200000
  4176 words of font info for 37 fonts, out of 3000000 for 9000
  913 hyphenation exceptions out of 8191
