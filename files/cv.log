@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.7.22)  22 JUL 2019 15:25
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.7.22)  22 JUL 2019 15:41
 entering extended mode
 **./cv.tex
 (cv.tex
@@ -847,7 +847,7 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
 Here is how much of TeX's memory you used:
  25243 strings out of 427669
  461578 string characters out of 3144952
- 556217 words of memory out of 3000000
+ 557217 words of memory out of 3000000
  29158 multiletter control sequences out of 15000+200000
  532882 words of font info for 48 fonts, out of 3000000 for 9000
  1349 hyphenation exceptions out of 8191
