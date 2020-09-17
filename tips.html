@@ -46,11 +46,24 @@
 		<div class="item">
 
 			<div class="title">Tips on R, Netlogo, Python etc.</div>
-			<div class="metadata">updated in May 2017</div>
+			<div class="metadata">updated in Sep. 2020</div>
 			
 			
 			
 			<div class="divider"><span></span></div>
+
+
+<div class="body">
+				<h1> <b>R package install Error from github </b> : <i>devtools</i> error </h1>
+							<p>  </p>
+				<ul>
+					<p>Install the recent version <b>Rtools</b> </p>
+					<p>Next step is changing <b>.Renviron</b> file. In R or Rstudio, put the following line : <i>writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")</i></p>
+					<p>Then Restart R, and verify the PATH in <b>.Renviron</b> with <i>Sys.which("make")</i></p>
+				    <br></br>
+     			</ul>
+			</div> <!--body -->
+
 
 
 	<div class="body">
