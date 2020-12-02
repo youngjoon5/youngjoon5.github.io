@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Young Joon Oh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="research.html">My Research</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Computational Social Science Post</a>
+                    </li>
+                    <li>
+                        <a href="teaching.html">Teaching</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <!--                      Post Content                   -->
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="chunk"><!-- id for refering this part   -->
+
+                    <h1> When insert Python chunk into R markdown, <i>matplotlib</i> error </h1>
+                       <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>
+                    
+                    <p>Sometimes R Studio cannot find <i>matplotlib</i> or a Python library when we try to insert Python chunk into R markdown.
+                    Everything is correct and the code works well in the Jupyter. But it does not work in the R markdown.
+                    We need to use a different way to install the Python library
+                    <br></br> 
+
+                    SOLUTION : </br>               
+                    In R chunk, <i>py_install(packages = "matplotlib")</i></br> 
+                    
+                    In Python chunk, <i>import os</i></br> 
+                    &emsp;&emsp;&emsp;<i>  os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = '<cite>(anaconda or miniconda path) </cite>...conda3/Library/plugins/platforms' </i></p>
+                    
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+
+ <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="powershell"> <!--        id for refering this part        -->
+
+                    <h1> Fail to create <i>Virtual Environment</i> for Python in the <i>Window Powershell</i></h1>
+                            
+                
+                    <p>To create your Virtual Environment, </br>
+                    Type : <i>conda create -n env python = 3.8</i> &nbsp; and &nbsp; <i>conda activate env</i> </br> 
+                    Then, you should find <b><i>(env)</i></b> in the <b>Window Powershell</b> </br> 
+                    If you cannot find it, you failed to create your Python Vitural Environment. Interestingly, it can be available only in <b>cmd</b>.
+                    I think Window Powershell has a compatibility issue with Python.
+                     <br></br>
+                    SOLUTION: </br>
+                    In your Powershell, <i>Set-ExecutionPolicy -Scope "CurrentUser" -ExecutionPolicy "Unrestricted"</i> 
+                    </p>
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="tinytex"> <!--        id for refering this part        -->
+
+                    <h1> R Markdown issue about <i>TinyTex</i> and <i>MikTex</i> : Fail to compile </h1>
+                            
+                
+                    <p>Install <b>tinytex</b> package in your <b>R</b>. </br>
+                    Then <i>tinytex::install_tinytex()</i> </br>
+                    Now, you may face a compiling error. The easiest way to solve this is to uninstall <i>MikTex</i>. Quit and reopen the R session. Then  <i>tinytex::install_tinytex()</i> again.
+                    If you succeed in compiling your tex file. Now reinstall <i>MikTex</i>. 
+                    When you use a new tex package in R markdown, it also can make another compiling error. If R markdown creates a tex file, 
+                    Open the tex file in your LaTex editor. Then your <i>MikTex</i> automatically updates the new package.
+                    </p>
+
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+
+
+  <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="devtools"> <!--        id for refering this part        -->
+
+                    <h1> R package install Error from github : <i>devtools</i> error </h1>
+                            
+                    When you install a new package from github, a <i>devtools</i> error will be a challenge.
+                    <br></br>
+                    
+                    SOLUTION: </br>
+                    Install the recent version <b>Rtools</b>. 
+                    Next step is changing <b><i>.Renviron </i></b> file. To do this, in R or Rstudio, put the following line : <i>writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con = "~/.Renviron")</i></br>
+                    Then Restart R, and verify the PATH in <b>.Renviron</b> with <i>Sys.which("make")</i>
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="jupyter"> <!--        id for refering this part        -->
+
+                    <h1>An easy way to open <i>ipynb</i> files in <i>Jupyter Notebook</i>.  </h1>
+                            
+                    Go to the folder containging <i>ipynb</i> files. On the address cell of the File explorer(Windows), type <b>jupyter notebook</b>
+                    (e.g. C:\aaa -> jupyter notebook).
+                    <br></br>
+
+                    If it does not work, you need to change your 'environment variables' of your Windows.</br>
+                    Choose <b>change my environment variables</b> in the 'User Account' of the 'Control Panel'.
+                    Choose 'Path' in the 'User variables' and click 'Edit'. Add two new paths for <b>python.exe</b> and <b>conda.exe</b> (e.g. C:\User\Anaconda3, C:\User\Anaconda3\Scripts ). </br> 
+                    <b><i>Help :</i></b> Use <b>Anaconda Prompt</b>. <i>where python</i> and <i>where conda</i>              
+                    <br></br>               
+                    If it does not work, we can change the starting folder.  By using the right click, choose <b><i>"Properties"</i></b> of <b>Jupyter Notebook's shortcut tab</b>.</br> 
+                    In the <i>"Target"</i>, change <b>"%USERPROFILE%/"</b> to your specific folder.
+                    <i>e.g.</i> ...\jupyter-notebook-script.py <b>"%USERPROFILE%/"</b>  &rarr; 
+                          ...\jupyter-notebook-script.py <b>"D:/python folder/"</b>
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="keras"> <!--        id for refering this part        -->
+
+                    <h1>Python :  Install Keras and Tensorflow </h1>
+                            
+                    <p><b>Keras</b> is a Python library for deep learning modeling. If you are using Python 3.6 and Anaconda,
+                    you will face some troubles with installing Keras, because <b>Tensorflow</b> is required to install Keras.
+                     You can find a way to install Tensorflow, <a href="https://www.tensorflow.org/install/install_windows">here</a>.             However, it is tricky to install Tensorflow into Python 3.6 despite this instruction. </p>
+                 
+                    <p><b>Solution : </b> We need Tensorflow 1.2 or later</br>
+                    <br>In the Prompt or Powershell, create a conda environment : </br> <i>conda create -n myenv tensorflow</i>. 
+                     <i>Help</i> : If you want to remove this environment : <i>conda env remove -n myenv</i>                      
+                       <br> Download this file. <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#tensorflow"> 
+                       <i> tensorflow-1.2.0-cp36-cp36m-win_amd64.whl </i> </a> </br> 
+                       
+                       <br>After activating the Tensorflow in the prompt(<i>>> activate myenv</i>), </br>
+                       <i> pip install C:\ ..(the Download location)..\tensorflow-1.2.0-cp.....</i></br>                    
+                       <br>Then, install Keras : <i>pip install keras</i>. Now, you can use Kreas in the Python 3.6.</br></p>
+                    
+                    <br></br>
+                
+                 
+
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="scraping"> <!--        id for refering this part        -->
+
+                    <h1>Web scraping with Python :  urllib.request.urlopen - HTTP error and solution </h1>
+                            
+                    When you use urllib.request.uropen to scrape a webpage, you may get some HTTP errors. 
+                    I suppose the server think you could be a bot and block your scraping.</br>
+                    
+                    <p><b>Solution : </b> We need to reset the browser user agent to avoid the blocking.</br>
+                       <i> import urllib.request </i> </br> 
+                       <i> url = 'http://..........' </i> </br> 
+                       <i> req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}) </i> </br>   
+                       <i> page = urllib.request.urlopen(req).read() </i> </br>                     
+                       Now, you can scrape the webpage without error messages.</p>
+                    
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+ <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="sweave"> <!--        id for refering this part        -->
+
+                    <h1>Sweave in <i>R</i> and <i>Latex</i></h1>
+                            
+                    Sweave is a good tool for R and Latex users. But you may find an error message when you make your first tex file using Sweave.
+                    </br>                    
+                    <i>"Sweave.sty not found."</i></br>
+                    
+                    It means no package for Sweave.sty in <i>MikTex</i>. You can find this file in the R folder.
+                    <cite> C\...\R\share\texmf\tex </cite> 
+                    <br> </br> 
+
+                    The easiest way to use this file is as follows:</br> 
+                    
+                    First of all, find and clink <b>'mo'</b> file in <i>C\...\MiKTex2.9\miktex\bin </i> </br> 
+                    
+                    Second, choose <b>Roots</b> tap.</br> 
+                    
+                    Third, click <b>add</b> and choose <i>C\....\R\share\texmf</i> </br> 
+                    
+                    If you are looking for another option using R and Latex, I recommend R package <b>knitr</b>. 
+                    It is convenient and you can make a good-looking document 
+                    
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="gephi"> <!--        id for refering this part        -->
+
+                    <h1><i>Gephi</i> : Solution to Java error</h1>
+                            
+                    <p> When you install or upgrade <b>Gephi</b>, your Gephi may not open and show an error message 
+                    <b>"Gephi cannot find Java 1.8 or higher"</b></br>
+                     To solve this issue, first of all find the location of Java in your computer.</br>
+                    For example, <i>C:\Program Files (x86)\Java\jre1.8.0_144</i></br>
+                    Second, you need to find a file <i>"gephi.conf"</i> in the <i>etc</i> folder of Gephi </br>
+                    Third, open the file with any notepad and emove "#" before <i>jdkhome=</i>. </br>
+                    Then, put the location of Java after <i>jdkhome=</i>. 
+                    <br>For example, <i>jdkhome="C:/Program Files (x86)/Java/jre1.8.0_144"</i></br>
+                     Save the edited file and Run Gephi
+                    </p>
+                    
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="rena"> <!--        id for refering this part        -->
+
+                    <h1>Renaissance Network : Web crawling and Data Visualization</h1>
+                            
+                    <p><img class="center" src="img/rena.png" width="600" height="190" alt="sample image"> </br>
+                     I built a web crawler to get network data about figures of <b>Renaissance</b> period. I made a <b>tutorial</b> video for it in my Youtube channel.
+                    I created this network data set by a <b>R</b> web crawler and I used <b>Gephi</b> to visualize the data.                    
+                    The tutorial is <a href="https://www.youtube.com/watch?v=FOLTJ-Tg8dg"> Here. </a> </br>
+                     Also, you can download <a id="session" href="files/re_nodes.csv">nodes data</a> and  
+                        <a id="session" href="files/re_edges.csv">edges data.</a>  R code can be found in <a href="https://gist.github.com/youngjoon5/f43a4692eb15ee816f460cfe731f06ec"> my gist.</a>
+                    </p> 
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="airline"> <!--        id for refering this part        -->
+
+                    <h1>Visualizing Airline routes Network</h1>
+                            
+                     <p><img class="center" src="img/airline.jpg" width="600" height="190" alt="sample image"></br>
+                    We can get Aitline routes and Airports data from <a href="https://openflights.org/data.html"><i>https://openflights.org</i></a>.
+                    By using <b>Gephi</b>, we can easily visualize the Airline routes data over a map.
+                    In my Youtube channel, you can find my <b>Gephi tutorial</b> video to visualize this Airline routes network. 
+                    Tutorial is <a href="https://www.youtube.com/watch?v=DvSJQRx9Jss"> Here </a> </br>
+                    You can download <a id="session" href="files/nodes.csv">nodes data</a> and  
+                        <a id="session" href="files/links.csv">links data.</a> 
+                    </p> 
+
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="dynamic">    <!--        id for refering this part        -->
+
+                    <h1> Four Tutorials on Dynamic(Temporal) Network using <i>R (+ EPI model)</i> and <i>Gephi</i> </h1>
+                            
+                     <p> I made four tutorials to deal with dynamic network data and visualizing them. The first tutorial is <a href="https://www.youtube.com/watch?v=W6RzekieOgM"> here</a>. I got this data from <i>Vanhems et al., 2013, Estimating Potential Infection Transmission Routes in Hospital Wards Using Wearable Proximity Sensors</i>.</br>
+                     You can download the dataset I used in the tutorial :  <a href="files/hcw_nodes.csv">nodes data</a>  and   
+                        <a href="files/hcw_edges.csv">edges data.</a>  
+                    
+                    </p>
+                     
+                    <p> In the second tutorial, I teach how to use a <i>gexf</i> file in <b>Gephi</b>. You can find Tutorial part 2 (Import with static files) <a href="https://www.youtube.com/watch?v=48KxBdf5S6k"> here</a>. This <i>gexf</i> data comes from <i>Isella et al., 2011, What's in a crowd? Analysis of face-to-face behavioral networks</i>. </br>
+                    You can download the data of the tutorial :  <a href="files/gexf.zip">gexf files </a> 
+                   </p>
+                     
+                    <p> The third tutorial uses the dataset of the first one. I analyze the dynamic network data with R.
+                        The tutorial is <a href="https://www.youtube.com/watch?v=IpAKZAAesp0&feature=youtu.be"> here </a>. You can check the R code 
+                    in  <a href="https://gist.github.com/youngjoon5/9a908c2c9b608f4bf3be6b5d6d944056"> my gist </a> 
+                    </p> 
+                                 
+                
+                    <p> The fourth tutorial continues from the first and the third. I assume a <b>virus</b> is spreading in a hospital.
+                        I simulate this contagious event with <b>EPImodel</b>(R package) and <i>Vanhems et al.</i>'s dataset. 
+                        The tutorial is <a href="https://www.youtube.com/watch?v=OrWiz9zOoD4"> here</a>. You can download the R dataset : <a href="files/net_data_epi.rda"> R data </a>. The R code is in <a href="https://gist.github.com/youngjoon5/cc0c8cedd2697ca9eba2d28ea9124ef7"> my gist </a> 
+                   </p> 
+                    
+
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="netlogo">    <!--        id for refering this part        -->
+
+                    <h1> Understanding <i>Netlogo</i> Code </h1>
+                            
+                     <p><b>HELP</b>: From Netlogo 6.0 or later, "?" is not used anymore, and the R-extension bugs are hardly found. </p>
+                    
+                    
+                    <p> <b>reduce</b></br>
+                    'reduce' is a little complicated. </br>
+                    For example, <i>show reduce [?1] [1 2 3]  => 1</i>  ,  <i>show reduce [?2] [1 2 3]  => 3 </i> </br>
+                    Now, what value can we get from <i>show reduce [?2] [1 2 3 4 5]</i> ? 
+                    <br> It will be 5.</br>
+                    </br>
+                    'reduce' computes the given task from left to right of the list. 
+                    In the question, [?2] means finds the second value in the list.</br> 
+                    
+                    For the first round, 'reduce' considers only [1] of the list. Thus, the first value in the list is 1 and the second value is also 1.</br> 
+                    In the Next round, 'reduce' can consider one more value in the list,[1,2]. The second value is now 2.</br> 
+                    Then, the list 'reduce' considers will be [2,3]. We can realize that 'reduce' looks at only 2 values. In [2,3], the second value is 3.</br> 
+                    The next list is [3,4], and the second value is 4. </br>
+                    Through this process, we can get 5 in the final round.</br>
+                    </br>
+                    When can we use 'reduce'? This is useful for coding math, like &#931 Xi. 
+                    When X = [1,2,3,4,5], 
+                    <br><b>&#931 Xi</b> can be rewritten as <i>reduce + [1 2 3 4 5].</i> </br>
+                    <b>Max Xi</b> can be expressed by <i>reduce [ifelse-value (?1 > ?2) [?1] [?2]] [1 2 3 4 5] </i>. 
+                    </p>
+                    
+
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="R-ext">    <!--        id for refering this part        -->
+
+                    <h1> R-extension error and Solution </h1>
+                            
+                     <p> <b>r-extension</b></p>
+                    
+                    <p>r-extension is a very useful tool to connect Netlogo to R. We can use R in the Netlogo model with this extension.
+                       But, it is a little bit tricky to use it. I had some trouble with loading a package in the Netlogo. Netlogo could not load R package. Here are two solutions</p>
+                    
+                    <p><br><b>Use R function : </b> Create a R function for your purpose. For example, my function is `mykurtosis'.</br>
+                     <br>In the Netlogo, Type :</br> <i> let mykurtosis (word "source('C:/..(path)../mykurtosis.R')")
+                        <br> r:eval mykurtosis </i> </br> 
+                        Now, you can use your R function in your Netlogo model</p>
+                        
+                    <p><br><b>Change package Path : </b> </br>
+                     Type <i>r:interactiveShell</i>  into NetLogo's Command Center. </br>
+                     In the interactiveShell, Type <i>.libPaths()</i> </br>
+                    Check the path for R package. If it is different from yours, do as follows :</br>
+                    In the Netlogo code, Type :</br> 
+                    <i> r:put "path" "C:/...(your R library path) .../Documents/R/R-3.2/library"</i> </br>
+                    <i> r:eval ".libPaths(c(path,.libPaths()))"    </i></br>
+                     Now, you can load your R package in the Netlogo.</p>
+                    
+
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="RNetlogo">    <!--        id for refering this part        -->
+
+                    <h1>  RNetlogo error and Solution </h1>
+                            
+                     <p> <b>RNetlogo</b></p>
+                    <p>Another extension for R and Netlogo is RNetlogo. With this extension, we can use Netlogo in R interface. 
+                     <br>  But you may face some error messages. One of them is as follows : </br> 
+                     <i> WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002.... </i>  
+                    <br></br>
+                    SOLUTION: </br>
+                    
+                     First, go to Start menu and type <b>regedit</b></br>
+                     Login as the administrator, and find <i>HKEY_LOCAL_MACHINE\Software\JavaSoft </i> </br> 
+                     Click right button and <b> create key, Prefs</b>.</br>
+                     We need <i>HKEY_LOCAL_MACHINE\Software\JavaSoft\Prefs </i>.</br>
+                        
+                    </p>
+                    
+
+                    <br></br>
+                
+                   </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <hr>
+
+
+
+
+
+
+
+    <!--            Footer            -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                                                <li>
+                            <a href="https://www.youtube.com/user/yjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/youngjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Start Bootstrap 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
