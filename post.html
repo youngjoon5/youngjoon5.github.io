@@ -286,19 +286,22 @@
 
                     <h1>Python :  Install Keras and Tensorflow </h1>
                             
-                    <p><b>Keras</b> is a Python library for deep learning modeling. If you are using Python 3.6 and Anaconda,
+                    <p><b>Keras</b> is a Python library for deep learning modeling. If you are using Python 3.8 and Anaconda,
                     you will face some troubles with installing Keras, because <b>Tensorflow</b> is required to install Keras.
-                     You can find a way to install Tensorflow, <a href="https://www.tensorflow.org/install/install_windows">here</a>.             However, it is tricky to install Tensorflow into Python 3.6 despite this instruction. </p>
+                    It is tricky to install Tensorflow into Python 3.8 due to versions of packages and Python. </p>
                  
-                    <p><b>Solution : </b> We need Tensorflow 1.2 or later</br>
-                    <br>In the Prompt or Powershell, create a conda environment : </br> <i>conda create -n myenv tensorflow</i>. 
-                     <i>Help</i> : If you want to remove this environment : <i>conda env remove -n myenv</i>                      
-                       <br> Download this file. <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#tensorflow"> 
-                       <i> tensorflow-1.2.0-cp36-cp36m-win_amd64.whl </i> </a> </br> 
+                    <p><b>Solution : </b> Create a virtual environment for installing Tensorflow and Python 3.8</br>
+                        In the Prompt or Powershell, create a virtual environment with conda :</br>  
+                        <i>conda create -n tensorflowenv python 3.7</i>.</br> 
+                        After activating the Tensorflow environment,</br> 
+                        <i> conda install tensorflow-gpu=2.1.0 -c anaconda </i></br> 
                        
-                       <br>After activating the Tensorflow in the prompt(<i>>> activate myenv</i>), </br>
-                       <i> pip install C:\ ..(the Download location)..\tensorflow-1.2.0-cp.....</i></br>                    
-                       <br>Then, install Keras : <i>pip install keras</i>. Now, you can use Kreas in the Python 3.6.</br></p>
+                       <br>Now, Tensorflow is installed along with <b>Keras</b>. After checking <i>Keras</i>, leave from the virtual environment for Python 3.7 by :</br> 
+                       <i>conda deactivate </i> </br>
+
+                       <b><i>Help</i></b> : The virtual environment settings depend on the version of Tensorflow you want to install.&nbsp;&nbsp; [cf] : '-n' means name.</i>                      
+                       
+                   </p>
                     
                     <br></br>
                 
