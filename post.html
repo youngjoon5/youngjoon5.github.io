@@ -88,12 +88,85 @@
     </header>
 
 
+  
+
+  <!--For making Rmarkdown style <code>  -->
+        <style type="text/css">
+            code {
+             color: inherit;
+             background-color: rgba(0, 0, 0, 0.04);
+                  }
+        </style>
+
+    
 
 
 
-
-
+     <!--                      Post Content                   -->
     <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="tensor"><!-- id for refering this part   -->
+
+                    <h1> The easiest way to intall <code>tensorflow</code> by using <code>conda</code> </h1>
+                       <span class="meta"><i>&emsp;Posted on Dec.5, 2020</i></span>
+                    
+                    <p>As I mentioned in the previous post, it is tricky to install <code>tensorflow</code>. The easiest way is using <code>conda</code>.</p>
+                            
+
+                            <ol start="1" style="list-style-type: decimal">
+                                <li>Create a <strong>virtual environment</strong>.</li> </ol>  
+
+<pre><code>conda create -n tensorflow-env
+   
+# If you want remove the environment
+   conda remove -n tensorflow-env --all  </code></pre>
+                            
+                            
+
+                             <ol start="2" style="list-style-type: decimal">
+                                <li>In the environment, install <code>tensorflow-gpu</code> or <code>tensorflow</code> and check it.</li> </ol>
+
+<pre><code>conda activate tensorflow-env
+
+conda install tensorflow-gpu
+
+ # Check
+   import tensorflow as tf
+   tf.__version__ </code></pre>
+
+                    
+                            <ol start="3" style="list-style-type: decimal">
+                                    <li>If you want to use <code>tensorflow</code> in the <strong>Jupyter notebook</strong>, install <strong>ipython</strong> and <strong>Jupyter notebook</strong> in the environment. After checking <code>tensorflow</code> in the <strong>ipython</strong>, then use <code>ctrl + d</code> to exit.</li>  </ol>
+                                        
+<pre><code>conda install ipython
+conda install jupyter notebook      
+
+# Check in the jupyter notebook </code></pre>
+                    
+
+
+                    <br></br>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+
+
 
     <article>
         <div class="container">
