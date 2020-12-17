@@ -298,65 +298,437 @@ netlogo.patch_set('countdown', countdown_df.max()-countdown_df)
 </code></pre>
 </p>
 
+<br></br>
+
+
+
+
+<h2> Sensitivity Analysis - using SALib </h2></br>
+I think the PyNetlogo website needs to be updated about the Sensitivity analysis part because <strong>the codes are not working</strong>. 
+The  <strong>SALib</strong> has two views for the analysis. One is called <code>Direct view</code>, and the other is <code>Load balanced view</code>. 
+I cannot find an alternative way to use the latter which the website used. 
+In this tutorial, I use <strong>SALib Direct view</strong> method for a sensitivity analysis.
+
+<p>
+Import two functions for sampling and analysis.    
+<pre><code>
+from SALib.sample import saltelli
+from SALib.analyze import sobol
+</code></pre>
+</p>
 
 
 
 
 
 
-<!---------------------------------- Begin List 
+<ol start="1" style="list-style-type: decimal">
+       <li>Determine parameters and their range</li> </ol>  
+
+<pre><code>
+problem = {
+  'num_vars': 6,
+  'names': ['random-seed',
+            'grass-regrowth-time',
+            'sheep-gain-from-food',
+            'wolf-gain-from-food',
+            'sheep-reproduce',
+            'wolf-reproduce'],
+  'bounds': [[1, 100000],
+             [20., 40.],
+             [2., 8.],
+             [16., 32.],
+             [2., 8.],
+             [2., 8.]]
+  }  
+</code></pre>
 
 
-                            <ol start="2" style="list-style-type: decimal">
-                                <li>Create a <strong>virtual environment</strong>.</li> </ol>  
 
-<pre><code>conda create -n tensorflow-env
-   
-# If you want remove the environment
-   conda remove -n tensorflow-env --all  </code></pre>
 
+
+<ol start="2" style="list-style-type: decimal">
+       <li>Sampling parameter sets using <code>saltelli</code> sample function </li> </ol>  
+
+<pre><code>
+n = 1000
+param_values = saltelli.sample(problem, n, calc_second_order=True)
+
+# We can get 14,000 parameter sets. 
+</code></pre>
 
                             
 
-                            
+
+<ol start="3" style="list-style-type: decimal">
+       <li>Run the <code>Target model</code> with the parameter sets </li> </ol>  
+
+<pre><code>
+# Definition for simulation  
+
+def simulation(experiment):
+
+    #Set the input parameters
+    for i, name in enumerate(problem['names']):
+        if name == 'random-seed':
+            #The NetLogo random seed requires a different syntax
+            netlogo.command('random-seed {}'.format(experiment[i]))
+        else:
+            #Otherwise, assume the input parameters are global variables
+            netlogo.command('set {0} {1}'.format(name, experiment[i]))
+
+    netlogo.command('setup')
+    #Run for 100 ticks and return the number of sheep and wolf agents at each time step
+    counts = netlogo.repeat_report(['count sheep','count wolves'], 100)
+
+    results = pd.Series([counts['count sheep'].values.mean(),
+                         counts['count wolves'].values.mean()],
+                         index=['Avg. sheep', 'Avg. wolves'])
+
+    return results
+</code></pre>                            
 
 
 
-                             <ol start="2" style="list-style-type: decimal">
-                                <li>In the environment, install <code>tensorflow-gpu</code> or <code>tensorflow</code> and check it.</li> </ol>
 
-<pre><code>conda activate tensorflow-env
+</br>
+&emsp;&emsp;For <strong>Paralleling</strong> 
+<pre><code># DO NOT RUN this in the Jupyter Notebook
 
-conda install tensorflow-gpu
-
- # Check
-   import tensorflow as tf
-   tf.__version__ </code></pre>
+# Run it in the Terminal
+# I choose 8,but you can choose 4
 
 
+ipcluster start -n 8 
+
+</code></pre> 
 
 
 
 
-                    
+<pre><code>import ipyparallel as ipp
+
+client = ipp.Client()  # client - setup
+client.ids
+</code></pre>
+                             
+
+&emsp;&emsp;Using <strong>Direct View</strong>  
+
+<pre><code>
+# Allow direct view to use all engines
+direct_view = client[:]
 
 
-                            <ol start="3" style="list-style-type: decimal">
-                                    <li>If you want to use <code>tensorflow</code> in the <strong>Jupyter notebook</strong>, install <strong>ipython</strong> and <strong>Jupyter notebook</strong> in the environment. After checking <code>tensorflow</code> in the <strong>ipython</strong>, then use <code>ctrl + d</code> to exit.</li>  </ol>
-                                        
-<pre><code>conda install ipython
-conda install jupyter notebook      
+# For Parallel Engine access
+import os
+direct_view.push(dict(cwd=os.getcwd()))
+direct_view.push(dict(problem=problem))
+</code></pre>
 
-# Check in the jupyter notebook </code></pre>
 
+
+<pre><code># Run Engines
+%%px  
+
+# Load the Netlogo model
+
+import os
+os.chdir(cwd)
+
+import pyNetLogo
+import pandas as pd
+
+netlogo = pyNetLogo.NetLogoLink(gui=True)
+netlogo.load_model('Wolf Sheep Predation_pynetlogo.nlogo')
+
+
+# Run the Model with parallel Engines
+
+results = pd.DataFrame(direct_view.map_sync(simulation, param_values))
+</code></pre>
+
+
+<pre><code> # Make Plots for the results
+import scipy
+
+fig, ax = plt.subplots(2, 3, sharey=True)
+
+y = results['Avg. sheep']
+
+for i, a in enumerate(ax.flatten()): 
+    x = param_values[:,i]            
+    
+    sns.regplot(x=x, y=y, ax=a, ci=None, color='k',scatter_kws={'alpha':0.2, 's':4, 'color':'gray'}) # 's':4 점의 크기
+        
+    pearson = scipy.stats.pearsonr(x, y)
+    a.annotate("r= {:.3f}".format(pearson[0]), xy=(0.15, 0.85), xycoords='axes fraction',fontsize=13) 
+    a.annotate("p= {:.3f}".format(pearson[1]), xy=(0.15, 0.8), xycoords='axes fraction',fontsize=10) 
+    
+    if divmod(i,3)[1]>0:                 
+        a.get_yaxis().set_visible(False)
+                                           
+    
+    a.set_xlabel(problem['names'][i])
+    a.set_ylim([0, 1.1*np.max(y)])  
+
+    
+    
+fig.set_size_inches(12,10,forward=True)
+
+fig.subplots_adjust(wspace=0.2, hspace=0.3)
+plt.show()
+</code></pre>
+
+<figure>
+        <img src="img/post/sen_pearson.png" style="width:100%">
+    </figure> </br>
+
+
+
+
+ 
+<ol start="4" style="list-style-type: decimal">
+       <li><strong>Sensitivity analysis</strong> using <code>Sobol</code> function </br></br>
+<table>
+Sobol function generates three indices : </br>
+<strong>S1</strong> : The contribution to the output variance by single parameter. </br>&emsp;&emsp; Single parameter &rarr; the Output.</br>
+<strong>S2</strong> : The interaction of two parameters &rarr; the Output.</br>
+<strong>ST</strong> : One or more parameters &rarr; the Output.</br>
+</table>
+</li> </ol>  
+
+
+<pre><code> Si = sobol.analyze(problem, results['Avg. sheep'].values, calc_second_order=True, print_to_console=True)
+</code></pre>
+
+</br>
+Making DataFrame for <strong>S1</strong>,  <strong>ST</strong>, and  <strong>S2</strong>.</br>
+
+<pre><code> 
+# For S1 and ST
+
+Si_filter = {k:Si[k] for k in ['ST','ST_conf','S1','S1_conf']}
+Si_df = pd.DataFrame(Si_filter, index=problem['names'])
+
+
+# For S2
+Si2_filter = {k:Si[k] for k in ['S2', 'S2_conf']} 
+Si2_df = pd.DataFrame(Si2_filter['S2'], columns=problem['names'],index=problem['names'])
+
+Si2_conf = pd.DataFrame(Si2_filter['S2_conf'], columns=problem['names'],index=problem['names'])
+</code></pre>
+
+
+
+</br>
+Making Plots for <strong>S1</strong> and  <strong>ST</strong> </br>
+
+<pre><code> 
+fig, ax = plt.subplots(1)
+
+indices = Si_df[['S1','ST']]
+err = Si_df[['S1_conf','ST_conf']]
+
+indices.plot.bar(yerr=err.values.T, ax=ax) 
+
+fig.set_size_inches(8,4)
+plt.show()
+</code></pre>
+
+
+<figure>
+        <img src="img/post/sen_bar.png" style="width:80%">
+    </figure> </br>
+
+
+
+
+</br>
+Making Plots for ALL indices </br>
+
+<pre><code> 
+import itertools
+from math import pi
+
+#sobol_indices = Si
+
+def normalize(x, xmin, xmax):
+    return (x-xmin)/(xmax-xmin)
+
+
+
+
+
+def plot_circles(ax, locs, names, max_s, stats, smax, smin, fc, ec, lw, 
+                 zorder):
+    s = np.asarray([stats[name] for name in names])
+    s = 0.01 + max_s * np.sqrt(normalize(s, smin, smax))
+    
+    fill = True
+    for loc, name, si in zip(locs, names, s):
+        if fc=='w':
+            fill=False
+        else:
+            ec='none'
+            
+        x = np.cos(loc)
+        y = np.sin(loc)
+        
+        circle = plt.Circle((x,y), radius=si, ec=ec, fc=fc, transform=ax.transData._b,
+                            zorder=zorder, lw=lw, fill=True)
+        ax.add_artist(circle)
+    
+    
+    
+    
+    
+## Create filtered_names, filtered_locs
+
+def filter(sobol_indices, names, locs, criterion, threshold):
+    if criterion in ['ST', 'S1', 'S2']:
+        data = sobol_indices[criterion]
+        data = np.abs(data)
+        data = data.flatten() # flatten in case of S2
+        
+        # TODO:: remove nans
+        
+        filtered = ([(name, locs[i]) for i, name in enumerate(names) if data[i]>threshold])
+        filtered_names, filtered_locs = zip(*filtered) 
+    
+    elif criterion in ['ST_conf', 'S1_conf', 'S2_conf']:
+        raise NotImplementedError
+    else:
+        raise ValueError('unknown value for criterion')
+
+    return filtered_names, filtered_locs
+
+
+
+#######
+## Main
+########
+def plot_sobol_indices(sobol_indices, criterion='ST', threshold=0.01):
+    
+    '''plot sobol indices on a radial plot
+    
+    Parameters
+    ----------
+    sobol_indices : dict
+                    the return from SAlib
+    criterion : {'ST', 'S1', 'S2', 'ST_conf', 'S1_conf', 'S2_conf'}, optional
+    threshold : float
+                only visualize variables with criterion larger than cutoff
+             
+    '''
+    max_linewidth_s2 = 15#25*1.8
+    max_s_radius = 0.3
+    
+    # prepare data
+    # use the absolute values of all the indices
+    #sobol_indices = {key:np.abs(stats) for key, stats in sobol_indices.items()}
+    
+    # dataframe with ST and S1
+    sobol_stats = {key:sobol_indices[key] for key in ['ST', 'S1']}
+    sobol_stats = pd.DataFrame(sobol_stats, index=problem['names'])
+
+    smax = sobol_stats.max().max()
+    smin = sobol_stats.min().min()
  
 
 
+    # dataframe with s2
+    s2 = pd.DataFrame(sobol_indices['S2'], index=problem['names'], 
+                      columns=problem['names'])
+    s2[s2<0.0]=0. #Set negative values to 0 (artifact from small sample sizes)
+    s2max = s2.max().max()
+    s2min = s2.min().min()
 
- End List           ------------------------>
-                    
+    names = problem['names']
+    n = len(names)
+    ticklocs = np.linspace(0, 2*pi, n+1)
+    locs = ticklocs[0:-1]
 
- 
+    filtered_names, filtered_locs = filter(sobol_indices, names, locs,
+                                           criterion, threshold)
+    
+    
+####################    
+####################    
+# setup figure
+####################
+#####################
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, polar=True)
+    ax.grid(False)
+    ax.spines['polar'].set_visible(False)
+    ax.set_xticks(locs)                         ##  Fixed ##
+
+    ax.set_xticklabels(names, fontsize=12)                     
+    ax.set_yticklabels([]) 
+    ax.set_ylim(top=1.4)
+    legend(ax)
+
+    # plot ST
+    plot_circles(ax, filtered_locs, filtered_names, max_s_radius, 
+                 sobol_stats['ST'], smax, smin, 'w', 'k', 1, 9)
+
+    # plot S1
+    plot_circles(ax, filtered_locs, filtered_names, max_s_radius, 
+                 sobol_stats['S1'], smax, smin, 'k', 'k', 1, 10)
+
+    # plot S2
+    for name1, name2 in itertools.combinations(zip(filtered_names, filtered_locs), 2):
+        name1, loc1 = name1
+        name2, loc2 = name2
+
+        weight = s2.loc[name1, name2]
+        lw = 0.5+max_linewidth_s2*normalize(weight, s2min, s2max)
+        ax.plot([loc1, loc2], [1,1], c='darkgray', lw=lw, zorder=1)
+
+    return fig
+
+
+from matplotlib.legend_handler import HandlerPatch
+class HandlerCircle(HandlerPatch):
+    def create_artists(self, legend, orig_handle,
+                       xdescent, ydescent, width, height, fontsize, trans):
+        center = 0.5 * width - 0.5 * xdescent, 0.5 * height - 0.5 * ydescent
+        p = plt.Circle(xy=center, radius=orig_handle.radius)
+        self.update_prop(p, orig_handle, legend)
+        p.set_transform(trans)
+        return [p]
+
+def legend(ax):
+    some_identifiers = [plt.Circle((0,0), radius=5, color='k', fill=False, lw=1),
+                        plt.Circle((0,0), radius=5, color='k', fill=True),
+                        plt.Line2D([0,0.5], [0,0.5], lw=8, color='darkgray')]
+    ax.legend(some_identifiers, ['ST', 'S1', 'S2'],
+              loc=(1,0.75), borderaxespad=0.1, mode='expand',
+              handler_map={plt.Circle: HandlerCircle()})
+    
+    
+## plot   
+
+sns.set_style('whitegrid')
+
+fig = plot_sobol_indices(Si, criterion='ST', threshold=0.005)
+
+fig.set_size_inches(15,10)
+plt.show()    
+</code></pre>
+
+
+<figure>
+        <img src="img/post/sen_s1s2.png"  style="width:100%" >
+    </figure> 
+</br>
+
+
+
+
+
 
 
 
@@ -374,11 +746,13 @@ conda install jupyter notebook
 
 
 <!-- Begin : pager back to Computational social science post -->
+
 <ul class="pager">
                         <li class="next">
                             <a href="post.html">Return to Post List &rarr;</a>
                         </li>
                     </ul>
+                
 <!-- End : pager back to Computational social science post -->
                   
 
