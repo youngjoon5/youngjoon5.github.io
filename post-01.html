@@ -88,9 +88,9 @@
     </header>
 
 
-  
+ 
 
-  <!--For making Rmarkdown style <code>  -->
+  <!--For making Rmarkdown style <code>  
         <style type="text/css">
             code {
              color: inherit;
@@ -98,7 +98,7 @@
                   }
         </style>
 
-    
+   --> 
 
 
 
@@ -118,23 +118,209 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
 
-                    <div id="tensor"><!-- id for refering this part   -->
+                    <div id="pynetlogo"><!-- id for refering this part   -->
 
-                    <h1> The easiest way to install <code>tensorflow</code> by using <code>conda</code> </h1>
-                       <span class="meta"><i>&emsp;Posted on Dec.5, 2020</i></span>
+                    <h1> PyNetlogo Tutorial </h1>
+                       <span class="meta"><i>&emsp;Posted on Dec.16, 2020</i></span>
                     
-                    <p>As I mentioned in the previous post, it is tricky to install <code>tensorflow</code>. The easiest way is using <code>conda</code>.</p>
-                            
+                    <p> PyNetlogo is a python package to link Netlog to Python. The latest version is 0.3. 
+                        I do not think it is well managed after the release of version 0.3.
+                        There are three important webpages as follows:</br>
+                        
+                        <table>
+                        <a href="http://jasss.soc.surrey.ac.uk/21/2/4.html"><mark>Paper</mark> : PyNetLogo: Linking NetLogo with Python </a></br>
+                        <a href="https://pynetlogo.readthedocs.io/en/latest/">PyNetlogo Homepage </a></br>
+                        <a href="https://github.com/quaquel/pyNetLogo">PyNetlogo Github</a></br></br>
+                        and One more:    </br> 
+                        <a href="https://www.youtube.com/watch?v=qLBzT85Z-aM">My tutorial for PyNetlogo</a></br>
+                        </table>
+                    </p>
 
-                            <ol start="1" style="list-style-type: decimal">
+
+                    <h3> Install and Virtual Environment</h3>
+                    <P> I strongly recommend creating a virtual environment for a new package. 
+                        JPype package is more stable in Pyhton 3.8 or older. 
+
+<pre><code>conda create -n netlogo-env python=3.8
+
+# For JPype
+conda install -c conda-forge jpype1
+   
+# For PyNetLogo
+pip install pynetlogo </code></pre>
+                    
+                    </P>
+
+
+                            
+                     <h3> Import Libraries</h3>
+<p>
+<pre><code>
+import pandas as pd
+import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pyNetLogo
+
+
+sns.set_style('white')
+sns.set_context('talk')
+
+%matplotlib inline   
+</code></pre>
+</p>
+
+
+                <h3> Get Data from Netlogo simulation: <code>.command</code> and <code>.report</code></h3>
+
+<p>
+<pre><code>
+# open Netlogo
+netlogo = pyNetLogo.NetLogoLink(gui=True)
+
+# Load the Model
+netlogo.load_model('C:/Program Files/NetLogo 6.1.1/.../Wolf Sheep Predation.nlogo')
+
+# Setup and Choose  model-version = "sheep-wolves-grass"
+netlogo.command('setup')
+
+
+# Get the coordinates of agents(sheep) from Netlogo
+x = netlogo.report('map [s -> [xcor] of s] sort sheep')
+y = netlogo.report('map [s -> [ycor] of s] sort sheep') 
+
+
+# Make a plot
+fig, ax = plt.subplots(1)
+ax.scatter(x, y, s=4)
+ax.set_xlabel('xcor')
+ax.set_ylabel('ycor')
+ax.set_aspect('equal')
+fig.set_size_inches(5,5)
+plt.show()
+</code></pre>
+
+
+    <figure>
+        <img src="img/post/scatter.png" style="width:30%">
+    </figure>
+
+</p>
+
+
+
+    <h3> Repeat the model simulation: Using <code>.command</code> or <code>.repeat_report</code></h3>
+
+<p>
+<pre><code>
+# Run 100ticks 
+netlogo.command('repeat 100 [go]')
+
+# or
+
+# Run 100 ticks and Report 'count wolves'
+netlogo.repeat_report(['count wolves'], 100, go='go')
+</code></pre>
+
+</p>
+
+
+
+<h3> Import data to the Netlogo model : <code>.write_NetLogo_attriblist</code></h3>
+
+<p>
+<pre><code>
+# ex_data is a pandas DataFrame having three columns : col1, col2, and col3.
+ex_data[['col1','col2','col3']]
+
+# Import the data to col1, col2 and col3 attributes of the 'breed'
+netlogo.write_NetLogo_attriblist(ex_data[['col1','col2','col3']], 'breed')
+</code></pre>
+
+</p>
+
+
+
+<h3> <code>.patch_report</code> is not Working.</h3>
+
+To get data from patches, we need to use <code>.patch_report</code>. 
+But it gives an error message. Alternatively, I use <code>.report</code>.
+
+<p>
+<pre><code>
+# Error
+countdown_df = netlogo.patch_report('countdown')
+
+# Alternative way
+countdown_df=netlogo.report('map [s -> [countdown] of s] sort patches')
+
+# Reshape for 51 by 51 square
+countdown_df=countdown_df.reshape(51,51) 
+
+# Convert to DataFrame
+countdown_df = pd.DataFrame(countdown_df)
+
+
+# Change index and column names
+countdown_df.columns=[list(range(-25,26))]
+countdown_df.index=[list(range(-25,26))]
+
+# Make a plot
+fig, ax = plt.subplots(1)
+patches = sns.heatmap(countdown_df, xticklabels=5, yticklabels=5,
+                      cbar_kws={'label':'countdown'}, ax=ax) 
+ax.set_xlabel('pxcor')
+ax.set_ylabel('pycor')
+ax.set_aspect('equal')
+fig.set_size_inches(20,10)
+plt.show()
+
+</code></pre>
+
+
+<figure>
+        <img src="img/post/patch.png" style="width:70%">
+    </figure>
+
+</p>
+
+
+
+
+
+<h3> Export patch data and change patch data : <code>.to_excel</code> and <code>.patch_set</code>></h3>
+<p>
+<pre><code>
+countdown_df.to_excel('countdown.xlsx')
+
+netlogo.patch_set('countdown', countdown_df.max()-countdown_df)
+</code></pre>
+</p>
+
+
+
+
+
+
+
+<!---------------------------------- Begin List 
+
+
+                            <ol start="2" style="list-style-type: decimal">
                                 <li>Create a <strong>virtual environment</strong>.</li> </ol>  
 
 <pre><code>conda create -n tensorflow-env
    
 # If you want remove the environment
    conda remove -n tensorflow-env --all  </code></pre>
+
+
                             
+
                             
+
+
 
                              <ol start="2" style="list-style-type: decimal">
                                 <li>In the environment, install <code>tensorflow-gpu</code> or <code>tensorflow</code> and check it.</li> </ol>
@@ -147,7 +333,14 @@ conda install tensorflow-gpu
    import tensorflow as tf
    tf.__version__ </code></pre>
 
+
+
+
+
+
                     
+
+
                             <ol start="3" style="list-style-type: decimal">
                                     <li>If you want to use <code>tensorflow</code> in the <strong>Jupyter notebook</strong>, install <strong>ipython</strong> and <strong>Jupyter notebook</strong> in the environment. After checking <code>tensorflow</code> in the <strong>ipython</strong>, then use <code>ctrl + d</code> to exit.</li>  </ol>
                                         
@@ -155,27 +348,39 @@ conda install tensorflow-gpu
 conda install jupyter notebook      
 
 # Check in the jupyter notebook </code></pre>
+
+ 
+
+
+
+ End List           ------------------------>
                     
 
+ 
 
 
 
 
 
-<!-- blockquote -->
+
+
+<!-- blockquote 
 <blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
 
+<mark> test</mark>
+-->
 
 
-<!-- pager back to Computational social science post -->
+
+
+<!-- Begin : pager back to Computational social science post -->
 <ul class="pager">
                         <li class="next">
                             <a href="post.html">Return to Post List &rarr;</a>
                         </li>
                     </ul>
-
-
-
+<!-- End : pager back to Computational social science post -->
+                  
 
 
                     <br></br>
@@ -184,7 +389,7 @@ conda install jupyter notebook
                 </div>
             </div>
         </div>
-    
+
 
     </article>
 
