@@ -459,7 +459,7 @@ y = results['Avg. sheep']
 for i, a in enumerate(ax.flatten()): 
     x = param_values[:,i]            
     
-    sns.regplot(x=x, y=y, ax=a, ci=None, color='k',scatter_kws={'alpha':0.2, 's':4, 'color':'gray'}) # 's':4 점의 크기
+    sns.regplot(x=x, y=y, ax=a, ci=None, color='k',scatter_kws={'alpha':0.2, 's':4, 'color':'gray'}) 
         
     pearson = scipy.stats.pearsonr(x, y)
     a.annotate("r= {:.3f}".format(pearson[0]), xy=(0.15, 0.85), xycoords='axes fraction',fontsize=13) 
