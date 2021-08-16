@@ -113,7 +113,7 @@
             <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                  <h1> RStudio Server, Linux(Ubuntu), and WSL(Windows Subsystem for Linux) </h1>
+                  <h1> RStudio Server, Linux(Ubuntu), WSL(Windows Subsystem for Linux), and Docker </h1>
                      <span class="meta"><i>&emsp;Posted on Aug.15, 2021</i></span> 
                   <p> If you want to use <strong>RStudio Server</strong>, you need Linux as OS.
                       I am a Windows user, so I need to install <strong>WSL</strong>(Windows Subsystem for Linux) for RStudio Server. 
@@ -212,10 +212,41 @@ sudo gdebi rstudio-server-latest-amd64.deb</code></pre>
 sudo apt-get install -y libv8-dev
 # Then install R package V8
 
-## To Close RStudo Server ##
+## To Close RStudio Server ##
 
 sudo rstudio-server stop </code></pre>
-                 
+
+<br {line-height: 150%;}></br>
+
+
+<ol start="9" style="list-style-type: decimal">
+                                <li> Docker</li> </ol>  
+Now you can use RStudio Server. But every time you need to open Ubuntu and type the code. When you close it, you also need to type the code in Ubuntu. Furthermore, when you need to run multiple machines using R, you may want something efficient. <strong>Docker</strong> can be an answer. Download<a href="https://www.docker.com"><font color=blue> Docker </font> </a>. <br {line-height: 80%;}></br>
+Run Docker. you can find <strong>Images</strong> tab in the left panel. Docker needs a image to run instead of files. We need Rstudio image. <br {line-height: 80%;}></br>
+Go to <a href="https://hub.docker.com"> <font color=blue>DockerHub</font></a>. Then type <code>rocker</code> in the Search. You can find <code>rocker/rstudio</code>. Copy <code>docker pull rocker/rstudio</code>, then paste it in the Powershell.
+<br {line-height: 80%;}></br>
+You can find <code>rocker/rstudio</code> in the <strong>image</strong> tab of docker.
+<br {line-height: 80%;}></br>
+Click <strong>Run</strong> for it. In the option, choose <strong>Container names</strong>. For example, "rstudio-1". Then configure 4-digit <strong> Local Host</strong> like 1001.
+<br {line-height: 80%;}></br>
+Now you can see <code>rstudio-1</code> in the <strong>Containers/Apps</strong> tab. In the web browser, type <code>http://localhost:1001/</code>. Both ID and Password are rstudio which was created by image creators.
+
+<br {line-height: 150%;}></br>
+
+<ol start="10" style="list-style-type: decimal">
+                                <li> Update image for your project</li> </ol> 
+
+            After creating your R environment using the rocker's image, you need to make your own image.
+
+<pre><code> # In the Powershell, check docker containers 
+docker ps -a
+
+docker commit {Container ID} {New image name}
+#ex# docker commit 40b8d16b7dba rstudio-2</code></pre>
+
+Now you can find <code>rstudio-2</code> in the <strong>image</strong> tab. This <code>rstudio-2</code> has the same environment you already created. Just run this without typing the code in Ubuntu. If you make multiple containers, you can run multiple devices using your R project at the same time.
+
+
             </div>
            </div>
         </div>
