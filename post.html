@@ -122,16 +122,15 @@
 
 
                    <ol start="1" style="list-style-type: decimal">
-                                <li> Setup <strong>WSL</strong> in the Windows PowerShell</li> </ol>  
+                                <li> Setup <strong>WSL</strong> </li> </ol>  
 
-<pre><code> # Run Windows PowerShell as Administrator
+                Find <Strong>Turn Windows features on or off</strong> in the Search of Windows.
+                    <br {line-height: -10%;}></br>
+                    Check <code>Virtual Machine Platform</code> and <code>Windows Subsystem for Linux</code>. Then Restart your device.
 
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
+                 <br {line-height: 150%;}></br>
 
-# Then, Restart your computer.</code></pre>      
-                  
-                
+
 
                 <ol start="2" style="list-style-type: decimal">
                                 <li> Change the WSL version to <strong>2</strong></li> </ol>  
@@ -142,8 +141,8 @@ wsl --set-default-version 2
 
 # See https://aka.ms/wsl2kernel if you have an issue </code></pre>
 
-
-
+        
+              
                 <ol start="3" style="list-style-type: decimal">
                                 <li> Install <strong>Ubuntu</strong></li> </ol>  
 
