@@ -232,7 +232,7 @@ Now you can see <code>rstudio-1</code> in the <strong>Containers/Apps</strong> t
 
 <br {line-height: 150%;}></br>
 
-<ol start="10" style="list-style-type: decimal">
+    <ol start="10" style="list-style-type: decimal">
                                 <li> Update image for your project</li> </ol> 
 
             After creating your R environment using the rocker's image, you need to make your own image.
@@ -244,6 +244,16 @@ docker commit {Container ID} {New image name}
 #ex# docker commit 40b8d16b7dba rstudio-2</code></pre>
 
 Now you can find <code>rstudio-2</code> in the <strong>image</strong> tab. This <code>rstudio-2</code> has the same environment you already created. Just run this without typing the code in Ubuntu. If you make multiple containers, you can run multiple <strong>R</strong>s at the same time.
+
+<br {line-height: 150%;}></br>
+
+
+
+    <ol start="11" style="list-style-type: decimal">
+                                <li> To Stop Vmmem</li> </ol> 
+
+<pre><code> # In the Powershell
+wsl --shutdown </code></pre>
 
 
             </div>
