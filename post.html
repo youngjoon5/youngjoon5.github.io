@@ -284,8 +284,8 @@ startxfce4 </code></pre>
 
 However, the namesever can change. It is tiresome to change it everytime.
 <pre><code>#  In Nano, delete "export DISPLAY={the nameserver above}:0". 
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+GDK_SCALE=1
 # Then Save it.
  </code></pre>
 
