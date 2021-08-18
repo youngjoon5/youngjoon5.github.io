@@ -256,6 +256,41 @@ Now you can find <code>rstudio-2</code> in the <strong>image</strong> tab. This 
 wsl --shutdown </code></pre>
 
 
+
+
+<br {line-height: 150%;}></br>
+
+
+
+    <ol start="12" style="list-style-type: decimal">
+                                <li> To setup xfce4</li> </ol> 
+
+<pre><code> # In the Ubuntu
+cat /etc/resolv.conf
+# It will show nameserver. 
+
+nano ~/.bashrc
+# It will open nano editor. In the nano, scroll down the bottom. Then,
+export DISPLAY={the nameserver above}:0
+#ex# export DISPLAY=100.00.000.1:0
+
+# Save it with Ctrl+X. In Ubuntu
+source ~/.bashrc
+
+echo $DISPLAY
+
+# If it show the nameserver, then type
+startxfce4 </code></pre>
+
+However, the namesever can change. It is tiresome to change it everytime.
+<pre><code>#  In Nano, delete "export DISPLAY={the nameserver above}:0". 
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
+
+# Then Save it.
+ </code></pre>
+
+
             </div>
            </div>
         </div>
