@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.28)  28 NOV 2021 19:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.28)  28 NOV 2021 20:33
 entering extended mode
 **./cv.tex
 (cv.tex
@@ -622,7 +622,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--198
 [1
 
 ]
-Overfull \hbox (21.48009pt too wide) in paragraph at lines 199--209
+Overfull \hbox (21.48009pt too wide) in paragraph at lines 199--210
 [][] 
  []
 
@@ -631,7 +631,7 @@ tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/OT:language=dflt;mapping=
 tex-text;!
 
-Overfull \hbox (41.49013pt too wide) in paragraph at lines 214--229
+Overfull \hbox (41.49013pt too wide) in paragraph at lines 215--230
 [][] 
  []
 
@@ -654,7 +654,7 @@ tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/OT:language=dflt;mapping=
 tex-text;!
 
-Overfull \hbox (65.57106pt too wide) in paragraph at lines 237--278
+Overfull \hbox (65.57106pt too wide) in paragraph at lines 238--279
 [][] 
  []
 
