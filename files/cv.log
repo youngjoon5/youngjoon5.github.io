@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.28)  28 NOV 2021 20:33
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.28)  21 DEC 2021 04:30
 entering extended mode
 **./cv.tex
 (cv.tex
@@ -622,7 +622,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--198
 [1
 
 ]
-Overfull \hbox (21.48009pt too wide) in paragraph at lines 199--210
+Overfull \hbox (33.35008pt too wide) in paragraph at lines 199--210
 [][] 
  []
 
