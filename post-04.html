@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-<!-- Preview : ctrl+k v   or   ctrl+shift+v   -->
-
 <html lang="en">
 
 <head>
@@ -70,16 +67,20 @@
         <!-- /.container -->
     </nav>
 
+
+
+
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/swiss.jpg')">
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Young Joon Oh</h1>
-                        <hr class="small">
-                        <span class="subheading">My Website</span>
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
                     </div>
                 </div>
             </div>
@@ -87,11 +88,9 @@
     </header>
 
 
+ 
 
-
-
-
-<!--For making Rmarkdown style <code>  -->
+  <!--For making Rmarkdown style <code>  
         <style type="text/css">
             code {
              color: inherit;
@@ -99,151 +98,142 @@
                   }
         </style>
 
+   --> 
+
+
+
+     <!--                      Post Content                   -->
+    <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
 
 
 
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-               
 
 
 
-
-
-
- <!--                    post-preview                  -->
- <!--                    post-preview                  -->
-    <!--                    post-preview                  -->
-
-
-
-
-                <div class="post-preview">
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
 
-                    <a href="research.html#infra">
-                       <h2 class="post-title"> Resilient Coupled Infrastructure Systems 
-                       </h2>
-                        
-                        <h3 class="post-subtitle"> I am interested in governance to create resilient coupled infarstructure system. 
-                Due to high interconnectedness of the system and climate change, infrastructure system is increasingly vulnerable.
-                        </h3>
-                    </a>
+                    <div id="pynetlogo"><!-- id for refering this part   -->
+
+                    <h1> Tips for VSCode</h1>
+                       <span class="meta"><i>&emsp;Posted on Mar.18, 2023</i></span>
                     
+                    <p> We can find many codes on the internet that can serve as a good reference for our research.
+                        However, the codes do not always work on my computer.
+                        This is complicated by changes in the environment, such as different versions and operating systems.<br>
+                        This is <strong>NOT</strong> a minor issue for social scientists like me, because coding is already a significant challenge for us.<br>
+                        <br>
+                        <strong><em>Docker</em></strong> can assist us. It enables us to use the entire reference code environment. We can run the code in the same environment of the author.
+                                                
+                    </p>
 
-                   <p class="post-meta">this Post from <a href="research.html"> My Research </a> <!--on September 24, 2014--></p> 
-                   
-                </div>
-                <hr>
 
-
-
-
-<div class="post-preview">
+                    <h3> What is Docker</h3>
+                    <figure>
+                        <img src="img/post/docker.png" style="width:30%">
+                    </figure>
                     
+                    <P> Docker's logo provides information about what Docker is. A whale is transporting containers.<br>
+                        We can put codes, libraries, and necessary resources in a container, and the whale will ship the container to our computer environments, which are not the same as the coding author's.
+                    </P>
 
-                    <a href="post.html">
-                       <h2 class="post-title">  RStudio Server, Linux(Ubuntu), WSL(Windows Subsystem for Linux), and Docker</h2>
-                        
-                        <h3 class="post-subtitle"> If I want to use RStudio Server, I need Linux as OS. 
-                            Windows users like me need to set up WSL(Windows Subsystem for Linux) for RStudio Server.  
-                        </h3>
-                    </a>
+
+                            
+                     <h3> Three factors for container</h3>
                     
+                     <p> We need <strong>three</strong> factors : <strong>dockerfile</strong>, <strong>image</strong> , and <strong>container</strong>. 
 
-                   <p class="post-meta">this Post from <a href="post.html"> Computational Social Science Post </a> on Aug. 15, 2021 </p> 
-                   
-               </div>
-         <hr>
+                        <ul>
+                            <li><strong>dockerfile</strong> : containing a setting script for the image </li>
+                            <li><strong>image</strong> : containing all settings + dockerfile.  (<u>This image cannot be altered.</u>) </li>
+                            <li><strong>container</strong> : allowing the image to be used within a container. We can alter the container, which enables us to manipulate the original code for our purposes.</li>
+                          </ul>   
+                          
+                    </p>
 
 
 
-
-
-
-            <div class="post-preview">
+                    <h3> Creating dockerfile</h3>
                     
-
-                    <a href="post-01.html">
-                       <h2 class="post-title"> PyNetlogo Tutorial </h2>
-                        
-                        <h3 class="post-subtitle"> I uploaded PyNetlogo tutorial(s) on my youtube channel. I fixed some errors in the package website. 
-                            It consists of two parts. Part 1 covers the basic example, and part 2 covers a sensitivity analysis.
-                        </h3>
-                    </a>
-                    
-
-                   <p class="post-meta">this Post from <a href="post.html"> Computational Social Science Post </a> on Dec. 16, 2020 </p> 
-                   
-               </div>
-         <hr>
+                    <p> Create <code>dockerfile</code>
 
 
-
-
-         <div class="post-preview">
-                    
-
-                    <a href="post.html#rena">
-                       <h2 class="post-title"> Renaissance Network : Web crawler and Data Visualization  
-                       </h2>
-                        
-                        <h3 class="post-subtitle">I built a web crawler to get network data about figures of <b>Renaissance</b> period. I made a <b>tutorial</b> video for it in my Youtube channel.
-                        </h3>
-                    </a>
-                    
-
-                   <p class="post-meta">this Post from <a href="post.html"> Computational Social Science Post </a> <!--on September 24, 2014--></p> 
-                   
-               </div>
-         <hr>
-                
+                   </p>
+<p>
+<pre><code>FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install -y python3.9 \
+    python3-pip
+            
+RUN pip3 install JPype1 jupyter pandas numpy seaborn scipy matplotlib pyNetLogo SALib 
+    
+RUN useradd -ms /bin/bash jupyter
+USER jupyter
+WORKDIR home/jupyter 
+EXPOSE 8888                                           
+ENTRYPOINT ["jupyter", "notebook","--allow-root","--ip=0.0.0.0","--port=8888","--no-browser"]                   
+    
+</code></pre>
 
 
 
 
-        <div class="post-preview">
-                    
-
-                    <a href="post.html#dynamic">
-                       <h2 class="post-title"> Four Tutorials on Dynamic(Temporal) Network using <i>R (+ EPI model)</i> and <i>Gephi</i> 
-                       </h2>
-                        
-                        <h3 class="post-subtitle">I made four tutorials to deal with dynamic network data and visualizing them. The first tutorial is  here.
-                        </h3>
-                    </a>
-                    
-
-                   <p class="post-meta">this Post from <a href="post.html"> Computational Social Science Post </a> <!--on September 24, 2014--></p> 
-                   
-               </div>
-         <hr>
 
 
 
-           
-             <!-- pager  -->
-                <!-- 
-                    <ul class="pager">
+
+
+
+
+<!-- blockquote 
+<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+<mark> test</mark>
+-->
+
+
+
+
+<!-- Begin : pager back to Computational social science post -->
+
+<ul class="pager">
                         <li class="next">
-                            <a href="#">Older Posts &rarr;</a>
+                            <a href="post.html">Return to Post List &rarr;</a>
                         </li>
                     </ul>
-                -->
-            
+                
+<!-- End : pager back to Computational social science post -->
+                  
+
+
+                    <br></br>
+
+                  </div>
+                </div>
             </div>
         </div>
-    </div>
+
+
+    </article>
 
     <hr>
 
 
 
 
-    <!-- Footer -->
+   
+
+
+
+
+
+
+    <!--            Footer            -->
     <footer>
         <div class="container">
             <div class="row">
@@ -271,6 +261,9 @@
             </div>
         </div>
     </footer>
+
+
+
 
 
 
