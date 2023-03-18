@@ -118,57 +118,51 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
 
-                    <div id="pynetlogo"><!-- id for refering this part   -->
+                    <div id="vscode"><!-- id for refering this part   -->
+
 
                     <h1> Tips for VSCode</h1>
                        <span class="meta"><i>&emsp;Posted on Mar.18, 2023</i></span>
                     
+
+
+
+
                     
                     <h3> Select Python Virtual Environments</h3>
                     <P> <strong>Ctrl + Shift + p </strong> <br>
-                        Then, find <code>Python : Select Interpreter</code>
+                        Then, find <code>Python : Select Interpreter</code> <br>
+                     After selecting the environment, VScode will automatically choose it for python coding.
                     </P>
 
 
-                            
-                     <h3> Three factors for container</h3>
+
+
+                     <h3> Create a Python Virtual Environment</h3>
+                    <P> 
+                        <ol>
+                            <li>Create a <code>Project</code> folder  </li>
+                            <li>In the Project, Open <strong>Terminal</strong>. If a virtual environment is running, Stop it with <code>cond deactivate</code> </li>
+                            <li>Create a virtual environment named "pyenv" <code>python -m venv pyenv</code></li>
+                            <li>VScode will show it noticed a new virtual environment, and you can find pyenv folder in the Project Explorer</li>
+                            <li>Activate the environment : Type <code>pyenv\Scripts\activate.bat</code>. You can find it in the environment folder </li>
+                            <li>Make a requirement.txt file for installing requirement libraries. Just list library names and versions. ex) flask==1.0.0  request   math  stats  gunicorn>=1.1.2,<2.0 </li>
+                            <li>Then <code>pip install -r requirement.txt</code></li>
+                            <li>Create a Jupyter file, <strong>test.ipynb</strong>. Then, use it.</li>                        
+
+                        </ol>
+
+                    </P>
+
+
+
+
                     
-                     <p> We need <strong>three</strong> factors : <strong>dockerfile</strong>, <strong>image</strong> , and <strong>container</strong>. 
-
-                        <ul>
-                            <li><strong>dockerfile</strong> : containing a setting script for the image </li>
-                            <li><strong>image</strong> : containing all settings + dockerfile.  (<u>This image cannot be altered.</u>) </li>
-                            <li><strong>container</strong> : allowing the image to be used within a container. We can alter the container, which enables us to manipulate the original code for our purposes.</li>
-                          </ul>   
-                          
-                    </p>
 
 
 
-                    <h3> Creating dockerfile</h3>
-                    
-                    <p> Create <code>dockerfile</code>
 
-
-                   </p>
-<p>
-<pre><code>FROM ubuntu:latest
-RUN apt-get update && \
-    apt-get install -y python3.9 \
-    python3-pip
-            
-RUN pip3 install JPype1 jupyter pandas numpy seaborn scipy matplotlib pyNetLogo SALib 
-    
-RUN useradd -ms /bin/bash jupyter
-USER jupyter
-WORKDIR home/jupyter 
-EXPOSE 8888                                           
-ENTRYPOINT ["jupyter", "notebook","--allow-root","--ip=0.0.0.0","--port=8888","--no-browser"]                   
-    
-</code></pre>
-
-
-
+ 
 
 
 
