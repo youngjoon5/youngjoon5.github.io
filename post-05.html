@@ -309,6 +309,9 @@ dbReadTable(con_db, 'more_dummy_data')
 or
 
 tbl(con_db, 'more_dummy_data')
+
+# Disconnecting
+dbDisconnect(con_db)
 </code></pre>
                     <code>dbWriteTable</code> creates a new table in the database(con_db). 
                     Save the working data(more_dummy_data) to the database as a new table('more_dummy_data').<br>
