@@ -29,6 +29,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+   
 </head>
 
 <body>
@@ -118,41 +119,215 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
 
-                    <div id="vscode"><!-- id for refering this part   -->
+                    <div id="duckdb"><!-- id for refering this part   -->
 
 
-                    <h1> DuckDB : DBMS for Social Scientists analyzing a large datasets</h1>
-                       <span class="meta"><i>&emsp;Posted on Sep.11, 2024</i></span>
+                    <h1> DuckDB : DBMS for Social Scientists analyzing large datasets</h1>
+                       <span class="meta"><i>&emsp;Posted on Sep.15, 2024</i></span>
                     
+                    
+                    <br></br>
 
-
-
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                          <img src="img/post/duck.png" style="width:30%">
+                    </div>
+                    
+                    <br></br>
 
                     
-                    <h3> Select Python Virtual Environments</h3>
-                    <P> <strong>Ctrl + Shift + p </strong> <br>
-                        Then, find <code>Python : Select Interpreter</code> <br>
-                     After selecting the environment, VScode will automatically choose it for python coding.
+                    <P> Analyzing big data in the social sciences is still not very common.<br> 
+                        However, the opportunity to analyze gigabytes of data is growing.
+                        The biggest problem will probably be the insufficient memory capacity.<br><br>
+
+                        Operating system, R, web browser, and other applications use your computer's memory. 
+                        Although you may think you have enough memory to handle the data, you actually need more memory to load, explore, and manipulate the large data sets.<br>
+                        <br>
+                        The solution to this problem is quite obvious.<br> 
+                        Buy an expensive, high-performance computer. 
+                        If your data gets updated and even bigger, you can just buy a new, more expensive computer and you won't have to worry about the problem.<br> 
+                        
+                        However, only a few will have such a solution available.<br><br>
+                        
+                        DBMS(DataBase Management System) is a reasonable and immediately available alternative to the purchase of a new computer.<br><br>
+                        But learning SQL itself is another challenge. <br>
+                        Aside from learning a new language, you may find yourself overwhelmed by the challenges of software selection and even installation.<br>
+                        
+                        I tried to study MYSQL and SQLite. I got overwhelmed and lost in learning SQL. Then I lost even sight of why I wanted to use it in the first place. 
+                        Until I discovered DuckDB, I had forgotten all about SQL.<br><br>
+                        
+                        <strong>DuckDB</strong> can be a good DBMS solution for social scientists who want to analyze large datasets.
+                        First of all, it is easy to set up and use. We can think of <u>DuckDB as a library or package of R/Python.</u>
+                        
+                        According to the developer (Hannes Mühleisen), DuckDB is R-friendly.  
+                        This is attributed to the influence of interactions with the R community on the overarching concept of DuckDB. <br><br>
+                        
+                        In this post, I am going to show how to use DuckDB in R and why it is a good solution.
+                        
                     </P>
 
 
 
+                    <h3> Install DuckDB</h3>
+                    <p>
+<pre><code>install.packages("duckdb")            
 
-                     <h3> Create a Python Virtual Environment</h3>
-                    <P> 
-                        <ol>
-                            <li>Create a <code>Project</code> folder  </li>
-                            <li>In the Project, Open <strong>Terminal</strong>. If a virtual environment is running, Stop it with <code>conda deactivate</code> </li>
-                            <li>Create a virtual environment named "pyenv" <code>python -m venv pyenv</code></li>
-                            <li>VScode will show it noticed a new virtual environment, and you can find pyenv folder in the Project Explorer</li>
-                            <li>Activate the environment : Type <code>pyenv\Scripts\activate.bat</code>. You can find it in the environment folder </li>
-                            <li>Make a requirement.txt file for installing requirement libraries. Just list library names and versions. ex) flask==1.0.0  request   math  stats  gunicorn>=1.1.2,<2.0 </li>
-                            <li>Then <code>pip install -r requirement.txt</code></li>
-                            <li>Create a Jupyter file, <strong>test.ipynb</strong>. Then, use it.</li>                        
+# In Python,
+pip install duckdb
+</code></pre>
+                    <strong>Done!</strong> It has no dependencies. 
+                    </p>
 
-                        </ol>
 
-                    </P>
+
+                    <h3> Create DB and Table</h3>
+                    <p>
+<pre><code>library(duckdb)
+library(tidyverse) # data manipulation
+
+con_db= dbConnect(duckdb(), dbdir="./r_duck.db")            
+
+or
+
+con_db= dbConnect(duckdb())
+</code></pre>
+                    <code>dbConnect</code> connects to the existing database(db name is <code>con_db</code>). If not existing, it creates db and <code>.db</code> file(r_duck.db) in the location of <code>dbdir</code>.
+                    If you want to create a temporary database, <code>dbConnect(duckdb())</code>.
+                    </p>                    
+
+
+
+                    <h3> Loading Data with DuckDb and read_csv</h3>
+                    <p>
+
+<pre><code>system.time(duckdb_read_csv(con_db, 'duckread', 'Traffic_Violations.csv') )
+dbListTables(con_db)
+
+system.time(read_csv('Traffic_Violations.csv') )
+</code></pre>
+                    The dataset in this post is the <code>Traffic_Violations.csv</code> from <code>https://data.gov/</code>, which is about 800mb in size.
+                    It has 1,949,392 rows and  43 columns.
+                    The time requires for the <code>duckdb_read_csv</code> is 4.23 seconds, whereas the <code>read_csv</code> requires 9.44 seconds.<br>
+                    <code>duckdb_read_csv</code> loads the csv file and creates a table('duckread') in the database(con_db).
+                    You can see the table, 'duckread' with <code>dbListTables(con_db)</code>
+                    </p>
+
+
+
+                    <h3> Extracting data from a table in the DB</h3>
+                    <p>
+
+<pre><code># Method 1 : dbReadTable
+duckread_1 <- dbReadTable(con_db, 'duckread')
+
+
+# Method 2 : Only tbl
+duckread_1 <- tbl(con_db, 'duckread',overwrite=T)
+
+
+# Method 3 : view
+dbExecute(con_db, "CREATE VIEW trafficview AS SELECT Belts, Fatal, Alcohol, 'Work Zone', 
+'Personal Injury', 'Property Damage', Race, Year  FROM duckread" )
+
+dbListTables(con_db)
+
+duckread_1 <- tbl(con_db, 'trafficview',overwite=T)
+</code></pre>
+
+
+                    There are three ways to extract data from a table. <code>dbReadTable</code> returns a data frame.
+                    You can use just <code>tbl</code>, which returns a tbl table. You can use it either way depending on your preference.
+                    To take advantage of the benefits of duckdb, it is appropriate to use the third method.<br>
+                    <code>dbExecute</code> excutes a SQL query. <code>View</code> is a virtual table or a query result from the DB table(duckread).
+                    The query creates a View('trafficview') with the eight columns I want to use from the whole dataset.
+                    After creating the view, extract a tbl data table from the view('trafficview') of DB like Method 2.
+                
+                </p>
+
+
+
+
+                <h3> Data manipulation and Run Logit </h3>
+                    <p>
+<pre><code># Create dummy variables for Fatal, Belts, Alcohol, Work.Zone, Personal.Injury, Property.Damage, Race
+    
+duckread_1 <- duckread_1 |>  mutate(Fatal_1 = ifelse(Fatal == "Yes", 1,0)) # repeat it for others
+
+# Race -> dummies
+library(recipes)  
+more_dummy_data <- recipe(.~Race, data=duckread_1) |> step_dummy(Race, one_hot=T) |>
+prep() |> bake(duckread_1)
+
+# Logit 
+model <- glm(Fatal_1 ~ Belts_1 + Alcohol_1 + Work.Zone_1 + Personal.Injury_1+ Property.Damage_1 
++ Year+ Race_ASIAN + Race_BLACK + Race_HISPANIC + Race_NATIVE.AMERICAN + Race_OTHER 
+, data = more_dummy_data, family = "binomial")
+</code></pre>
+
+
+                    This dataset consists mostly of categorical variables. 
+                    The variables of interest are subjected to manipulation to create dummy variables.
+                    Then Run the logit model.
+                    </p>
+
+
+
+
+                    <h3> Comparison of Elapsed Time and Used Memory</h3>
+                    <p>
+<pre><code>library(bench)
+mark(
+# With DuckDB      
+duckmodel <- glm(Fatal_1 ~  ....        , data = more_dummy_data, family = "binomial"),
+
+# Without DuckDB
+rmodel <- glm(Fatal_1 ~  ....        , data = more_dummy_data, family = "binomial")   )
+    
+
+# Memory comparison for each whole process.
+library(pryr)
+mem_used()
+</code></pre>           
+                    <code>bench::mark</code> compares the two logit models. 
+                    In the model with DuckDB, the elapsed time is 18.5 sec and the allocated memory is 16.9 GB, 
+                    whereas in the model without DuckDB, the elapsed time is 25.3 sec and the allocated memory is 20.5 GB.<br>
+                    A comparison of the used memory for each entire process is conducted. 
+                    The entire process with DuckDB utilizes 1.62 GB, whereas the entire process without DuckDB requires 2.82 GB.
+                    </p>
+
+
+                    
+                    <h3> Updating DB</h3>
+                    <p>
+<pre><code># Update with dbWriteTable()
+dbWriteTable(con_db,'more_dummy_data',more_dummy_data,overwrite=T)
+dbListTables(con_db)
+
+
+# Export Data from the new table 
+dbReadTable(con_db, 'more_dummy_data')
+
+or
+
+tbl(con_db, 'more_dummy_data')
+
+# Disconnecting
+dbDisconnect(con_db)
+</code></pre>
+                    <code>dbWriteTable</code> creates a new table in the database(con_db). 
+                    Save the working data(more_dummy_data) to the database as a new table('more_dummy_data').<br>
+
+                    </p>
+
+
+                    <h3> Saving Time, Memory, and Money</h3>
+                    <p>The use of databases represents a potential solution to the constraints of computer memory when processing vast quantities of data. 
+                        DuckDB has transformed what was previously a formidable challenge into a more straightforward and accessible process for social scientists.
+                        Although the data utilized in this post is not particularly voluminous, even if one's data exceeds the capacity of one's computer, 
+                        DuckDB can assist in postponing the purchase of a new, high-performance computer. 
+
+                    </p>
+
+                     
 
 
 
