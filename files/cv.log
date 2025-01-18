@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.12.24)  7 JAN 2025 03:16
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.12.24)  18 JAN 2025 04:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,7 +604,7 @@ tex-text;!
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 215--217
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
@@ -627,7 +627,7 @@ tex-text;!
 Missing character: There is no ᴛ in font [Fontin.otf]/OT:language=dflt;mapping=
 tex-text;!
 
-Overfull \hbox (65.57106pt too wide) in paragraph at lines 238--279
+Overfull \hbox (65.57106pt too wide) in paragraph at lines 240--281
 [][] 
  []
 
