@@ -31,10 +31,10 @@
 
  
     <!-- MathJax for LaTeX -->    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-
 </head>
 
 <body>
@@ -127,263 +127,216 @@
                     <div id="css1"><!-- id for refering this part   -->
 
 
-                    <h1> Computational Social Science 1 (Network)</h1>
-                       <span class="meta"><i>&emsp;Posted on Dec.16, 2024</i></span>
+                    <h1> The Important thing is whether It’s More Intuitive : Bayesian or Frequentist</h1>
+                       <span class="meta"><i>&emsp;Posted on Feb.20, 2025</i></span>
                     
                     
                     <br></br>
 
                     <div style="text-align: center;">  <!-- place this picture in the center   -->
-                          <img src="img/post/css1.png" style="width:50%">
+                          <img src="img/post/bayes.png" style="width:60%">
                     </div>
                     
                     <br></br>
 
                     
-                    <P> This article is divided into two parts, each highlighting a core methodological domain within Computational Social Science(CSS). 
-                        <strong>Part I</strong> (you are now reading) explores <strong>network analysis</strong> as a fundamental pillar of CSS, 
-                        detailing how relational data and complex network structures have become central to understanding social systems. 
-                        <strong>Part II</strong> will shift focus to <strong>social simulation</strong>, 
-                        examining how agent-based models and computational experiments enable researchers to understand issues of social science.    
+                    <h3>The Concept That Lasts Only a Week in Your Mind: Confidence Intervals</h3>
+
+                    <P> If asked, “What’s the biggest advantage of learning Bayesian statistics?” my quick answer would be: 
+                        “You can finally let go of the vague and often perplexing concept of <em>confidence intervals</em>.”
+                        <br>
+                        One of the earliest challenges for students learning statistical methods is grasping confidence intervals. 
+                        Because the concept isn’t intuitive, many forget it soon after their exam(probably within a week). 
+                        Typically, the only thing they recall is the number <strong>95%</strong>.<br>
+                        
+                        Students are taught that <strong>“95% of confidence intervals contain the true mean,”</strong> 
+                        yet what they actually remember is <strong>“There’s a 95% chance the true mean lies within the interval.”</strong> 
+                        While this latter interpretation is technically wrong in the frequentist framework, it’s far more intuitive and aligns with how we naturally think. 
+                        Despite efforts to teach the formal definition, what sticks in students’ minds is <strong> more intuitive version</strong>.
+                    </P>
+                    <p>   
+                        If this resonates with your own experience, then I say:<br>
+                        
+                        <strong>“Welcome to Bayesian statistics.”</strong>
                         </P>
 
                     
                     
-                    <h3>The Ambiguity Between Computational Social Science and Data Science</h3>
+                    <h3>Why Bayesian Statistics Feels More Intuitive</h3>
 
-                    <p>When we try to define Computational Social Science, a central theme commonly emerges: 
-                        the application of advanced computational techniques to large-scale datasets in order to understand and analyze human behavior. 
-                        As scholars like Chris Bail have noted, what sets Computational Social Science apart is not just that it involves analyzing social phenomena, 
-                        but that it does so with computational methods and extensive data.</p>
+                    <p> When we say, “There’s a 95% probability that a parameter lies in the interval,” 
+                        we’re talking about the <strong>credible interval</strong> in Bayesian statistics. 
+                        Although it serves a function similar to the confidence interval, its name and interpretation differ.</p>
                     
-                    <p> Consider the online data science platform Kaggle. 
-                        A simple keyword search for “social” yields more than 13,000 datasets, each associated with numerous pieces of user-generated code and commentary. 
-                        This raises an intriguing question: Are these activities and data sets examples of Computational Social Science, 
-                        or are they simply instances of Data Science applied to social data? 
-                        The distinction isn’t clear-cut, and here we encounter a fundamental ambiguity. 
-                        Does choosing a social dataset automatically make the endeavor “Computational Social Science,” 
-                        or is it still “Data Science,” merely focusing on a particular data type (social data)? The boundaries between these domains are blurred.
-                    </p>
-
-                    <p> But this kind of conceptual fuzziness is not unprecedented. 
-                        In academia, it is not hard to find fields that resemble each other so closely that their distinctions are more historical and institutional than substantive. 
-                        Consider the relationship between Statistics and Econometrics. Both deal with data analysis, modeling, and inference, 
-                        and at a foundational level they share methods and aims. Yet Econometrics emerged with a specific focus on economic and social phenomena, 
-                        using regression techniques tailored for these domains. Econometrics has thus established itself as a distinct field, though at the introductory level, 
-                        it can be hard to see why we need a separate name for something that looks so much like Statistics. 
-                        Adding Machine Learning into this mix makes the landscape even more complex.</p>
-
-
-                     <p> By analogy, Computational Social Science and Data Science may share a similar relationship. 
-                        Is there a clear boundary separating them? Perhaps not. Does it even matter? 
-                        After all, the contributors on Kaggle—who work on thousands of social datasets—might not think of themselves as doing “Computational Social Science.” 
-                        They might simply consider themselves data scientists, or they might be indifferent to these labels altogether.</p>
-
-
-
-                    <h3>Specialization as a Path to Distinction</h3>
-
-                    <p>If Computational Social Science is akin to Econometrics in the sense that it seeks to carve out its own territory within a broader domain, 
-                        then where does that specialization lie? 
-                        Just as Econometrics specialized in regression modeling for economic phenomena, 
-                        what might Computational Social Science specialize in?</p>
-
-                    <p>A plausible answer is <strong>network analysis</strong>. Networks—be they of friendships, communications, collaborations, 
-                        or online interactions—have expanded the horizons of social science research. 
-                        They provide structures through which we can study relationships and behaviors at a scale previously unimaginable. 
-                        The digital revolution, driven by social media and internet technology, has enabled the collection of massive network datasets, 
-                        sometimes encompassing thousands or even millions of nodes and connections. 
-                        This revolution has turned what were once small sociograms—simple maps of relationships in small groups—into the study of complex networks representing online communities, 
-                        infrastructure, financial systems, or interconnected organizations or nations.</p>
-
-                    <p>A wealth of resources exemplify this shift. The Stanford Large Network Dataset Collection, 
-                        for instance, curates extensive network datasets culled from social media platforms, communication channels, and other relational data sources. 
-                        Within the field of Computational Social Science, network analysis has become a major pillar. 
-                        A simple metric: since the year 2000, searching for the keyword “computational social science” on Google Scholar yields about 1,510 review articles. 
-                        Of these, roughly 37% also include the term “network analysis,” underscoring the centrality of networks in the computational study of social phenomena. 
-                        Managing and extracting insights from such vast data requires computationally advanced techniques.</p>
-
-
-
-                    <h3>Centrality and Structure: Finding the Key Players and Patterns in the Networks</h3>
-
-                    <p>A hallmark of network analysis is its focus on structure and position. 
-                        Centrality measures like degree, eigenvector, and betweenness quantify how important or influential a node is, 
-                        whether by virtue of its direct connections or its role as a bridge between otherwise disconnected parts of the network. 
-                        Beyond identifying influential nodes, researchers examine transitivity, reciprocity, and community structures to understand how dense clusters form, 
-                        how social capital circulates, and how hierarchies are established and maintained. 
-                        Each of these metrics and patterns provides empirical grounding for social theory, connecting observed structural features to concepts like power, cohesion, inequality, 
-                        and collective action.</p>
-
-                    <p>Much like in political theories, where identifying and analyzing the role of the center is crucial, the concept of centrality is critical in network analysis. 
-                        Some actors(nodes) in a network wield greater influence or importance, and various metrics capture different nuances of this importance.</p>
-
-
-                        <ul>
-                            <li dir="auto"><strong>Degree Centrality:</strong><br>
-                            At its most basic, a node’s importance can be gauged by how many connections (edges) they have. The degree centrality of node 
-                            <em>i</em> is the sum of the edges connecting <em>i</em> to all other nodes.<br>
-                            </li>
-                        </ul>
-
-                        <p> $$
-                                \mbox{degree centrality}_i = \sum_jA_{ij}~~~~~~~~\mbox{A: adjacency matrix}
-                                $$
-                        </p>
-
-
-                        <ul>
-                            <li dir="auto"><strong>Eigenvector Centrality:</strong><br>
-                               Not all connections are created equal. If your neighbors(alters) are themselves well-connected and influential, your importance (centrality) increases. 
-                               Eigenvector centrality captures this idea. In other words, being connected to important alters boosts your own centrality:
-
-                            </li>
-                        </ul>
-
-                        <p> $$
-                            \mbox{Eigenvector centrality}_i = \sum_jA_{ij}~\mbox{Centrality}_j
-                            $$
-                        </p>
-
-
-
-                        <ul>
-                            <li dir="auto"><strong>Betweenness Centrality:</strong><br>
-                                Instead of counting edges, betweenness centrality focuses on paths. Consider any two nodes <em>s</em> and <em>t</em>. 
-                                There may be multiple shortest paths (geodesic paths) between them. If a particular node <em>i</em> frequently appears on these shortest paths, 
-                                <em>i</em> effectively acts as a bridge or broker within the network. 
-                                A high betweenness centrality signifies a strategic position—actor <em>i</em> can control information flow or act as a gatekeeper, 
-                                a concept closely related to Ronald Burt’s idea of structural holes.:
-
-
-                            </li>
-                        </ul>
-
-                        <p> $$
-                            \mbox{Betweenness centrality}_i = \sum_{st}n_{st}^i ~~~~~~\mbox{n : geodesic path}
-                            $$
-                        </p>
-
-                        <p>Beyond these, there are numerous other metrics—Katz centrality, hub and authority scores, closeness centrality, transitivity, 
-                            and reciprocity measures—that help researchers identify influential actors, detect communities, and unravel latent hierarchies in social networks.
-                        </p>
-
-
-
-                    <h3>Statistical and Predictive Models of Networks</h3>
-
-                    <p> Statistical models such as Exponential Random Graph Models (ERGMs) explain how and why specific network structures form. 
-                        By modeling the probability of edge formation based on structural tendencies, node attributes, and exogenous covariates, 
-                        these approaches move beyond simple mapping. They enable hypothesis testing, causal inference, and forecasting. 
-                    </p>
-
-                    <p>Researchers consider the presence or absence of an edge between two nodes as a random variable and attempt to model the probability of 
-                        an edge’s existence using network-level statistics.
-                    </p>
-                    <p> Let :</p>
-
                     <p>
+                        What causes this difference? <br>
+                        It largely stems from the frequentist viewpoint. 
+                        In frequentist statistics, probabilities arise from the data itself, under the assumption that the dataset collected is one of many potential outcomes. 
+                        Analyzing parameters and testing hypotheses with that data is straightforward, 
+                        but interpreting those results requires revisiting the probabilistic nature of the dataset. 
+                        This back-and-forth hampers intuitive understanding.</p>
+                    
+                    <p>
+                        By contrast, Bayesian statistics directly assigns probabilities to parameters. 
+                        The <strong>prior distribution</strong> already contains a probability description of the parameter, 
+                        and the <strong>posterior distribution</strong> is the revised version of the prior, updated to incorporate the <strong>observed data</strong>. 
+                        Unlike frequentist methods, Bayesian interpretation does <em>not demand toggling</em> between data probabilities and parameter probabilities.
+                    
+                    </p>
+                    
+                    
+                  
+
+                    <h3>The Big Difference that Intuitiveness Can Make : Decision-Making</h3>
+
+                    <p> Imagine assessing a new treatment (<strong>T</strong>) against a standard treatment (<strong>S</strong>) for a certain disease, 
+                        with data from 10 patients in each group: </p>
+
+                    <ul>
+                        <li dir="auto"><strong>New Treatment (T) : </strong> 8 out of 10 patients show improvement (Pt = 0.8) </li>
+                        <li dir="auto"><strong>Standard Treatment (S) : </strong> 7 out of 10 patients show improvement (Ps = 0.7) </li>
+
+                    </ul>
+
+                    
+                    <p><strong>Frequentist Interpretation</strong><br>
+                        Using the standard error formula:<br>
                         $$
-                        Y_{ij} = \left
-                            \{ \begin{array}{rcl} 
-                                1 & \mbox{edge from i to j} \\ 
-                                0 & \mbox{otherwise}
-                        \end{array}
-                            \right.
-                            $$
-                    </p>
-                    <p>
-                            $$ 
-                            \begin{equation}
-                                Y_{ij} = 
-                                    \begin{pmatrix}
-                                     y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
-                                     y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
-                                     \vdots  & \vdots  & \ddots & \vdots  \\
-                                     y_{n,1} & y_{n,2} & \cdots & y_{n,n} 
-                                \end{pmatrix}
-                                \end{equation}
-                            $$
-                        </p>
-
-                    <p>The objective is to characterize the distribution P(Y = y) for a random network <em>Y</em> with a given set of nodes and edges. </p>
+                        SE = \sqrt{\frac{0.8 \times 0.2}{10} + \frac{0.7 \times 0.3}{10}} = 0.183
+                        $$
                         
-                    <p>$$
-                        L(\theta)=P(Y|\theta) = \frac{exp(\theta~ g(y))}{ \sum exp(\theta~ g(y))}~~~~~~\theta:parameter,~~ g(y) : network~ statistics
+                        We build a 95% confidence interval (CI) for the difference : Delta = Pt - Ps:
                         $$
-                    </p>
-
-                    <p>The challenge in fitting ERGMs lies in the normalization constant—the denominator—which involves summation over a huge space of possible networks. 
-                        Even with just eight nodes, over 40,000 possible graphs must be considered. 
-                        To address this computational complexity, Markov Chain Monte Carlo (MCMC) methods are employed to approximate these distributions and carry out inference.
-                    </p>
-
-
-                    <p>ERGMs model the probability of edges between nodes as a function of various predictors. Two classes of predictors are considered.</p>
-
-                    <ol>
-                        <li dir="auto">
-                        <p><strong>Endogenous network processes</strong> Dependencies arising from the network structure itself.</p>
-                        <ul>
-                        <li dir="auto"><em>Degree distribution</em> : Number of edges.</li>
-                        <li dir="auto"><em>Reciprocity</em> : Tendency for directed edges to be mutual. If Node i connects to Node j, how likely is Node j to reciprocate?</li>
-                        <li dir="auto"><em>Triadic closure</em> Tendency for nodes to form triangles. If Node i is connected to Node j and Node k, how likely is it that j and k will connect? </li>
-                        </ul>
-                        </li>
-                        <li dir="auto">
-                        <p><strong>Exogenous covariates</strong> These covariates are not intrinsic to the network's structure but come from out of network structure. 
-                            For example, attributes of nodes that might influence the probability of connection.</p>
-                        <p>If nodes represent individuals in a social network, exogenous covariates could include: Demographic attributes, Behavioral traits, and  Social status</p>
-                        <ul>
-                        <li dir="auto"><em>Homophily</em> :  tendency of nodes with similar attributes to connect more frequently. 
-                            In simpler terms, it’s the principle that “birds of a feather flock together.”</li>
-                        </ul>
-                        </li>
-                        </ol>
-
-                    <p>The ERGM is built on the logistic regression methods. In practice, when specifying ERGMs in R, the predictors are expressed as an additive combination. 
-                        Each predictor corresponds to a network statistic (or a covariate effect), and each is multiplied by its respective parameter 
-                        <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container></span> . 
-                        The interpretation of parameters is similar to logistic regression.
-                    </p>
-
-                    <p>$$
-                        logit(P(Y_{ij}=1)) = \theta_1~edges + \theta_2~mutual
+                        \Delta \pm 1.96 \times 0.183 \;\longrightarrow\; (-0.26,\, 0.46)
                         $$
+
+                        
+                    Because this interval includes zero, the conclusion is that there’s <strong>no statistically significant difference</strong> between the treatments.
+
                     </p>
 
-                    <p>
-<pre><code>fit <- ergm(network_data ~ edges + mutual)
 
-# edges : the number of edges
-# mutual : a predictor for reciprocity  
-</code></pre>
-                  </p>
+                    <p><strong>Bayesian Interpretation</strong><br>
+                        Under the Bayesian framework, we use a <strong>Beta distribution</strong> as the prior, appropriate for binary outcomes. 
+                        Since we have no existing knowledge about the treatments, we pick a <strong>uninformative prior</strong>, 
+                        Beta(1,1) (<em>uniform distribution</em>). When data is applied to the prior :
+                        $$
+                        p_t​∣D∼Beta(1+8,1+2)=Beta(9,3)
+                        $$
+                        $$
+                        p_s​∣D∼Beta(1+7,1+3)=Beta(8,4)
+                        $$
 
-                  <p>As computational social science continues to mature, network analysis stands as one of its central pillars. 
-                    It exemplifies the core ideals of CSS: embracing new data sources, deploying computational methods to tackle complexity.  
-                    Just as Econometrics carved out a niche within the broader discipline of Statistics by focusing on economic applications and specialized regression techniques, 
-                    Computational Social Science is similarly seeking to differentiate itself from general Data Science. 
+
+                        Then we calculate the <strong>posterior distribution</strong> of Delta using R:
+                        
+                        <pre><code> # Monte Carlo Simulation for Posterior
+N <- 10000
+
+pt <- rbeta(N, 9, 3)
+ps <- rbeta(N, 8, 4) 
+
+delta <- pt - ps
+
+# 2.5th and 97.5th percentiles
+credible_interval <- quantile(delta, probs = c(0.025, 0.975))
+
+print(credible_interval)
+
+>>
+      2.5%      97.5% 
+-0.2733856     0.4263714
+</pre></code>
+
+
+
+                    Similar to a confidence interval, the <strong>credible interval</strong> includes zero. 
+                    Thus, we arrive at the same statistical conclusion: <strong>“With 95% probability, the two treatments do not differ significantly.”</strong>
                 </p>
 
-                <p> In <strong>Part II</strong>, I will consider another foundational approach within CSS: <strong>social simulation</strong>. 
-                    While network analysis has greatly benefited from the emergence of rich relational data and advances in computational techniques, 
-                    allowing for more data-driven analysis, social simulation follows a fundamentally model-driven approach. 
-                    In many cases, we may observe macro-level patterns or phenomena but obtaining the underlying micro-level data that generates these patterns can be extremely challenging. 
-                    This is where social simulation plays a critical role. By creating computational models that simulate individual behaviors and interactions, 
-                    researchers can reproduce and study emergent macro-level phenomena. 
-                    Social simulation acts as a <strong>bridge</strong> between theoretical understanding of macro patterns and the practical challenges posed by incomplete or absent micro-level data. 
-                    The detailed discussion of social simulation will continue in Part II.
+
+                <p> In Bayesian statistics, since probability is directly assigned to parameters, we can ask: 
+                    Even if two treatments are statistically indistinguishable, what is the probability that, 
+                    in a simulation comparing a group receiving the new treatment to one receiving the standard treatment, the new treatment performs better?<br> 
+                    In other words, what is the probability that Δ>0 ?
+
+
+                    <pre><code>mean(delta > 0)
+>>
+0.6878 </pre></code>
+                    
+                    
+                    There is roughly a 69% chance that the new treatment outperforms the standard one. 
+                    This probability can greatly influence decision-making, particularly when decisions are binary (yes or no). 
+                    Although both Frequentist and Bayesian methods may yield similar statistical conclusions, 
+                    <strong>the extra insight (or decision-relevant information) from Bayesian analysis</strong> can lead to entirely different decisions.
+
+                    </p>
+
+
+
+                <h3>Defending the “Less Intuitive” Prior in Bayesian Thinking</h3>
+
+                <p> In the context of decision-making,, it might be more fitting to call the subject <strong>Bayesian reasoning</strong> rather than Bayesian statistics. 
+                    Regardless of the label, the core process remains unchanged: the prior distribution is updated with observed data to create the posterior distribution.<br>
+
+                    A recurring debate in Bayesian methods centers on selecting the appropriate prior. Which one should we choose? 
+                    While this decision is crucial, it also raises the question of why priors often seem so challenging. 
+                    Like confidence intervals, <strong>priors can feel less intuitive and difficult to grasp</strong>.
+                </p>
+                
+                <p>   
+                    Why is this so?<br>
+                    At its essence, a prior represents our existing knowledge or belief. 
+                    For instance, when asked, “Do ghosts exist?” the answer is typically a simple yes or no—a binomial outcome. 
+                    In contrast, a question like “Does the advancement of AI contribute to democracy?” can elicit a range of responses—from “yes” to “no,” 
+                    with varying degrees of certainty—forming a multinomial framework. 
+                    Without imposing a binomial or multinomial structure, converting people’s beliefs into a statistical distribution becomes 
+                    a daunting task that only grows more complex with more intricate questions.
+                </p>
+                
+                <p>
+                    Moreover, can we fully trust our knowledge and beliefs? 
+                    Humans tend to overestimate dramatic risks while underestimating common ones, and the way information is presented—known as framing effects—can heavily influence our judgments.<br>
+                    
+                    Another concern is the reliability of updating priors with new information. 
+                    According to Madsen (2016), American voters are more likely to support a policy based on whether particular political figures endorse or criticize it. 
+                    In other words, voters’ priors can affect how they interpret new data.<br>
+                    
+                    These challenges arise from the inherently less intuitive nature of priors. 
+                    Ultimately, priors are subjective probability assessments that naturally vary among individuals, groups, and researchers—and that’s exactly how it should be. 
+                    The idea that everyone shares the same knowledge and beliefs is not only unrealistic, it would be quite unsettling.
+                </p>
+
+                <p>
+                    To illustrate priors further, consider the <strong>paradox of the heap</strong>. <br>
+                    Imagine a large heap of sand. Removing one grain still leaves you with a heap, but if you continue removing grains until only one remains, is it still a heap? 
+                    There is no clear boundary, and different people might answer this question differently.<br>
+                    
+                    If we abandon the search for clear boundaries and change our perspective, the paradox of the heap ceases to be a paradox. 
+                    Picture a million grains of sand—your confidence that this forms a heap is high. 
+                    As you remove one grain at a time, your confidence diminishes gradually. 
+                    In this way, belief is not binary but a matter of <strong>graded confidence</strong> or <strong>degrees of belief</strong>. 
+                    When we think of belief as akin to the confidence that a pile of sand is a heap—decreasing gradually 
+                    with each removed grain—priors can indeed become <strong>more intuitive</strong>. 
+                    A belief about any issue can fluctuate like temperature: new data may raise or lower our confidence incrementally. <br>
+                    Ultimately, the strength of our subjective beliefs depends on their ability to predict future outcomes—a process at the very heart of Bayesian reasoning.
+                </p>
+                
+                <p>
+                    Bayesian reasoning helps us find <strong>better priors</strong>—echoing George Box’s timeless remark:<br>
+                    <strong>"All models are wrong, but some are useful."</strong>
                 </p>
 
 
 
             <br>
             <h4 data-heading="Reference" dir="auto">Reference</h4>
-                <p dir="auto">McLevey et al. 2023. <em>The Sage Handbook of Social Network Analysis</em>. SAGE Publications Limited.</p>
-                <p dir="auto">Newman, Mark. 2018. <em>Networks</em>. Oxford university press.</p>
-                <p dir="auto">Easley et al. 2010. Networks, crowds, and markets: Reasoning about a highly connected world. Cambridge university press</p>
-                <p dir="auto">Cranmer et al. 2020. Inferential network analysis. Cambridge University Press</p>
+                <p dir="auto">Chivers, T. (2024). <em>Everything is Predictable: How Bayesian Statistics Explain Our World</em>.  Simon and Schuster.</p>
+                <p dir="auto">Fornacon-Wood, I., Mistry, H., Johnson-Hart, C., Faivre-Finn, C., O’Connor, J. P. B., & Price, G. J. (2022). 
+                     <em>Understanding the Differences Between Bayesian and Frequentist Statistics</em>. International Journal of Radiation Oncology, Biology, Physics, 112(5), 1076–1082.</p>
+                <p dir="auto">Madsen, J. K. (2016). <em>Trump supported it?! A Bayesian source credibility model applied to appeals to specific American presidential candidates’ opinions</em>. 
+                    In Proceedings of the Annual Meeting of the Cognitive Science Society (Vol. 38).</p>
 
 
 
