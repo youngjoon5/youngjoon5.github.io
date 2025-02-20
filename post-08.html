@@ -152,7 +152,7 @@
                         Students are taught that <strong>“95% of confidence intervals contain the true mean,”</strong> 
                         yet what they actually remember is <strong>“There’s a 95% chance the true mean lies within the interval.”</strong> 
                         While this latter interpretation is technically wrong in the frequentist framework, it’s far more intuitive and aligns with how we naturally think. 
-                        Despite efforts to teach the formal definition, what sticks in students’ minds is <strong> more intuitive version</strong>.
+                        Despite efforts to teach the formal definition, what sticks in students’ minds is the <strong> more intuitive version</strong>.
                     </P>
                     <p>   
                         If this resonates with your own experience, then I say:<br>
@@ -205,7 +205,7 @@
                         SE = \sqrt{\frac{0.8 \times 0.2}{10} + \frac{0.7 \times 0.3}{10}} = 0.183
                         $$
                         
-                        We build a 95% confidence interval (CI) for the difference : Delta = Pt - Ps:
+                        We build a 95% confidence interval (CI) for the difference, Delta = Pt - Ps:
                         $$
                         \Delta \pm 1.96 \times 0.183 \;\longrightarrow\; (-0.26,\, 0.46)
                         $$
@@ -218,7 +218,7 @@
 
                     <p><strong>Bayesian Interpretation</strong><br>
                         Under the Bayesian framework, we use a <strong>Beta distribution</strong> as the prior, appropriate for binary outcomes. 
-                        Since we have no existing knowledge about the treatments, we pick a <strong>uninformative prior</strong>, 
+                        Since we have no existing knowledge about the treatments, we pick an <strong>uninformative prior</strong>, 
                         Beta(1,1) (<em>uniform distribution</em>). When data is applied to the prior :
                         $$
                         p_t​∣D∼Beta(1+8,1+2)=Beta(9,3)
@@ -255,7 +255,7 @@ print(credible_interval)
                 </p>
 
 
-                <p> In Bayesian statistics, since probability is directly assigned to parameters, we can ask: 
+                <p> In Bayesian statistics, since probabilities are directly assigned to parameters, we can ask: 
                     Even if two treatments are statistically indistinguishable, what is the probability that, 
                     in a simulation comparing a group receiving the new treatment to one receiving the standard treatment, the new treatment performs better?<br> 
                     In other words, what is the probability that Δ>0 ?
@@ -277,7 +277,7 @@ print(credible_interval)
 
                 <h3>Defending the “Less Intuitive” Prior in Bayesian Thinking</h3>
 
-                <p> In the context of decision-making,, it might be more fitting to call the subject <strong>Bayesian reasoning</strong> rather than Bayesian statistics. 
+                <p> In the context of decision-making, it might be more fitting to call the subject <strong>Bayesian reasoning</strong> rather than Bayesian statistics. 
                     Regardless of the label, the core process remains unchanged: the prior distribution is updated with observed data to create the posterior distribution.<br>
 
                     A recurring debate in Bayesian methods centers on selecting the appropriate prior. Which one should we choose? 
