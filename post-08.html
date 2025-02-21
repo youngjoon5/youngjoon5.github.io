@@ -217,7 +217,11 @@
 
 
                     <p><strong>Bayesian Interpretation</strong><br>
-                        Under the Bayesian framework, we use a <strong>Beta distribution</strong> as the prior, appropriate for binary outcomes. 
+                        Under the Bayesian framework, 
+                        we use a Beta distribution as the prior because the treatment proportion(data) has a binary outcome (success/failure), 
+                        which follows a binomial distribution. The Beta distribution is the conjugate prior for the binomial distribution. 
+                        This <strong>conjugacy</strong> means that when the prior is a Beta distribution and the observed data follows a binomial distribution, 
+                        the updated posterior will also have the form of a Beta distribution.  
                         Since we have no existing knowledge about the treatments, we pick an <strong>uninformative prior</strong>, 
                         Beta(1,1) (<em>uniform distribution</em>). When data is applied to the prior :
                         $$
