@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Young Joon Oh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ 
+    <!-- MathJax for LaTeX -->    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="research.html">My Research</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Computational Social Science Post</a>
+                    </li>
+                    <li>
+                        <a href="teaching.html">Teaching</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+ 
+
+  <!--For making Rmarkdown style <code>  
+        <style type="text/css">
+            code {
+             color: inherit;
+             background-color: rgba(0, 0, 0, 0.04);
+                  }
+        </style>
+
+   --> 
+
+
+
+     <!--                      Post Content                   -->
+    <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
+
+
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="css1"><!-- id for refering this part   -->
+
+
+                    <h1> Can Passes Become Clues? : Prediction Models Using EPL Passing Networks</h1>
+                       <span class="meta"><i>&emsp;Posted on Mar.13, 2025</i></span>
+                    
+                    
+                    <br></br>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                          <img src="img/post/epl.png" style="width:85%">
+                    </div>
+                    
+                    <br></br>
+
+                    
+                    <h3>Soccer in the Data</h3>
+
+                    <P> Soccer, like many other team sports, thrives on effective passing. 
+                        A well-executed pass can be the difference between a swift counterattack that leads to a goal and a wasted possession that hands momentum to the opposing team. 
+                        Although only goals and assists directly determine winners and losers,
+                        the additional statistics shed light on each team’s style, organization, and tactical approach.
+                        In the English Premier League (EPL), after each match, analysts compile a range of data—goals, assists, possession, fouls, corners, expected goals (xG), 
+                        expected assists (xA), pass and more.
+                        With the continual advancement of Multiple Object Tracking (MOT) technology, even more soccer data will become available, paving the way for deeper investigations 
+                        into how team tatics can impact performance.
+                    </P>
+
+                    <p> While researching soccer-related data, 
+                        I stumbled upon <strong>Football Passing Networks</strong> (https://grafos-da-bola.netlify.app/), a website offering a trove of visualized passing network data. 
+                        Fascinated by how these networks could illustrate team strategies, I asked myself:
+                    </p>
+
+                    <p><strong>“Can passing networks alone help us forecast which team will win?”</strong></p>
+
+                    <p> From that spark of curiosity, I centered my analysis on the <strong> 2017–2018 English Premier League (EPL)</strong> season. 
+                        I pulled relevant match data from the project’s GitHub repository:
+                        https://github.com/rodmoioliveira/football-graphs.  
+                        
+                        </P>
+
+                    
+                    
+                    <h3>Seven Passing Networks: A Tactical Breakdown</h3>
+
+                    <p> To capture the complexity of team play, I subdivided each match’s passing data into seven distinct networks:                    
+                    </p>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 1 (Overall Network)</strong><br>
+                            Considers every “accurate” pass recorded for both teams.
+                        </li>
+                    </ul>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 2 (FW–FW)</strong><br>
+                            Focuses on passes solely among Forwards (FW).
+                        </li>
+                    </ul>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 3 (FW–MD)</strong><br>
+                            Includes passes between Forwards (FW) and Midfielders (MD).
+                        </li>
+                    </ul>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 4 (FW–DF)</strong><br>
+                            Tracks passes between Forwards (FW) and Defenders (DF).
+                        </li>
+                    </ul>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 5 (MD–MD)</strong><br>
+                            Involves passes solely among Midfielders (MD).
+                        </li>
+                    </ul>
+                   
+                    <ul>
+                        <li dir="auto"><strong>Network 6 (MD–DF)</strong><br>
+                            Comprises passes between Midfielders (MD) and Defenders (DF).
+                        </li>
+                    </ul>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Network 7 (DF–DF)</strong><br>
+                            Restricts analysis to passes among Defenders (DF).
+                        </li>
+                    </ul>
+
+                    <p>My reasoning was that each pairing (e.g., FW–MD vs. MD–DF) can highlight unique tactical behaviors. 
+                        For example, heavy reliance on FW–DF passes might reveal a team that bypasses midfield or regularly launches long balls from defense to attack.
+                    </p>
+
+
+
+                    <h3>A Closer Look: High-Scoring and Draw Matches</h3>
+
+                    <p> Before diving into network analysis, I examined passing networks from selected matches. 
+                        I chose games from the 2017–2018 season that featured either significant victory margins or a high total number of goals. 
+                        Then, I compared the winning and losing teams' passing networks side by side.
+                        The row highlighted in yellow in each set of networks indicates the winning team.</p>
+
+
+                        <div style="text-align: center;">  <!-- place this picture in the center   -->
+                            <img src="img/post/win.png" style="width:100%">
+                      </div>
+                      
+
+                      <p> A straightforward way to visually compare passing networks is to look at network density.</p>
+                      <ul>
+                        <li dir="auto"><strong>1. Manchester City vs. Stoke City (7:2)</strong><br>
+                            Clear dominance by Manchester City; in every network (FW–FW, MD–DF, etc.), City showed higher density.
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li dir="auto"><strong>2. Arsenal vs. Huddersfield Town (5:0)</strong><br>
+                            Arsenal’s networks were notably denser, aside from FW–FW (which was equal for both teams).
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li dir="auto"><strong>3. AFC Bournemouth vs. Liverpool (0:4)</strong><br>
+                            Liverpool dominated nearly all sub-networks, but AFC Bournemouth oddly had a higher overall passing density, 
+                            demonstrating that a team can connect more passes yet fail to convert them into threatening moves.
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li dir="auto"><strong>4. Tottenham Hotspur vs. Southampton (5:2)</strong><br>
+                            Tottenham displayed generally denser passing networks, though Southampton did surpass Spurs in DF–DF and MD–MD.
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li dir="auto"><strong>5. Stoke City vs. West Bromwich Albion (3:1)</strong><br>
+                            Stoke’s sub-networks were usually less dense, except for FW–FW, which showed slightly more activity.
+                        </li>
+                    </ul>
+                    <br>
+
+
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <img src="img/post/draw.png" style="width:100%">
+                  </div>
+                  <br>
+
+                  <p>What about matches that ended in a draw?</p>
+
+                  <ul>
+                    <li dir="auto"><strong>1. Crystal Palace vs. Manchester City (0:0)</strong><br>
+                    </li>
+                 </ul>
+
+                 <ul>
+                    <li dir="auto"><strong>2. Swansea City vs. Crystal Palace (1:1)</strong><br>
+                    </li>
+                 </ul>
+
+                 <ul>
+                    <li dir="auto"><strong>3. Crystal Palace vs. AFC Bournemouth (2:2)</strong><br>
+                    </li>
+                 </ul>
+
+                 <ul>
+                    <li dir="auto"><strong>4. AFC Bournemouth vs. West Ham United (3:3)</strong><br>
+                    </li>
+                 </ul>
+                 <p> In the first match, Manchester City exhibited higher overall network density but failed to translate this advantage into goals. 
+                    The second match presents a fascinating scenario: despite Crystal Palace not registering any accurate passes between forwards, midfielders, or defenders, 
+                    Swansea City’s denser network still resulted in a 1:1 draw. 
+                    In the third and fourth matches, neither team consistently outperformed the other in terms of overall density.
+
+                 </p>
+                 <p>While high passing network density often indicates control and fluidity of play, it doesn't necessarily translate into a decisive victory.</p>
+
+                
+
+                 <h3>Network Analysis 101: Comparing Structures</h3>
+                 <p>To compare networks, we often rely on network metrics like: </p>
+                    <ul>
+                        <li dir="auto"><strong>Density </strong>(ratio of actual connections to possible connections),<br>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li dir="auto"><strong>Transitivity </strong>(tendency to form “triangles”),<br>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li dir="auto"><strong>Centrality </strong>(identifying key players who see the most passes),<br>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li dir="auto"><strong>Clustering coefficient</strong>, and more.<br>
+                        </li>
+                     </ul>
+                
+                     <p><strong>Tantardini et al. (2019)</strong> describes two major categories of network comparison methods.
+                    <strong>Known Node-Correspondence (KNC) methods</strong> use adjacency matrices to directly compare networks, 
+                    operating under the assumption that the same set of nodes are present in each network. 
+                    In contrast, <strong>Unknown Node-Correspondence (UNC) methods</strong> often compare overall network statistics or focus on small sub-networks. 
+                    These small sub-networks are referred to as graphlets or motifs. Graphlets typically consist of 2–5 nodes, 
+                    but motifs are structural patterns that appear more frequently than chance would predict.
+                    </p>
+
+                    <p> <strong>Li et al. (2015)</strong> analyze soccer passing networks by focusing on small sub-networks, specifically 3-node patterns known as motifs.
+                        They found that certain motifs occur more frequently in teams with offensive tactics, whereas different motifs are prevalent in teams employing defensive strategies. 
+                        Their research linked these motif patterns to match outcomes, highlighting which configurations proved more "efficient." 
+                        In this vein, small sub-networks not only facilitate network comparisons but also offer a valuable lens for analyzing passing strategies. 
+                        Consequently, this article employs graphlets—small sub-networks—as the basis for its analysis.                        
+                    </p>
+                
+
+
+
+                    <h3>Prediction Models Using Graphlet Correlation Distance (GCD-11)</h3>
+                    
+                    <p> Graphlet Correlation Distance (GCD-11) can be used to compare local connectivity patterns of two undirected networks. 
+                        Graphlets capture detailed information about a network’s microstructure.</p> 
+                        
+                    <p>Calculating the GCD typically involves two steps:</p>
+
+                        <ul>
+                            <li dir="auto"><strong>Graphlet Degree :</strong>
+                                This measures how frequently a node is involved in specific structural positions called orbits (distinct node positions in the sub-network).
+                                GCD-11 focuses on 11 particular orbits.
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li dir="auto"><strong>Construct an N×11 matrix</strong> (where N is the number of nodes) that logs each node’s orbit involvement. 
+                                Then compute the correlation between each column.
+                            </li>
+                        </ul>
+
+                        <p>The Euclidean distance between the resulting correlation matrices reflects how similar or different the local connectivity patterns of two networks are. 
+                            A shorter distance means more similarity; a larger distance means less similarity.
+                        </p>
+
+                       
+                        <pre><code># GCD-11
+import networkx as nx
+from pyfglt.fglt import compute, compute_graphlet_correlation_matrix, gcm_distance
+                            
+                            
+def compute_gcd_11(G1: nx.Graph, G2: nx.Graph, empty_diff=100.0) -> float:
+                            
+# Some passing sub networks have fewer than 3 node. In this case, use density difference to improve the model
+                                
+if G1.number_of_nodes() < 3 or G2.number_of_nodes() < 3:
+    return abs(nx.density(G1) - nx.density(G2))
+                                
+try:
+    df_counts1 = compute(G1, raw=False)
+    df_counts2 = compute(G2, raw=False)
+    gcm1 = compute_graphlet_correlation_matrix(df_counts1, method='spearman')
+    gcm2 = compute_graphlet_correlation_matrix(df_counts2, method='spearman')
+    distance = gcm_distance(gcm1, gcm2)
+                                    
+    
+# If the computed distance is NaN, use default value = 0
+                                    
+    if np.isnan(distance):
+        return 0.0
+    return distance
+except Exception as e:
+    print(f"Error computing GCD-11: {e}")
+    return 0.0
+</pre></code>
+
+
+                    <p> Using a Python library called <strong>pyfglt</strong>, I defined a `compute_gcd_11` function to calculate this GCD between the sub-networks of two teams.
+                        However, when a sub-network had fewer than three nodes (e.g., if a team had zero or only one FW, making FW–FW or FW–DF essentially nonexistent), 
+                        it was impossible to compute GCD accurately. In those instances, I substituted density differences or assigned 0 if no valid edges existed.
+                    </p>
+
+
+
+
+                   <h3>Model Analysis: Logistic Regression vs. Random Forest</h3>
+                   <p>I ran both Logistic Regression and Random Forest models using GCD as an input feature: </p>
+
+
+                   <pre><code># Logistic Regression and Random Forest
+                    
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+# Train data : 300, Test data : 75
+                    
+# Logistic Regression model
+l_model = LogisticRegression()
+l_model.fit(X_train, y_train)
+y_pred_l = l_model.predict(X_test)
+acc_l = accuracy_score(y_test, y_pred_l)
+                    
+# Random Forest model
+r_model = RandomForestClassifier(n_estimators=300, random_state=111)
+r_model.fit(X_train, y_train)
+y_pred_r = r_model.predict(X_test)
+acc_r = accuracy_score(y_test, y_pred_r) </pre></code>
+
+
+
+                <div style="text-align: center;">  <!-- place this picture in the center   -->
+                    <img src="img/post/acc.png" style="width:60%">
+                </div>
+                <br>
+
+                <div style="text-align: center;">  <!-- place this picture in the center   -->
+                    <img src="img/post/impor.png" style="width:55%">
+                </div>
+                <br>
+                
+                <p> I evaluated two classification models using GCD-based features: Logistic Regression and Random Forest. 
+                    <strong>Logistic Regression</strong> achieved approximately 61% overall accuracy. 
+                    Although the overall accuracy was modest, it excelled in identifying “Non-home team wins” (labeled as 0), with a recall of 0.93. 
+                    In contrast, the <strong>Random Forest</strong> model reached only 55% accuracy and a lower cross-validation score of 0.47, 
+                    suggesting that it overfit the training data and lacked consistency, likely because data is too noisy.
+                </p>
+                
+                <p> Examining the <strong>Logistic Regression coefficients</strong> revealed:
+                    FW–DF and FW–MD passing networks were the most influential for predicting a non-home team win, 
+                    implying that strong forward play (connecting with defenders or midfielders) might be crucial in away victories.
+                </p>
+
+
+
+               <h3>Limitations and Future Directions</h3>
+
+               <ul>
+                <li dir="auto"><strong>Over-Subdivision : </strong> Splitting into seven networks occasionally creates sub-networks that are too small to analyze 
+                    (e.g., only two or three passes total). Future work might experiment with alternative subdivisions or use a single comprehensive passing network.
+                </li>
+               </ul>
+
+               <ul>
+                <li dir="auto"><strong>Missing Key Variables : </strong> Players’ injuries, form, tactical shifts, set-piece strength (corners, free kicks), 
+                    and refereeing decisions significantly affect matches. 
+                    Since passing networks alone can’t capture these, incorporating more comprehensive match data could enhance predictive power.
+                    In the same context, as discussed in the visualized passing networks comparisons, passing networks can reflect a team’s control and fluidity of play; 
+                    however, they do not guarantee a decisive victory. This underscores the inherent limitations of using passing networks as sole predictors.
+                </li>
+               </ul>
+
+               <ul>
+                <li dir="auto"><strong>Time-Dependent Tactics : </strong> Passing networks evolve over a 90-minute match as coaches adjust formations, press differently, 
+                    or chase goals. A temporal or time-series perspective—mapping how passing patterns change minute by minute—could unravel deeper tactical insights.
+                </li>
+               </ul>
+
+               <p>Still, passing networks are an excellent sandbox for network analysis in sports. 
+                They provide ample opportunities to link detailed micro-structures (like graphlets) to strategic decisions on the field.
+               </p>
+
+
+               <h3>A Final Word</h3>
+               <p>While passing networks alone may not be the crystal ball of match predictions, they capture vital elements of teamwork and style. 
+                Leveraging advanced methods like GCD-11, combined with more traditional metrics (e.g., possession, shots on target), 
+                has the potential to deepen our understanding of the tactical layers of soccer. 
+                In the grand puzzle of sports analytics, passing networks are one essential piece—and an endlessly fascinating one at that.</p>
+
+
+
+            <br>
+            <h3 data-heading="Reference" dir="auto">References</h3>
+                <p dir="auto">Li, M.-X., Xu, L.-G., & Zhou, W.-X. (2025).  <em>Motif analysis and passing behavior in football passing networks</em>. Chaos, Solitons & Fractals, 190, 115750.</p>
+                <p dir="auto">Mói, Rodolfo. <em>Football Passing Networks</em>. Retrieved March 12, 2025, from https://grafos-da-bola.netlify.app/</p>
+                <p dir="auto">Tantardini, M., Ieva, F., Tajoli, L., & Piccardi, C. (2019). <em>Comparing methods for comparing networks</em>. 
+                    Scientific Reports, 9(1), 17557.</p>
+
+
+
+                     
+
+
+
+
+                    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<!-- blockquote 
+<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+<mark> test</mark>
+-->
+
+
+
+
+<!-- Begin : pager back to Computational social science post -->
+
+<ul class="pager">
+                        <li class="next">
+                            <a href="post.html">Return to Post List &rarr;</a>
+                        </li>
+                    </ul>
+                
+<!-- End : pager back to Computational social science post -->
+                  
+
+
+                    <br></br>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
+
+    <hr>
+
+
+
+
+   
+
+
+
+
+
+
+    <!--            Footer            -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                                                <li>
+                            <a href="https://www.youtube.com/user/yjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/youngjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Start Bootstrap 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
