@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Preview : ctrl+k v   or   ctrl+shift+v   -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Young Joon Oh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ 
+    <!-- MathJax for LaTeX -->    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="research.html">My Research</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Computational Social Science Post</a>
+                    </li>
+                    <li>
+                        <a href="teaching.html">Teaching</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+ 
+
+  <!--For making Rmarkdown style <code>  
+        <style type="text/css">
+            code {
+             color: inherit;
+             background-color: rgba(0, 0, 0, 0.04);
+                  }
+        </style>
+
+   --> 
+
+
+
+     <!--                      Post Content                   -->
+    <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
+
+
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="css1"><!-- id for refering this part   -->
+
+
+                    <h1> Bridging Dynamic Network Data and Epidemic Simulation: A Computational Framework</h1>
+                       
+                    
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/OrWiz9zOoD4?rel=0&modestbranding=1"
+  title="Epidemic modeling in R"
+  frameborder="0"
+  loading="lazy"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+
+                    <h3>Introduction & Motivation</h3>
+                    <P> In modeling infectious disease spread, capturing realistic contact patterns is essential. 
+                        My three tutorials in question together trace an end-to-end pipeline: 
+                        from dynamic network data extraction and analysis (via Gephi to R) to simulating contagion over evolving networks using EpiModel. 
+                        By linking data preparation and simulation, this suite addresses both the empirical and modeling challenges of networked epidemiology.
+                    </P>
+
+                    <p> Networks of human contact are rarely static. 
+                        They evolve as individuals initiate and cease interactions, relocate, or adjust behavior in response to external stimuli. 
+                        To model disease transmission credibly, we must integrate real-world dynamic network data with temporal epidemic models. 
+                        The tutorials provide practical tools for this integration—making the computational process replicable and transparent.
+                    </p>
+
+                    <h3>Tutorial Overview & Integration</h3>
+
+                    <ul>
+                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=IpAKZAAesp0"><strong>Analyzing Gephi dynamic network data in R</a> :</strong>  
+                            guides users in importing and converting dynamic network data generated via Gephi into analysis-ready formats in R.
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=RK_HKD7H7i4"><strong>Analyzing Gephi dynamic network data for modeling epidemic disease in R</a> : </strong> 
+                            continues preprocessing steps, preparing the network data for use in simulations.
+                        </li>
+                    </ul>
+
+                      <ul>
+                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=OrWiz9zOoD4&t=1s"><strong>Simulating epidemic disease(or virus spread) over the Dynamic Network in R (EPI model)</a>  : </strong> 
+                            shows how to simulate disease spread atop time-varying networks.
+                        </li>
+                    </ul>
+
+                 
+
+                    <p> Together, these provide a workflow: 
+                        (1) collect or visualize temporal contact data (Gephi), (2) import and transform it in R, and 
+                        (3) run epidemic simulations on that processed dynamic network. 
+                        This pipeline ensures that simulated epidemiological models can be grounded in real structural dynamics, rather than synthetic or assumed networks alone.                       
+                    </p>
+
+                    
+                    <h3>Conceptual & Methodological Framework</h3> 
+                    
+                    <br>
+                    <strong>(a) Dynamic Network Data Processing</strong>
+                    <p> The initial step is converting Gephi-generated dynamic network logs—time-stamped edge lists, snapshots, or event sequences—into R-friendly representations (e.g. networkDynamic or tergm objects). 
+                        This involves: (1) Parsing temporal edge attribute files, (2) Reconciling node metadata (e.g. attributes like age, status),
+                        (3) Handling missing or intermittent observations, (4) Constructing a continuous-time network process or discrete snapshot sequence.
+                        These tutorials emphasize good data hygiene, alignment of time indices, and structural consistency before simulating contagion.
+                    </p>
+
+                     <strong>(b) Temporal Network Modeling & Simulation</strong>
+                     <p> Once data is structured as a temporal network in R, the epidemic simulation tutorial shows how to run an SIR-style or similar contagion model over that evolving network. 
+                        The network evolution may be taken from empirical data directly (i.e., using observed edge changes), 
+                        or supplemented with stochastic tie dynamics if observational windows are incomplete.
+                        Transmission occurs along active ties at each time slice; recoveries or transitions proceed per disease parameters. 
+                     </p>
+
+                     <strong>(c) Analysis & Visualization</strong>
+                     <p> The framework allows overlaying infection paths onto dynamic network plots, animating how infection spreads through observed structural change. 
+                        Time-series plots compare infection prevalence, incidence, and susceptible counts. 
+                        Sensitivity experiments can adjust disease parameters or hypothetical interventions to examine “what-if” scenarios grounded in observed networks. 
+                     </p>
+
+
+                     <h3>Key Insights & Contributions</h3>
+                     <p> By grounding the analysis in observed dynamic networks processed through Gephi and R, 
+                        this approach avoids reliance on artificially generated contact structures and instead reflects the empirical complexity of real social interactions. 
+                        The tutorials further demonstrate a seamless workflow that integrates data preprocessing with epidemic simulation, thereby reducing the traditional disconnect between empirical network observation and model implementation. 
+                        Through this integration, epidemic simulations based on real-world contact dynamics achieve a higher degree of structural realism, producing outbreak patterns that are far more credible than those derived from static or synthetic networks. 
+                    </p>
+                    
+                    <p> Moreover, the capacity to replay contagion processes on observed networks enables a more nuanced and realistic evaluation of intervention strategies, both retrospectively and prospectively. 
+                        Collectively, these contributions bridge the gap between data-driven network science and simulation-based epidemiology, enhancing the practical relevance and applicability of computational models to real-world public health challenges.
+                     </p>
+
+
+                     <h3>Challenges, Caveats & Limitations</h3>
+                     <p> Several challenges and limitations accompany the modeling of epidemics on dynamic networks. 
+                        Real-world network logs often suffer from issues of data quality and completeness, 
+                        with missing events or sampling gaps that can introduce distortions into simulation outcomes. 
+                        Temporal alignment also presents a major concern, as the resolution of observed contact data—sometimes recorded at minute-level intervals—may not correspond to the time scales relevant for disease progression, 
+                        such as daily or weekly transmission rates.
+
+                     </p>
+                     
+                     <p> Scalability further constrains analysis, since processing large temporal networks and executing simulations across them require substantial computational resources and optimized algorithms. 
+                        In addition, causal interpretation remains delicate: 
+                        relying solely on observed network evolution without accounting for latent behavioral factors—such as individuals’ adaptive responses to infection risk—can lead to confounding and misattribution of effects.
+                     </p>
+                     
+                     <p> Finally, generalizability poses a persistent limitation, as contact networks derived from specific environments, 
+                        such as hospitals, may not accurately represent the structural or behavioral dynamics of broader populations.
+                     </p>
+
+
+                     <h3>Future Research Directions</h3>
+                     
+                     <p> Future research can advance this framework through several interconnected directions. 
+                        One promising avenue involves developing hybrid empirical–stochastic models that combine observed network snapshots with stochastic generation techniques to address data gaps and extend forecasting horizons. 
+                        Another crucial direction focuses on behavior-driven dynamics, in which adaptive behavioral rules are embedded within simulations so that individuals modify their contacts in response to changing infection risks, media information, 
+                        or policy interventions.
+                     </p>
+                     
+                     <p> Expanding the model to hierarchical and multiplex structures can further enhance realism by representing layered contact environments
+                        —such as households, workplaces, and social settings—each characterized by its own internal dynamics and interdependencies. 
+                        Robust parameter inference and calibration methods, including Bayesian estimation, likelihood-free approaches, and data assimilation techniques, 
+                        can be used to jointly infer disease and network parameters from empirical incidence and contact data.
+                     </p>
+                     
+                     <p> Moreover, comparative simulation studies across diverse empirical networks can reveal how intervention strategies perform under different social and institutional contexts, 
+                        such as schools, workplaces, or public transport systems. 
+                        Finally, progress in visualization and communication tools, including interactive web-based dashboards and applications, 
+                        will enable users to upload their own dynamic network data, explore contagion scenarios in real time, 
+                        and engage with complex simulation results more intuitively.
+                     </p>
+
+                     <h3>Conclusion</h3>
+
+                     <p> Although the immediate focus of this work is epidemiological, 
+                        the integrated pipeline—linking dynamic network data processing with contagion simulation—has far broader significance across the social sciences. 
+                        he same framework can be used to model the diffusion of information, innovation, or collective behavior through evolving social networks, 
+                        offering a powerful lens for understanding how ideas or actions spread in complex societies.
+                     </p>
+                     
+                     <p> By combining the three tutorials—data preprocessing in Gephi, dynamic network analysis in R, 
+                        and epidemic simulation over temporally evolving structures—this approach establishes a principled, empirically grounded method for studying diffusion processes. 
+                        The resulting framework not only produces more credible and context-sensitive contagion models but also opens pathways for calibrated inference, 
+                        behavioral adaptation modeling, and comparative analyses across domains, making it a valuable contribution to computational social science as a whole.
+                     </p>
+
+
+
+
+
+
+
+
+            <br>
+            <h3 data-heading="Reference" dir="auto">References</h3>
+                <p dir="auto"> Jenness, Samuel M., et al. (2018). EpiModel: an R package for mathematical modeling of infectious disease over networks. Journal of statistical software, 84, 1-47. </p>
+                <p dir="auto"> Vanhems, Philippe, et al. (2013). Estimating potential infection transmission routes in hospital wards using wearable proximity sensors. PloS one 8(9)  </p> 
+                
+                
+                     
+
+
+
+
+                    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<!-- blockquote 
+<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+<mark> test</mark>
+-->
+
+
+
+
+<!-- Begin : pager back to Computational social science post -->
+
+<ul class="pager">
+                        <li class="next">
+                            <a href="post.html">Return to Post List &rarr;</a>
+                        </li>
+                    </ul>
+                
+<!-- End : pager back to Computational social science post -->
+                  
+
+
+                    <br></br>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
+
+    <hr>
+
+
+
+
+   
+
+
+
+
+
+
+    <!--            Footer            -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    
+                        <li>
+                        <a href="https://www.linkedin.com/in/young-joon-oh-16670a37/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>                        
+                        
+                        
+                    <li>
+                            <a href="https://www.youtube.com/user/yjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/youngjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Start Bootstrap 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
