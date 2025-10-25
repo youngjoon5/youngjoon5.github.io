@@ -127,165 +127,366 @@
                     <div id="css1"><!-- id for refering this part   -->
 
 
-                    <h1> Networks of Influence in Art : <em>Renaissance Network</em> <span style="font-size: 0.75em; color: #555;">  — Web Crawling and Data Visualization </span></h1>
+                    <h1>Modeling the Renaissance: A Historical Art Network Using Computational Methods in R and Gephi</h1>
                        
-                    
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/FOLTJ-Tg8dg"
-  title="Epidemic modeling in R"
-  frameborder="0"
-  loading="lazy"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
-></iframe>
-
+                    <div class="description-card">
+                        <p> <em>Tutorial statement (2025 revised version)</em> : 
+                            This statement is a fully revised 2025 version of the tutorial and accompanying commentary that I originally created several years ago.
+                        (<a href="files/posting/re_net_2025.gephi" download>The 2025 version of the Renaissance Network Gephi file</a>)
+                        </p>
+                    </div>
 
                     <h3>Motivation</h3>
                     
-                    <P> The Tutorial, <a href="https://www.youtube.com/watch?v=FOLTJ-Tg8dg"><strong>Renaissance network (Web crawling, R, Gephi)</a> </strong>, demonstrates a practical pipeline for building relational networks of authors or texts by combining web crawling, R-based data processing, and Gephi visualization. 
-                        While its immediate context is intellectual or textual networks, 
-                        the methodological scaffolding it offers can be extended fruitfully to art history and broader historical domains. 
-                        In these fields, the relationships between artists, patrons, workshops, exhibitions, and texts form a complex, evolving web of influence, exchange, and collaboration. 
-                        Traditional narrative and archival methods often trace these ties piecemeal; 
-                        a computationally informed network approach offers complementary leverage—making relationships visible, quantifiable, and comparable across time and space.
+                    <P> The <a href="https://www.youtube.com/watch?v=FOLTJ-Tg8dg"><strong>“Renaissance Network (Web Crawling, R, Gephi)” tutorial</a> </strong> offers 
+                        an example of how computational and network-based methodologies can illuminate the hidden complexity of cultural and historical systems. 
+                        By combining web-based data collection, data processing in R, and visual analysis in Gephi, 
+                        it demonstrates not only a practical workflow but also a broader epistemological shift: 
+                        from describing isolated events to tracing the interconnected networks that underpin artistic, intellectual, and social production. 
+                        Yet the deeper value of such methods lies not merely in visualization or measurement, 
+                        but in their capacity to nurture emergent discovery—a process that transforms how research questions themselves evolve.
                     </p>
 
-                    <p> My research agenda seeks to adapt and expand the tutorial’s pipeline into a robust framework for networked art history and historical inquiry. 
-                        The goal is to transform archival metadata into dynamic relational maps. 
-                        By doing so, we can ask not just “who influenced whom,” but “when, by how much, and under what institutional or social constraints.” 
-                        This network approach does not replace close reading or archival intuition; 
-                        instead, it augments them by raising new questions, highlighting hidden intermediaries, and offering macro-structural perspectives on cultural diffusion.
+                    <p> As Uri Alon (2009) observes, inquiry in complex systems rarely follows a linear path from question to answer but instead moves 
+                        through a <strong>“cloud”</strong> filled with confusion, where initial hypotheses encounter unexpected results and ambiguity. 
+                        Far from being a setback, this stage becomes a nurturing environment in which more compelling and feasible questions emerge, transforming uncertainty 
+                        into discovery through iterative exploration. 
+                        Maximilian Schich’s (2016) research on cultural networks illustrates how cultural structures arise from the aggregation of local activities, 
+                        as the interactions of artists, patrons, and institutions generate large-scale patterns of change. 
+                        When mapped as networks, these relationships reveal <strong>emergent order</strong>, 
+                        patterns that arise not through deliberate design but through the dynamic interplay of countless individual choices.
+                    </p>
+
+                    <p> As a researcher of complex adaptive systems, I believe this perspective holds profound implications for art and cultural history. 
+                        Rather than viewing history as a linear sequence of events or a collection of isolated figures, 
+                        network methodologies allow us to understand it as a <strong>self-organizing system</strong>, a living web of relationships among people, objects, and ideas. 
+                        Through computational mapping, we can uncover not only central figures and major movements but also the overlooked intermediaries 
+                        and hidden conduits of influence that shape cultural evolution. 
+                        The methodological integration of R, Gephi, and web-based data collection 
+                        thus offers a powerful framework for examining how complexity itself drives the emergence and transformation of culture.
+                    </p>
+
+                    <p> Motivated by this perspective, I was inspired during my doctoral studies by a network visualization of Renaissance culture that hung on the wall of Dr. Schich’s lab. 
+                        Seeking to recreate its essence in a more accessible form, I developed the Renaissance Network — a project that combined web crawling in R with visualization in Gephi, later evolving into a tutorial platform. 
+                        By embracing complexity as a generative condition rather than a barrier, this approach invites us to reimagine both our data and our questions. 
+                        <em>The 2025 version of the Renaissance Network</em> further expands this vision by incorporating <strong>temporal (year)</strong> 
+                        and <strong>geographic (latitude and longitude)</strong> dimensions, allowing the network to unfold across both time and space.
+                    </p>
+
+
+
+                    <h3>Intellectual Positioning of Computational Art History</h3>
+
+                    <p> The intersection of network analysis and the humanities has drawn increasing scholarly attention. 
+                        The introduction of new methodologies inevitably raises questions about their relationship to established forms of inquiry. 
+                        How should we understand the role of computational methods within humanistic research? 
+                        In the context of historical or art-historical analysis, 
+                        there is justified caution toward treating network models as deterministic representations of culture or history. 
+                        Yet, the adoption of such tools remains deeply promising.
+                    </p>
+
+                    <p> Lemercier (2015) argues that formal network analysis allows scholars to move beyond vague relational metaphors and to produce precise, 
+                        testable historical claims about ties, structures, and change. 
+                        From this perspective, network analysis is not an optional supplement but a necessary methodological extension for historians. 
+                        Similarly, Kienle (2017) and Zapata (2024) view computational art history as a methodological expansion that adds new interpretive layers, 
+                        connecting qualitative inquiry with quantitative computation and enriching the ways we understand artistic and cultural production.
+                    </p>
+
+                    <p> Taken together, these studies suggest that network analysis should complement rather than replace the interpretive traditions of art history. 
+                        My own framework aligns with this balanced position: computational tools serve as scaffolding for discovery and reflection, 
+                        offering new pathways for interpretation while preserving the centrality of humanistic insight.
                     </p>
 
 
 
 
+                    <h3>Data Acquisition : Web crawling</h3>
 
-
-
-
-
-
-                    <h3>Tutorial Overview & Integration</h3>
-
-                    <ul>
-                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=IpAKZAAesp0"><strong>Analyzing Gephi dynamic network data in R</a> :</strong>  
-                            guides users in importing and converting dynamic network data generated via Gephi into analysis-ready formats in R.
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=RK_HKD7H7i4"><strong>Analyzing Gephi dynamic network data for modeling epidemic disease in R</a> : </strong> 
-                            continues preprocessing steps, preparing the network data for use in simulations.
-                        </li>
-                    </ul>
-
-                      <ul>
-                        <li dir="auto"> <a href="https://www.youtube.com/watch?v=OrWiz9zOoD4&t=1s"><strong>Simulating epidemic disease(or virus spread) over the Dynamic Network in R (EPI model)</a>  : </strong> 
-                            shows how to simulate disease spread atop time-varying networks.
-                        </li>
-                    </ul>
-
-                 
-
-                    <p> Together, these provide a workflow: 
-                        (1) collect or visualize temporal contact data (Gephi), (2) import and transform it in R, and 
-                        (3) run epidemic simulations on that processed dynamic network. 
-                        This pipeline ensures that simulated epidemiological models can be grounded in real structural dynamics, rather than synthetic or assumed networks alone.                       
+                    <p> The starting point of this framework is <strong>web crawling</strong>, as demonstrated in the tutorial. 
+                        The data collection process begins with the Wikipedia page <strong>“List of Renaissance Figures”</strong>, 
+                        which provides the foundational set of nodes. 
+                        Each person listed on that page becomes a node in the network. 
+                        Then, for each figure’s individual Wikipedia page, the script checks whether other figures from the same list are mentioned; 
+                        when such a reference is found, an edge(link) is created between them. 
+                        For instance, if the Wikipedia page for Leonardo da Vinci mentions Michelangelo, and Michelangelo also appears in the list of Renaissance figures, 
+                        an edge is drawn from Leonardo da Vinci to Michelangelo. 
+                        The R-based web crawler automates this process by visiting each figure’s Wikipedia page, identifying co-occurring figures, and recording the resulting connections.
                     </p>
 
+                    <p> The 2025 version refines this approach to enable more efficient and detailed data collection. 
+                        Its most significant enhancement is the addition of <strong>temporal and spatial</strong> information—integrating both time(year) and coordinates(latitude and longitude) into the dataset. 
+                        The temporal dimension represents the year of birth for each figure, while the spatial dimension is based on the place of death. 
+                        This choice reflects a practical and interpretive rationale: 
+                        within the European context, an individual’s birthplace often differs from their main sphere of activity, 
+                        whereas the place of death frequently corresponds more closely to where they lived or worked in their later years. 
+                        In cases where the death location is unknown or ambiguous—such as for "Explorers and Navigators" who may have died at sea or outside Europe—the birthplace coordinates are used instead.
+                    </p>
+
+                    <p> Through this process, the dataset encompasses <strong>234 nodes</strong>, organized into <strong>nine categories</strong> 
+                        - Artists and Architects, Composers, Writers, Explorers and navigators, Philosophers, Mathematicians, Humanists, Dancing masters, Other influential people - 
+                        each annotated with temporal and spatial attributes. 
+                        It also includes <strong>1,497 edges</strong> representing the relational ties among these figures. 
+                        This workflow transforms dispersed web-based information into a relational data infrastructure, 
+                        providing a solid foundation for complex network analysis that bridges art historical inquiry with computational methods.
+                    </p>
+
+
+
+                     <h3>Visualization in Gephi</h3>
+                        <br>
+
+                     <h4>Gephi</h4>
+                     
+                     <p> Network visualization can be implemented through various approaches. 
+                        Both <strong>R</strong> and <strong>Python</strong> offer extensive libraries for this purpose—such as 'igraph' in R and 'networkx' in Python—
+                        that allow for analytical and visual exploration within a programmable environment. 
+                        However, I chose Gephi for its intuitive interface and ability to interactively observe the evolution of network structures.
+                     </p>
+
+                     <p> Although Gephi is not the most stable software, and occasionally limited in handling large datasets, 
+                        it remains unmatched among non-programmatic visualization tools. 
+                        It provides a flexible workspace for dynamic experimentation with layouts, color schemes, node attributes, and filters. 
+                    </p>
+
+
+                    <h4>Nodes, Edges, Degree, and Clustering coefficient</h4>
                     
-                    <h3>Conceptual & Methodological Framework</h3> 
-                    
-                    <br>
-                    <strong>(a) Dynamic Network Data Processing</strong>
-                    <p> The initial step is converting Gephi-generated dynamic network logs—time-stamped edge lists, snapshots, or event sequences—into R-friendly representations (e.g. networkDynamic or tergm objects). 
-                        This involves: (1) Parsing temporal edge attribute files, (2) Reconciling node metadata (e.g. attributes like age, status),
-                        (3) Handling missing or intermittent observations, (4) Constructing a continuous-time network process or discrete snapshot sequence.
-                        These tutorials emphasize good data hygiene, alignment of time indices, and structural consistency before simulating contagion.
+                    <p> As noted earlier, the Renaissance Network comprises nine categories of figures — such as Artists and Architects, Mathematicians, and Writers — distinguished by node color. 
+                        The network is directional, meaning each edge has a defined direction of reference, though no weight is assigned.
                     </p>
 
-                     <strong>(b) Temporal Network Modeling & Simulation</strong>
-                     <p> Once data is structured as a temporal network in R, the epidemic simulation tutorial shows how to run an SIR-style or similar contagion model over that evolving network. 
-                        The network evolution may be taken from empirical data directly (i.e., using observed edge changes), 
-                        or supplemented with stochastic tie dynamics if observational windows are incomplete.
-                        Transmission occurs along active ties at each time slice; recoveries or transitions proceed per disease parameters. 
-                     </p>
-
-                     <strong>(c) Analysis & Visualization</strong>
-                     <p> The framework allows overlaying infection paths onto dynamic network plots, animating how infection spreads through observed structural change. 
-                        Time-series plots compare infection prevalence, incidence, and susceptible counts. 
-                        Sensitivity experiments can adjust disease parameters or hypothetical interventions to examine “what-if” scenarios grounded in observed networks. 
-                     </p>
-
-
-                     <h3>Key Insights & Contributions</h3>
-                     <p> By grounding the analysis in observed dynamic networks processed through Gephi and R, 
-                        this approach avoids reliance on artificially generated contact structures and instead reflects the empirical complexity of real social interactions. 
-                        The tutorials further demonstrate a seamless workflow that integrates data preprocessing with epidemic simulation, thereby reducing the traditional disconnect between empirical network observation and model implementation. 
-                        Through this integration, epidemic simulations based on real-world contact dynamics achieve a higher degree of structural realism, producing outbreak patterns that are far more credible than those derived from static or synthetic networks. 
+                    <p> Node size is determined by <strong>in-degree</strong>, which measures how many other figures reference a given individual. 
+                        A node with high in-degree, therefore, represents a figure who is frequently mentioned or acknowledged by others. 
+                        In historical terms, this reflects someone recognized as foundational or exemplary, or a polymath whose contributions extended across multiple fields.
                     </p>
-                    
-                    <p> Moreover, the capacity to replay contagion processes on observed networks enables a more nuanced and realistic evaluation of intervention strategies, both retrospectively and prospectively. 
-                        Collectively, these contributions bridge the gap between data-driven network science and simulation-based epidemiology, enhancing the practical relevance and applicability of computational models to real-world public health challenges.
-                     </p>
+
+                    <p> Gephi allows for flexible manipulation of both node and edge properties, enabling experimentation with different scaling parameters. 
+                        In addition to in-degree, I also scaled node size according to the <strong>clustering coefficient</strong>, which measures how tightly connected a node’s neighbors are— 
+                        that is, how cohesive the local structure around a node is.
+                    </p>
+
+                    <p> A <strong>high clustering coefficient</strong> indicates that a figure belongs to a tightly knit community, suggesting intensive local collaboration or influence. 
+                        Geographically, a high clustering coefficient can be interpreted as evidence of localized interaction, 
+                        where artistic or intellectual exchange was spatially concentrated (for example, within Florence or Paris). 
+                        Conversely, a <strong>low clustering coefficient</strong> does not imply isolation. Instead, it often signifies a <strong>bridge</strong> node—
+                        a figure linking otherwise separate communities, serving as a conduit for influence across clusters or disciplines.
+                    </p>
 
 
-                     <h3>Challenges, Caveats & Limitations</h3>
-                     <p> Several challenges and limitations accompany the modeling of epidemics on dynamic networks. 
-                        Real-world network logs often suffer from issues of data quality and completeness, 
-                        with missing events or sampling gaps that can introduce distortions into simulation outcomes. 
-                        Temporal alignment also presents a major concern, as the resolution of observed contact data—sometimes recorded at minute-level intervals—may not correspond to the time scales relevant for disease progression, 
-                        such as daily or weekly transmission rates.
+                    <h4>Layout Algorithms</h4>
 
-                     </p>
-                     
-                     <p> Scalability further constrains analysis, since processing large temporal networks and executing simulations across them require substantial computational resources and optimized algorithms. 
-                        In addition, causal interpretation remains delicate: 
-                        relying solely on observed network evolution without accounting for latent behavioral factors—such as individuals’ adaptive responses to infection risk—can lead to confounding and misattribution of effects.
-                     </p>
-                     
-                     <p> Finally, generalizability poses a persistent limitation, as contact networks derived from specific environments, 
-                        such as hospitals, may not accurately represent the structural or behavioral dynamics of broader populations.
-                     </p>
+                    <p> As the number of nodes and edges increases, the clarity of visualization typically decreases—
+                        large, dense networks tend to appear like tangled threads. 
+                        Gephi provides a range of layout algorithms for arranging nodes and edges. 
+                        Each algorithm has unique spatial logic, so no single layout can be considered universally superior.
+                    </p>
+
+                    For the Renaissance Network, I employed two layouts :
+
+                    <p> <strong>MultiGravity ForceAtlas2 - </strong>
+                        This algorithm pulls strongly connected nodes together while pushing weakly connected nodes apart, creating visually distinct clusters. 
+                        Parameters such as Prevent Overlap, LinLog Mode, and Gravity allow fine control over spacing and clustering density. 
+                    </p>
+
+                <video
+                autoplay
+                muted
+                loop
+                playsinline
+                controls width="800"
+                preload="metadata">
+                    <source src="files/posting/forceatlas.mp4" type="video/mp4">
+                </video>
 
 
-                     <h3>Future Research Directions</h3>
-                     
-                     <p> Future research can advance this framework through several interconnected directions. 
-                        One promising avenue involves developing hybrid empirical–stochastic models that combine observed network snapshots with stochastic generation techniques to address data gaps and extend forecasting horizons. 
-                        Another crucial direction focuses on behavior-driven dynamics, in which adaptive behavioral rules are embedded within simulations so that individuals modify their contacts in response to changing infection risks, media information, 
-                        or policy interventions.
-                     </p>
-                     
-                     <p> Expanding the model to hierarchical and multiplex structures can further enhance realism by representing layered contact environments
-                        —such as households, workplaces, and social settings—each characterized by its own internal dynamics and interdependencies. 
-                        Robust parameter inference and calibration methods, including Bayesian estimation, likelihood-free approaches, and data assimilation techniques, 
-                        can be used to jointly infer disease and network parameters from empirical incidence and contact data.
-                     </p>
-                     
-                     <p> Moreover, comparative simulation studies across diverse empirical networks can reveal how intervention strategies perform under different social and institutional contexts, 
-                        such as schools, workplaces, or public transport systems. 
-                        Finally, progress in visualization and communication tools, including interactive web-based dashboards and applications, 
-                        will enable users to upload their own dynamic network data, explore contagion scenarios in real time, 
-                        and engage with complex simulation results more intuitively.
-                     </p>
+                    <p> The first animated visualization includes two sequences: 
+                        one where node size corresponds to in-degree, and another where it scales with clustering coefficient. 
+                        Over time, nodes appear sequentially, revealing the gradual formation of clusters. 
+                        Distinct groupings emerge—most notably a green cluster representing Composers— 
+                        whose members interact primarily within their own category rather than across disciplines.
+                    </p>
 
-                     <h3>Conclusion</h3>
+                    <p> As expected, figures such as <em>Leonardo da Vinci, Michelangelo, Erasmus</em>, and <em>Thomas More</em> appear with large nodes in the in-degree visualization, 
+                        reflecting their wide recognition. 
+                        Interestingly, in the clustering coefficient visualization, some of these prominent figures’ nodes shrink in size—particularly Leonardo da Vinci and Thomas More. 
+                        This suggests their role as bridges connecting different clusters rather than as members of a single tightly bound circle.
+                    </p>
 
-                     <p> Although the immediate focus of this work is epidemiological, 
-                        the integrated pipeline—linking dynamic network data processing with contagion simulation—has far broader significance across the social sciences. 
-                        he same framework can be used to model the diffusion of information, innovation, or collective behavior through evolving social networks, 
-                        offering a powerful lens for understanding how ideas or actions spread in complex societies.
-                     </p>
-                     
-                     <p> By combining the three tutorials—data preprocessing in Gephi, dynamic network analysis in R, 
-                        and epidemic simulation over temporally evolving structures—this approach establishes a principled, empirically grounded method for studying diffusion processes. 
-                        The resulting framework not only produces more credible and context-sensitive contagion models but also opens pathways for calibrated inference, 
-                        behavioral adaptation modeling, and comparative analyses across domains, making it a valuable contribution to computational social science as a whole.
-                     </p>
+                    <p> <strong>Geo Layout - </strong>
+                        The second layout, Geo Layout, maps nodes according to their geographical coordinates (latitude and longitude). 
+                        By linking the network’s coordinate data to these parameters, each figure is positioned geographically.
+                    </p>
+
+                       <video
+                autoplay
+                muted
+                loop
+                playsinline
+                controls width="800"
+                preload="metadata">
+                    <source src="files/posting/geolay.mp4" type="video/mp4">
+                </video>
+
+                <p> The second animation also consists of two versions—one based on in-degree, the other on clustering coefficient. 
+                    As the timeline progresses, highly concentrated clusters appear. 
+                    Compared to ForceAtlas2, nodes are so densely grouped that individual structures are difficult to distinguish—an expected result given the geographical centralization of Renaissance activity.
+                </p>
+
+
+                <p> After 1400, Florence becomes the dominant region, showing a surge of figures with high in-degree and large node size. 
+                    Over time, dense overlapping of nodes and edges occurs in certain regions, emphasizing the regional concentration of influence. 
+                    This reinforces the value of using multiple layout algorithms: ForceAtlas2 for structural relationships, and 
+                    Geo Layout for spatial and temporal diffusion.
+                </p>
+
+                <p> In this layout, the earliest major node in Florence is <em>The Medici</em>. 
+                    Although its in-degree is modest, its clustering coefficient is relatively high, 
+                    highlighting its role as a hub of artistic patronage—a central actor facilitating cohesion within Florence’s artistic network. 
+                    After the formation of this Florentine cluster, another significant hub emerges in France, 
+                    where large nodes appear around <em>Johannes Ockeghem</em>. 
+                    Following the emergence of the prominent node <em>Thomas More</em>, 
+                    the late 15th century in England reveals an increasing number of large nodes, 
+                    signaling the broader diffusion of the Renaissance into the English cultural sphere.
+                </p>
+
+
+                <p> <strong>Filtered Visualizations - </strong>
+                    The third animation demonstrates Gephi’s filtering feature applied to specific categories.
+                </p>
+
+                     <video
+                autoplay
+                muted
+                loop
+                playsinline
+                controls width="800"
+                preload="metadata">
+                    <source src="files/posting/filter_art_comp.mp4" type="video/mp4">
+                </video>
+
+                <p> The first filter isolates <strong>Artists and Architects</strong>. 
+                    Here, the Florentine cluster appears particularly prominent, centered around figures 
+                    such as <em>Leonardo da Vinci, Michelangelo</em>, and <em>Giuliano da Sangallo</em>. 
+                    Following <em>Sebastiano Serlio</em>, larger nodes begin to emerge in France, 
+                    revealing the northward migration of architectural influence.
+                </p>
+
+                <p> The second filter focuses on <strong>Composers</strong>. 
+                    As observed earlier in the ForceAtlas2 visualization, this category exhibits strong internal connectivity but limited interaction with other disciplines. 
+                    Interestingly, the Florentine dominance seen in the visual arts does not appear here. 
+                    Instead, composers form several medium-sized clusters across Italy —outside Florence, particularly around <em>Venice</em> and <em>Rome</em> — 
+                    as well as in parts of Western Europe. 
+                    Beginning with <em>Gilles Binchois</em>, notable clusters emerge in French-speaking regions, 
+                    and following <em>John Taverner</em>, larger nodes appear in English-speaking areas, reflecting the diffusion of musical influence beyond Italy.
+                </p>
+
+                <p> Together, these visualizations illustrate how network visualization tools like Gephi make it possible to interpret Renaissance cultural history 
+                    through the lens of relational structure, spatial distribution, and temporal evolution. 
+                    By mapping both influence and interaction, the Renaissance Network reveals not only who was central 
+                    but also how clusters formed, connected, and evolved—transforming static historical data into a dynamic portrait of cultural interconnection.
+                </p>
+                
+
+                <h3>Challenges & Limitations</h3>
+
+
+                <p> Applying a web crawling approach to a historical context inevitably presents several challenges and limitations.
+                </p>
+
+                <P> First, web crawling always carries the risk of <strong>malfunction</strong> or <strong>misclassification</strong>. 
+                    The R code used in this project performs relatively simple operations—visiting the web pages corresponding to each figure 
+                    in <em>the List of Renaissance Figures</em> and extracting information such as links, died places, and birth years. 
+                    However, even within Wikipedia, page structures and formatting are not uniform. 
+                    Small inconsistencies in markup or phrasing can lead to incorrect data extraction. 
+                    While I corrected clear anomalies identified during network visualization, it is possible that other errors remain undetected. 
+                    Such risks are inherent to any automated web-scraping process.
+                </P>
+
+                <P> For verification, I initially considered integrating Google search results to cross-check extracted data. 
+                    However, since Google does not permit automated web crawling of its search results, this approach was excluded from the current tutorial.
+                </P>
+
+                <P> Second, there is the issue of <strong>source validity</strong>. 
+                    Even though Wikipedia is one of the most accessible and frequently updated online resources, 
+                    it is legitimate to question whether it accurately represents the historical relationships and spheres of influence among Renaissance figures. 
+                    While I regard it as a useful and reasonably reliable resource for initial exploration, 
+                    it cannot be considered a definitive reflection of Renaissance influence networks. 
+                    Because Google-based crawling is restricted, 
+                    identifying other suitable and crawlable databases—and securing multiple data sources for cross-validation—remains an essential but time-intensive task. 
+                    Building a more robust dataset would thus require additional time, computational resources, and multi-source verification procedures.
+                </P>
+
+                <p> The final challenge is even more complex and interpretive in nature. 
+                    The mere presence of a name or hyperlink between figures does not necessarily indicate the type or magnitude of influence. 
+                    A mention could signify admiration, critique, or even simple factual reference, and the frequency or context of that mention may vary widely. 
+                    In other words, while the current network structure represents connections, it does not yet capture <strong>directionality of sentiment</strong> or <strong>intensity of influence</strong>. 
+                    To address this, one would need to assign <strong>weights</strong> or even temporal dimensions to edges, 
+                    reflecting how strongly and when one figure influenced another.
+                </p>
+
+                <p> Achieving such precision would require incorporating <strong>text analysis</strong> — specifically, 
+                    natural language processing techniques capable of extracting semantic meaning and relational cues from textual sources. 
+                    This remains an open area of research that I am currently exploring. 
+                    Extracting relational meaning from even a few sentences is a nontrivial task, 
+                    requiring not only technical expertise but also collaboration with domain experts such as curators, art historians, 
+                    and conservators who can interpret contextual nuance.
+                </p>
+
+                <p> Ultimately, while web crawling provides a scalable method for constructing relational datasets from public sources, 
+                    it also reveals the epistemological limits of automation in the humanities. 
+                    Addressing these challenges demands not only better algorithms, but also humanistic interpretation and interdisciplinary collaboration, 
+                    ensuring that computational tools remain in service of historical understanding rather than substituting for it.
+                </p>
+
+
+
+                <h3>Future Direction</h3>
+
+                <p> Addressing all three challenges outlined above would require a substantial, multi-stage research project. 
+                    Even solving the first issue—improving the reliability and consistency of web-crawled data—would already constitute 
+                    a significant step forward in building a more robust and verifiable historical dataset.
+                </p>
+
+                <P> Building on this foundation, my next goal is to model <strong>the temporal dynamics of Renaissance cultural and artistic relations</strong>. 
+                    Cultural exchange and creative influence are not static phenomena; 
+                    they evolve through time, shaped by geography, institutional networks, and shifting artistic movements. 
+                    Capturing this temporal evolution computationally offers a way to move beyond static visualization and toward dynamic explanation.
+                </P>
+
+                <p> One promising approach is the use of <strong>Temporal Exponential Random Graph Models (TERGMs)</strong>, 
+                    which estimate the probability of ties forming or dissolving over time, 
+                    conditional on both node attributes (such as geography or category) and prior network structure. 
+                    By integrating temporal dimensions, TERGMs enable researchers to infer not only who was connected, 
+                    but when and under what conditions such connections emerged or disappeared.
+                </p>
+
+                <p> Moreover, cultural and intellectual life in the Renaissance was inherently multiplex—
+                    composed of overlapping networks of patronage, artistic collaboration, intellectual correspondence, and institutional affiliation. 
+                    Modeling these interactions as a <strong>multiplex network</strong> would allow us to observe how different types of relationships coexisted and influenced one another. 
+                    For instance, one could test whether artistic collaboration tended to follow preexisting social or institutional ties, 
+                    or whether cross-category relationships (e.g., between philosophers and artists) emerged independently of such structures.
+                </p>
+
+                <p> Ultimately, this direction moves the Renaissance Network project from descriptive visualization toward <strong>analytical modeling</strong>, 
+                    linking computational methods with historical interpretation. 
+                    By integrating temporal and multiplex perspectives, the network becomes not merely a map of past connections, 
+                    but a model for understanding the processes of cultural evolution—how ideas, styles, and influences circulated, transformed, 
+                    and persisted across time and space.
+                </p>
+
+                
+                <h3>Conclusion</h3>
+
+                <p> The Renaissance Network tutorial may be more than a technical exercise. 
+                    It can serves as a conceptual invitation to reimagine art and intellectual history as a fundamentally networked phenomenon. 
+                    By integrating web crawling, R-based data analysis, and Gephi visualization, 
+                    it offers a practical gateway into understanding complexity as an emergent property of cultural interaction. 
+                    The framework developed here extends this foundation into a broader research paradigm—
+                    the self-organizing dynamics of interconnected lives, ideas, and influences.
+                </p>
+
+
+                
 
 
 
@@ -296,9 +497,11 @@
 
             <br>
             <h3 data-heading="Reference" dir="auto">References</h3>
-                <p dir="auto"> Jenness, Samuel M., et al. (2018). EpiModel: an R package for mathematical modeling of infectious disease over networks. Journal of statistical software, 84, 1-47. </p>
-                <p dir="auto"> Vanhems, Philippe, et al. (2013). Estimating potential infection transmission routes in hospital wards using wearable proximity sensors. PloS one 8(9)  </p> 
-                
+                <p dir="auto"> Alon, Uri. (2009). How To Choose a Good Scientific Problem. Molecular Cell, 35(6), 726–728. </p>
+                <p dir="auto"> Kienle, M. (2017). Between Nodes and Edges: Possibilities and Limits of Network Analysis in Art History. Artl@s Bulletin, 6(3).  </p> 
+                <p dir="auto"> Lemercier, C. (2015). Formal network methods in history: Why and how? In G. Fertig (Ed.), Rural History in Europe (Vol. 11, pp. 281–310). Brepols Publishers.</p>
+                <p dir="auto"> Schich, Maximilian. (2016). Figuring out Art History. International Journal for Digital Art History 2. </p>
+                <p dir="auto"> Zapata, P. B. (2024). Evolving Methodologies: Computation in Art History. Hertziana Studies in Art History, 3. </p>
                 
                      
 
