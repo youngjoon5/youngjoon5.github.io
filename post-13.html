@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Young Joon Oh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ 
+    <!-- MathJax for LaTeX -->    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="research.html">My Research</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Computational Social Science Post</a>
+                    </li>
+                    <li>
+                        <a href="teaching.html">Teaching</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+ 
+
+  <!--For making Rmarkdown style <code>  
+        <style type="text/css">
+            code {
+             color: inherit;
+             background-color: rgba(0, 0, 0, 0.04);
+                  }
+        </style>
+
+   --> 
+
+
+
+     <!--                      Post Content                   -->
+    <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
+
+
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="css1"><!-- id for refering this part   -->
+
+
+                    <h1> Comparing Social Simulation Frameworks for Modeling Segregation in Washington, D.C. 
+                        : NetLogo versus NetLogoR-(Part 1)</h1>
+                       <span class="meta"><i>&emsp;Posted on Jan.4, 2026</i></span>
+                    
+                    
+                     
+                       <br></br>
+
+                     <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/netlogo.png"width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Segregation Model for Washington DC (ver. 1.1)
+                            </figcaption>
+                        </figure> 
+                      </div>
+                    
+                    <br></br>             
+                 
+                    <h3>Introduction: The “Two-World” Problem in Social Simulation</h3>
+
+                    <P> Agent-Based Modeling (ABM) has established itself as a critical methodology in the social sciences for exploring how macro-level social structures 
+                        — such as urban segregation — emerge from micro-level individual decisions. 
+                        Among available platforms, NetLogo (Wilensky, 1999) remains the gold standard for development due to its accessibility, integrated visualization, 
+                        and natural language syntax, allowing researchers to rapidly prototype complex social dynamics.
+                    </P>
+
+                    <p> However, a persistent friction exists in the workflow of modern computational social science: the disconnection between simulation and analysis. 
+                        While NetLogo excels at running the model, it lacks the sophisticated statistical libraries found in languages like R or Python. 
+                        Consequently, researchers often face a <strong>“cognitive switching cost,”</strong> developing models in NetLogo but exporting data to R for analysis.                      
+                    </p>
+
+                    <p> While bridge packages such as <code>`nlrx`</code> or <code>`RNetLogo`</code> exist to mitigate this, they introduce their own dependencies. 
+                        As NetLogo or the interface packages update their versions, compatibility issues frequently arise, creating a secondary switching cost. 
+                        Although version control systems can manage this risk, maintaining such a fragile pipeline is cumbersome and distracts from the core research. This fragmentation hinders iterative modeling, where statistical findings should immediately inform model calibration.
+                    </p>
+
+                    <p> <strong>NetLogoR</strong>, a package developed to build and run spatially explicit ABMs entirely within the R environment, offers a potential solution. 
+                        By translating NetLogo’s primitives into R functions, it promises to unify the modeling workflow.</p>
+
+                    <p> This essay seeks to evaluate this transition. 
+                        The objective is not merely to prove that NetLogo and NetLogoR produce identical numerical outputs, 
+                        but to assess functional reliability and workflow convenience: 
+                        Can the intentions of a complex, empirically grounded social model be faithfully and efficiently reconstructed in R? 
+                        To test this, I utilize a sophisticated model designed to reconstruct the racial and economic segregation of Washington, D.C.
+                    </p>
+
+
+
+                    <h3>The Empirical Context: Residential Segregation in Washington, D.C.</h3>
+
+                    <p> Washington, D.C. is divided into <strong>eight Wards</strong> — geographical council districts that function as the city’s primary <strong>political-spatial units.</strong> 
+                        While wards are ostensibly electoral districts, they act as policy-relevant containers that shape urban life. 
+                        Crucially, wards are <strong>not socially neutral</strong>; they reflect historical patterns of racialized settlement and governance. 
+                        In essence, wards serve as institutional vessels that convert spatial demographics into distinct political consequences.
+
+                    </p>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/dc_wards.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    The Spatial Distribution of Racial and Economic Segregation across Washington, D.C. Wards.
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                    <p> As illustrated in the map above, D.C.’s wards are segregated both economically and racially. 
+                        In D.C., control over land use and public goods has always been politically constrained. 
+                        Trounstine (2018) argues that segregation in cities like D.C. was not driven purely by neighborhood choice, 
+                        but by top-down governance without local accountability. 
+                        Segregation was institutionalized as an urban form, not merely enforced socially. Public goods in D.C. 
+                        — including schools, transit access, environmental quality, and policing — vary sharply by ward. The causal chain is distinct: 
+                        Segregation → Political Insulation → Unequal Public Goods. 
+                        Residential segregation has not only structured material inequality but has also produced polarized city politics by insulating decision-makers from affected communities.
+                    </p>
+
+                    <p> <strong>Why Wards Matter for Analysis:</strong> Wards are analytically valuable because they correspond to policy authority, 
+                        aggregate micro-level neighborhood dynamics, and enable comparison across institutional contexts.
+                    </p>
+
+
+                    <h3>The NetLogo Model Structure</h3>
+
+                    <p> To rigorously test the capabilities of NetLogoR, 
+                        I employ a NetLogo model based on <strong>Schelling’s Segregation Model</strong>, adapted specifically for Washington D.C. 
+                        Unlike abstract grid-based Schelling models, this simulation incorporates empirical geography, demographic data, 
+                        and bounded rationality to explore how individual preferences for Race and Economic Class interact to produce urban segregation.
+                    </p>
+
+                    <h4>The Empirical Context and Space</h4>
+                    <p> The model is grounded in the stark empirical reality of the “Northwest vs. Southeast” divide in D.C. 
+                        The simulation environment is built using two authoritative datasets:
+                    </p>
+
+                    <ol>
+                        <li dir="auto"><strong>Real Geography:</strong>
+                            The spatial boundaries (Wards) are derived from GIS shapefiles of Washington D.C., provided by <a href="https://opendata.dc.gov/datasets/wards-from-2022/explore?location=38.893601%2C-77.014474%2C10.42">Open Data DC</a>.
+                        </li>
+                    >
+                        <li dir="auto"><strong>Empirical Data: </strong>
+                            Agents are initialized using data from the 2014 American Community Survey (ACS) via <a href="https://planning.dc.gov/page/census-and-demographic-data">DC.gov</a>.
+                        </li>
+                    </ol>
+
+                    <br>
+
+                    <h4>Experimental Capabilities: Forecast vs. Reconstruct</h4>
+
+                    <p>The model is designed to support two distinct experimental modes, plus a supplementary scenario: </p>
+
+
+                    <ol>
+                        <li dir="auto"><strong>Forecast Mode: </strong>
+                            This mode predicts how the city evolves based on individual preferences alone. 
+                            The simulation initializes based on current empirical data (GIS, race, income) and projects future segregation patterns. 
+                            Researchers use this to observe if natural homophily creates segregation patterns that deviate significantly from reality.
+                        
+                        </li>
+                        <br>
+
+                        <li dir="auto"><strong>Reconstruct Mode:</strong>
+                           This mode attempts to <strong>“reverse-engineer”</strong> the preferences required to match historical data. 
+                           In this mode, 50% of the population of each ward is randomized across other wards. 
+                           The simulation then runs to see under what conditions the agents re-sort themselves to match the empirical data.    
+                        </li>
+
+                     <ul>
+                        <li dir="auto">Success Metric:  
+                            The goal is to reduce “Ward Drift” (the error between simulated and actual demographics) to less than 10% for both income and race.
+                        </li>
+                      </ul>
+                        
+                      <br>
+
+                       <li dir="auto"><strong>Gentrification Shock Scenario:</strong>
+                         This scenario manually doubles the income of all agents in Ward 8. 
+                         This allows researchers to observe displacement dynamics, 
+                         specifically testing if wealthy residents stay in the ward or migrate to traditionally wealthy areas in the Northwest.
+                      </li>
+
+                    </ol>
+
+                    <br>
+
+                    <h4>Agents: Bounded Rationality and Class</h4>
+
+                    <p> Agents in the model represent households possessing specific attributes. 
+                        While standard Schelling models often use binary traits, this model employs a nuanced classification system:
+                    </p>
+
+                    <ol>
+                        <li dir="auto"><strong>Race: </strong>
+                           Agents are assigned a race (White, Black, Hispanic/Latino, Asian, Other) 
+                           based on the specific demographic probability of their starting Ward.
+                        </li>
+
+                        <li dir="auto"><strong>Income Class:  </strong>
+                          Agents possess a continuous income value drawn from Ward-specific normal distributions. 
+                          They perceive themselves and their neighbors through the lens of five distinct “Social Classes” based on the Area Median Income (AMI):
+                        </li>
+
+                        <ul>
+                            <li dir="auto"> <strong>Level 0 (Poor):</strong> < 60% AMI </li>
+                            <li dir="auto"> <strong>Level 1 (Lower Class):</strong> 60–80% AMI </li>
+                            <li dir="auto"> <strong>Level 2 (Middle Class): </strong> 80–120% AMI </li>
+                            <li dir="auto"> <strong>Level 3 (Upper-Middle):</strong> 120–200% AMI </li>
+                            <li dir="auto"> <strong>Level 4 (Wealthy):</strong> > 200% AMI </li>
+                        </ul>
+                    </ol>
+
+                    <br>
+
+                    <h4>Behavioral Dynamics: Push and Pull</h4>
+                    
+                    <P> The model’s core innovation is its intersectional decision-making, 
+                        governed by <strong>a dual-process mechanism</strong> of “Push” (Dissatisfaction) and “Pull” (Utility-based Migration).
+                    </P>
+
+                    <h4>The Push (Dissatisfaction) :</h4>
+                    <p>In every time step, agents evaluate their current situation to determine if they are “Unhappy.” This state is triggered by two potential factors:</p>
+
+                    <ol>
+                         <li dir="auto">Local Mismatch:
+                            The agent checks their immediate neighbors. 
+                            If the percentage of different neighbors (based on Race, Income, or a weighted mix of both) exceeds their “intolerance” threshold, 
+                            they become unhappy.
+                        </li>
+
+                        <li dir="auto">Global Surplus (Structural Constraints):
+                          In “Reconstruct Mode”, the model utilizes a Surplus Agent mechanism. 
+                          If a Ward has an over-supply of a specific demographic compared to the Census target, those surplus agents feel pressure to leave, 
+                          even if their local neighbors are similar. 
+                          This acts as a proxy for housing market rigidities. For example, 
+                          an over-supply of low-income agents in a wealthy ward models economic displacement (rising rents), 
+                          while a surplus of wealthy agents in a poor ward represents a lack of suitable housing stock.
+                        </li>
+                    </ol>
+
+                    <br>
+
+                    <h4>The Pull (Utility & Movement Logic): </h4>
+                    <p> Unlike simpler models, where agents move to the nearest open spot, this model employs a Smart Move algorithm. 
+                        Unhappy agents evaluate 5 random empty spots across the entire city and choose the location that <strong>maximizes their Utility (U):</strong>
+                    </p>
+
+                    <p>
+                        $$U =(\alpha \times \Delta\text{Local}) + (\beta \times \Delta\text{Global})$$
+                    </p>
+
+                    <p>
+                        <ul>
+                            <li dir="auto"> \( \Delta\text{Local} \) (Personal Gain): Represents the improvement in immediate neighborhood similarity (Homophily). 
+                            </li>
+
+                            <li dir="auto"> \( \Delta\text{Global} \) (Civic Fit): Represents the improvement in matching the Ward’s Census targets (reducing drift). 
+                                In “Forecast mode”, \( \beta \) is set to 0. 
+                            </li>
+
+                        </ul>
+                    </p>
+
+
+                    <h3>Simulation Execution and Constraints</h3>
+
+                    <p>Although this NetLogo architecture is scalable to over 100,000 households, 
+                        current hardware limitations (a standard laptop environment) necessitate scaling the population down to approximately 2,000 agents to maintain computational feasibility.
+                    </p>
+
+                         <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/go.gif" style="width:100%">
+                         </figure> 
+                      </div>
+
+                      <p> As demonstrated in the simulation interface, I select the “Reconstruct” mode and “Both” from the “consider-which”(race, income, and both). 
+                        The “both-race-weight” slider allows for fine-tuning the intersectional weight between income and race.
+                      </p>
+
+                      <p> The most critical variable is “Intolerance” — the threshold at which an agent can no longer tolerate the “difference” of their neighbors. 
+                        The default intolerance threshold is set to Schelling’s tipping point of 30%. The model generates comprehensive time-series data for each simulation run. 
+                        These longitudinal outputs, which track the dynamic evolution of key variables, serve as the primary subject of analysis.
+                      </p>
+
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/changes.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Reconstructing segregation through NetLogo-based simulation.
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+
+                      <p> When the simulation initializes, 50% of the agents in each ward are scattered globally. 
+                        They then migrate based on their utility functions. The success of the “Reconstruct Mode” is measured by the Ward Drift for Race and Income. 
+                        If the sum of these drift values falls below 10%, the model is considered to have successfully reconstructed the empirical reality of Washington, D.C.
+                      </p>
+
+
+                      <h3>Transitioning to Part 2 </h3>
+
+                      <p> The NetLogo model described above successfully captures the interplay of physical geography, social preferences, and utility-driven migration. 
+                        However, validating the “Reconstruct” requires sophisticated statistical analysis of the convergence patterns — a task for which NetLogo is ill-suited.
+                      </p>
+
+                      <p> In Part 2, I will implement this exact logic using NetLogoR. I will translate the GIS loading of the Wards, the weighted intersectional logic, 
+                        and the utility function into R. 
+                        I will then assess whether the R environment provides a reliable and convenient workflow for analyzing the complex outcomes of this segregation model, 
+                        ultimately determining if the “cognitive switching cost” can be eliminated.
+                      </p>
+       <br>
+            <h3 data-heading="Reference" dir="auto">References</h3>
+            
+                <p dir="auto">Schelling, T. C. (1971). Dynamic models of segregation. The Journal of Mathematical Sociology, 1(2), 143–186. </p> 
+                <p dir="auto">Trounstine, J. (2018). Segregation by design: Local politics and inequality in American cities. Cambridge University Press. </p> 
+                <p dir="auto">Wilensky, U. (1999). NetLogo. Center for Connected Learning and Computer-Based Modeling, Northwestern University. </p> 
+                
+                     
+
+
+
+
+                    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<!-- blockquote 
+<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+<mark> test</mark>
+-->
+
+
+
+
+<!-- Begin : pager back to Computational social science post -->
+
+<ul class="pager">
+                        <li class="next">
+                            <a href="post.html">Return to Post List &rarr;</a>
+                        </li>
+                    </ul>
+                
+<!-- End : pager back to Computational social science post -->
+                  
+
+
+                    <br></br>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
+
+    <hr>
+
+
+
+
+   
+
+
+
+
+
+
+    <!--            Footer            -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    
+                        <li>
+                        <a href="https://www.linkedin.com/in/young-joon-oh-16670a37/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>                        
+                        
+                        
+                    <li>
+                            <a href="https://www.youtube.com/user/yjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                         <a href="https://medium.com/@youngjoonoh" target="_blank" aria-label="Medium">
+                               <span class="fa-stack fa-lg">
+                                 <i class="fa fa-circle fa-stack-2x"></i>
+                                 <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                               </span>
+                         </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://github.com/youngjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Start Bootstrap 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
