@@ -127,392 +127,441 @@
                     <div id="css1"><!-- id for refering this part   -->
 
 
-                    <h1> Donbas, NATO, and the emerging battle against Economic decline</h1>
-                       <span class="meta"><i>&emsp;Posted on Sep.2, 2025</i></span>
+                    <h1> The Two Regimes of Hospital Transmission (From Firebreak to Saturation): Network-Based SI Simulations of Hospital Contagious Risk</h1>
+                       <span class="meta"><i>&emsp;Posted on Feb.13, 2026</i></span>
                     
                     
                      
                        <br></br>
 
-                     <div style="text-align: center;">  <!-- place this picture in the center   -->
-                        <figure>   
-                        <img src="img/post/oblast.png" style="width:100%">
-                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
-                                    Visualization by the author
-                            </figcaption>
-                        </figure> 
-                      </div>
-                    
-                    <br></br>             
-                 
-                    
-                    <P> For more than three years of the Russia-Ukraine war, two issues have dominated the negotiation agenda: 
-                        the status of the Donbas region (Luhansk and Donetsk) and Ukraine's relationship with NATO, particularly Article 5. 
-                        The key question remains: are these genuine core war aims or merely bargaining chips?
+                                      
+                    <h3>Motivation</h3>
+                    <P> This analysis advances a dynamic network modeling framework I originally developed for a tutorial series on temporal network analysis. 
+                        While previous iterations focused on the technical implementation of dynamic network visualization (using Gephi) 
+                        and simulation (using the R package EpiModel), this essay pivots toward applied policy inference. 
+                        By adapting the foundational sensor data from Vanhems et al. (2013), 
+                        I investigate how the “invisible architecture” of hospital contact patterns drives outbreak dynamics. 
+                        The goal is to move beyond descriptive statistics to predictive modeling, offering concrete strategies for infection control in healthcare settings.
                     </P>
 
-                    <h3>The Donbas Region (Luhansk + Donetsk)</h3>
+                    <h3>The Invisible Architecture of Hospital Contacts</h3>
 
-                    <p> The conflict in Donbas has its roots in the EuroMaidan protests of November 2013, a mass movement against pro-Russian President Viktor Yanukovych. 
-                        By February 2014, Yanukovych was ousted, which Russia condemned as a "Western-backed coup." 
-                        Russia swiftly responded by annexing Crimea in March 2014 after a referendum, a region with a large ethnic Russian population. 
-                        In April 2014, pro-Russian armed uprisings erupted in the Donbas region, sparking a war between Ukrainian forces and separatists.                       
+                    <p> Hospitals are structured contact environments. Unlike the “homogeneous mixing” assumption prevalent in basic compartmental models 
+                        (where everyone is equally likely to infect everyone else), 
+                        hospital transmission flows along specific pathways shaped by professional roles, workflows (e.g., morning rounds, shift handoffs), 
+                        and spatial constraints.                    
+                    </p>
+
+                    <p> Understanding this heterogeneity is critical. If contact patterns are structured, infection control policies should not be uniform. 
+                        Instead, interventions can be optimized by targeting the specific times, roles, 
+                        and relationships where transmission opportunities concentrate — essentially identifying the “structural bridges” of infection.
+                    </p>
+
+
+                    <h3>Data Source: Wearable Proximity Sensors</h3>
+                    <p> This study utilizes the proximity-sensor dataset reported by Vanhems et al. (2013), collected in a geriatric unit of a university hospital.
+                        The dataset offers granular insight into human interaction patterns:
+                    </p>
+                    
+                    <ul>
+                        <li dir="auto"><strong>Spatial Resolution: </strong>
+                            Approximately 1–1.5 meters
+                        </li>
+                        <li dir="auto"><strong>Temporal Resolution: </strong>
+                            Contacts recorded in 20-second intervals.
+                        </li>
+                        <li dir="auto"><strong>Duration: </strong>
+                            Continuous monitoring over 4 days and 4 nights.
+                        </li>
+                        <li dir="auto"><strong>Population (N=75):</strong>
+                            29 Patients (PAT) and 46 Staff, comprising 27 Nurses/Aides (NUR), 11 Physicians (MED), and 8 Administrators (ADM).
+                        </li>
+                    </ul>
+
+                    <p> The sensors recorded 14,037 distinct contact events totaling 648,480 seconds (~180 hours), 
+                        providing a robust foundation for reconstructing the contact network.
+                    </p>
+
+
+                    <h3>Stylized Facts</h3>
+
+                    <p> Three key empirical regularities (stylized facts) emerge from the data, which serve as the boundary conditions for our model :
+                    </p>
+
+                    
+                    <h4>1. Strong Temporal Clustering</h4>
+                    <p> Activity is not constant. Contacts cluster heavily during daylight hours, 
+                        with a distinct “morning peak” corresponding to medical rounds and care routines. Nights are effectively quiescent.
                     </p>
 
                     <div style="text-align: center;">  <!-- place this picture in the center   -->
                         <figure>   
-                        <img src="img/post/time.png" style="width:100%">
+                        <img src="img/post/contacts.png" style="width:100%">
                         <figcaption style="font-size:12px; color:gray; margin-top:5px;">
-                                    Visualization by the author
+                                    Figure 1. Temporal intensity of contacts
                             </figcaption>
                         </figure> 
                       </div>
 
 
-                    <p> Throughout the Donbas war and the Minsk I/II Agreements - as well as subsequent talks in the Normandy Format and under the Steinmeier Formula - Russia consistently pushed for political legitimacy for Donbas separatists, 
-                        insisting on elections that would formalize regional autonomy. 
-                        Moscow likely calculated that such elections would yield results comparable to the Crimean annexation referendum. 
-                        This expectation was reinforced by demographics: according to the 2001 census, ethnic Russians made up nearly 40% of the Donbas population(Donetsk : 38.2% and Luhansk : 39%), 
-                        the highest share outside Crimea(58.5%).
+                      <h4>2. Role-Structured Mixing</h4>
+
+                      <p> Exposure is highly assortative by role. 
+                        The contact matrices reveal that “Nurse-to-Nurse” and “Nurse-to-Patient” interactions dominate the network’s total edge weight.
+                        While the first fact reveals when risk is highest, this second fact reveals where risk flows. 
+                        Resource allocation (PPE, screening) has a higher marginal benefit when aligned with these high-volume corridors.
                     </p>
 
-                    <p> Yet, the number of ethnic Russians was not enough to guarantee a pro-Russian vote. 
-                        According to the International Republican Institute's Public Opinion Survey (March 14–26, 2014), 
-                        Ukraine's eastern regions bordering Russia and its western regions bordering Europe displayed starkly different orientations. 
-                        The eastern regions referred to Donetsk, Luhansk, Kharkiv, and Dnipropetrovsk.</p>
-
-                    <p> While 90% of people in the west supported joining the EU, 55% in the east opposed it. 
-                        Similarly, 64% in the west favored NATO membership, whereas 67% in the east rejected it. 
-                        Attitudes toward the EuroMaidan protests followed the same pattern: 71% in the west viewed them positively, 
-                        but 71% in the east regarded them negatively. 
-                        The most common response in the east was that EuroMaidan was a 'political coup d'état' - an interpretation echoing Russia's own characterization.
-                    </p>
-
-                    <p> In this context, Donbas - home to eastern Ukraine's largest concentration of ethnic Russians - emerged as the focal point of resistance to the post-EuroMaidan trajectory of rapid political change toward the West. 
-                        Much of the region sought pro-Russian autonomy, the demand actively backed by Moscow. Over time, 
-                        however, the initial push for autonomy evolved into outright calls for annexation, 
-                        deepening the conflict and shaping the trajectory of the Russia–Ukraine war."
-                    </p>
-
-                    <p> The evolution of Russia's demands suggests that conquering all of Donbas was not an initial core aim. 
-                        The goal seems to have expanded over time. Russia has failed to capture the entire region even after three years of war, 
-                        which raises doubts about whether its demand for the whole of Donbas is truly non-negotiable. Unlike Crimea, 
-                        the Donbas region has a smaller ethnic Russian population, and the initial goal was autonomy, not annexation. 
-                        Therefore, the entire Donbas region seems to be a key bargaining chip, not a non-negotiable objective.
-                    </p>
-
-
-
-                    <h3>Neutrality, Demilitarization, and NATO's Article 5</h3>
-                    
-                    <p> If the Donbas demand is primarily Russia's agenda, then NATO is a shared concern for both Russia and Ukraine. 
-                        Since its independence in 1991, Ukraine has been pressured to maintain neutrality and not join any military blocs.
-                    </p>
-
-                    <p> This policy shifted in 2003 for several reasons. 
-                        Vladimir Putin's rise to power and his increasing influence over former Soviet states raised concerns. 
-                        Ukraine's then-President Leonid Kuchma also favored a more Western orientation. 
-                        However, the crucial factor was Ukraine's realization of the vulnerabilities of the Budapest Memorandum.
-                    </p>
-
-                   
-                     <div style="text-align: center;">  <!-- place this picture in the center   -->
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
                         <figure>   
-                        <img src="img/post/ukrtable.png" style="width:100%">
+                        <img src="img/post/rolepair.png" style="width:100%">
                         <figcaption style="font-size:12px; color:gray; margin-top:5px;">
-                                    Visualization by the author
+                                    Figure 2. Role-pair exposure matrix
                             </figcaption>
                         </figure> 
                       </div>
 
-   
-                    <p> Ukraine had given up its nuclear weapons in exchange for security assurances from the U.S., UK, and Russia under the Budapest Memorandum. 
-                        This proved to be a miscalculation. The memorandum was only a political commitment, not a legally binding defense obligation.
-                    </p>
 
-                    <p> International relations theorist John Mearsheimer had warned that these Western security guarantees were not credible and that conventional weapons would be insufficient to defend Ukraine. 
-                        He even argued that nuclear weapons were necessary for Ukraine's security and to maintain peace in Europe, 
-                        predicting that neutrality would leave Ukraine vulnerable to Russia. 
-                        Within the Ukrainian government, there was also a recognition that under the Budapest Memorandum, no one would actually fight for Ukraine.
-                    </p>
+                      <h4>3. Concentrated Involvement (The 20/80 Rule)</h4>
 
-                    <p> In this context, Ukraine made a policy shift from neutrality to seeking security through NATO membership, formalizing its goal in legislation in 2003. 
-                        Although a subsequent pro-Russian president, Yanukovych, reversed this, the policy of pursuing NATO and EU membership was reinstated after he was ousted. 
-                        Ukraine's push for NATO membership became Russia's primary target, with Putin setting neutrality and demilitarization as key war aims - a stance he has maintained throughout the war.
-                    </p>
+                      <p> A small subset of individuals — specifically, healthcare workers (HCWs) — 
+                        accounts for a disproportionately large share of the total contact duration. 
+                        6 nurses (16% of HCWs) account for 42.1% of HCW–patient contacts and 44.3% of the cumulative duration of HCW–patient contacts. 
+                        These “super-contactors” can act as network hubs.
+                      </p>
 
-                    <p> Although NATO membership remains Ukraine's ideal goal, it is currently not a realistic option. Ukraine's pragmatic choice is to seek neutrality while also securing NATO Article 5-style guarantees. 
-                        NATO's Article 5 is a collective defense clause that considers an attack on one member an attack on all, prompting allies to take "necessary" action. 
-                        However, Russia opposed any collective defense commitments, including NATO-style guarantees.
-                    </p>
+                        <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/top15.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 3. Top-15 individuals dominating contact volume
+                            </figcaption>
+                        </figure> 
+                      </div>
 
 
-                    <p> After the recent Alaska Summit, U.S. special envoy Steve Witkoff stated that Putin had agreed to allow Ukraine to receive Article 5-style security guarantees from the U.S. 
-                        and European allies, calling it a "game-changing" concession. If Russia truly agrees to such guarantees, it would indeed be a significant shift. 
-                        But as always, the devil is in the details.
-                    </p>
+                      <h3> Methodology: From Raw Signals to Epidemic Simulation (EpiModel)</h3>
 
+                      <h4> Data Transformation: The Exposure Backbone</h4>
 
-                    <p> The precedent is instructive. In April 2022, during the Istanbul talks, Russia proposed a 'Treaty on Permanent Neutrality and Security Guarantees for Ukraine.' 
-                        This draft required Ukraine to adopt permanent neutrality, renounce NATO membership, 
-                        and drastically limit its armed forces and equipment - essentially leaving the country nearly disarmed.
-                    </p>
-
-                    <p> While Russia did agree that Ukraine could join the European Union, the treaty's security guarantees came with a catch: 
-                        they mirrored NATO's Article 5 in form but not in substance. 
-                        The guarantors - listed as the U.S., UK, France, China, and Russia - would hold veto power over any defense assistance to Ukraine. 
-                        In effect, Russia would retain control over whether Ukraine could defend itself.
-                    </p>
-
-                    <p> This raises critical questions: in Putin's newly signaled acceptance of Article 5–style guarantees, who exactly would serve as guarantors? 
-                        If China and Russia are included, and especially if they are granted veto power, 
-                        the arrangement would amount to little more than a 2025 version of the Istanbul Protocol.
-                    </p>
-
-                    <p> By contrast, if non-NATO states are included as guarantors without veto rights, 
-                        can such guarantees truly replicate Article 5? Even NATO's own clause does not mandate automatic military intervention, 
-                        but because its members are geographically bound and share security interests, the collective defense incentive is strong. 
-                        That incentive is far weaker for non-NATO guarantors, 
-                        and the outcome could look dangerously similar to the Budapest Memorandum - political assurances without credible defense commitments.
-                    </p>
-
-                    <p> This leads to a larger strategic question: if Russia accepts U.S. and European Article 5–style guarantees, 
-                        does NATO membership still need to remain a non-negotiable objective for Ukraine? 
-                        To answer this, one must look beyond the headlines to a demand Russia has consistently emphasized but receives less attention in Western discourse: 
-                        demilitarization.
-                    </p>
-
-                    <p> Putin has repeatedly stated that the war's original purpose was to address the 'root causes,' by which he means blocking Ukraine's NATO accession and eliminating Western military influence along Russia's borders. 
-                        For Moscow, therefore, the central objective is not merely preventing Ukraine from joining NATO but fundamentally curtailing its military development through cooperation with the West.
-                    </p>
-
-                    <p> If Ukraine's defense capabilities were restrained under Russian terms, Article 5–style guarantees could become a negotiable issue, 
-                        since Ukraine would in practice be unable to act on them. 
-                        This, however, would leave Ukraine's security dependent almost entirely on external powers.
-                    </p>
-
-                    <p> European leaders appear to grasp this hidden dimension of Putin's offer. In the wake of the Alaska Summit, 
-                        their statements have repeatedly stressed that there must be 'no limitations' on Ukraine's armed forces or its military cooperation with Western partners. 
-                        In other words, while headlines focus on Russia's supposed concession, Europe remains wary of the deeper strategic intent: 
-                        to freeze Ukraine's military vulnerability while dressing it in the language of security guarantees.
-                    </p>
-
-                    <p> Accordingly, Russia's indication of willingness to accept Article 5–style guarantees should not be interpreted as evidence of a substantive convergence between Russian and Ukrainian positions on NATO - the central issue of the war.
-                    </p>
-
-                    <p> Any genuine concession of this kind would necessarily hinge on the precise institutional design and implementation details, 
-                        which may themselves generate new points of contention. 
-                        In this sense, future negotiations could prove even more protracted and difficult than battlefield developments. 
-                        The Korean War provides a relevant historical parallel: of its three years, nearly two were consumed by drawn-out armistice negotiations.
-                    </p>
-
-
-                    
-                    <h3>Russia Holds the Upper Hand in Negotiations - But Economic Pressures Are Closing In</h3>
-                    
-
-                    <p> Given Russia's advantageous position, one might assume that Moscow is relatively unconcerned with the protracted nature of negotiations, 
-                        instead prioritizing the pursuit of its core objectives while employing the talks as a means of exerting strategic leverage to secure additional concessions from Ukraine on the battlefield.
-                    </p>
-
-                    <p> The Alaska Summit hinted at a strategic recalibration, where once non-negotiable issues suddenly entered the bargaining space. 
-                        The rapid progression from discussions of a ceasefire to the possibility of ending the war, 
-                        coupled with Russia's apparent concession on Article 5–style guarantees(by the U.S. and Europe), 
-                        suggests that internal pressures within Russia may be reshaping its approach.
-                    </p>
-
-                    <p> Let us turn to the Alaska Summit, where important signs of change emerged in the composition of the Russian delegation. 
-                        This was a highly consequential meeting between President Putin and President Trump, 
-                        convened to address the Russia–Ukraine war - an issue at the heart of acute confrontation not only between Russia and Ukraine, 
-                        but also between Russia, the United States, and Europe.
-                    </p>
-
-                    <p> Among the five key figures accompanying Putin, three were leading figures from the economic sphere: 
-                        Andrei Belousov, Kirill Dmitriev, and Anton Siluanov.
-                    </p>
+                      <p> A raw contact network based on 20-second interactions is too noisy and dense for meaningful transmission modeling. 
+                        To capture the effective transmission structure, I constructed a Cumulative Exposure Backbone Network.
+                      </p>
 
                     <ul>
-                        <li dir="auto"><strong>Sergei Lavrov : </strong>
-                            Foreign minister
+                        <li dir="auto"><strong>Edge Definition: </strong>
+                            An undirected edge exists between two individuals (i, j) 
+                            if their cumulative face-to-face duration exceeds a threshold (≥ 10 minutes) over the observation window.
                         </li>
+                        <li dir="auto"><strong>Rationale: </strong>
+                            This filters out fleeting, low-risk encounters (e.g., passing in a hallway) and retains prolonged interactions where viral transmission is probable.
+                        </li>
+                        
                     </ul>
 
-                     <ul>
-                        <li dir="auto"><strong>Yuri Ushakov : </strong>
-                            Foreign policy adviser
-                        </li>
-                    </ul>
-
-                     <ul>
-                        <li dir="auto"><strong>Andrei Belousov : </strong>
-                            Defense minister
-                        </li>
-                    </ul>
-
-                     <ul>
-                        <li dir="auto"><strong>Kirill Dmitriev : </strong>
-                            Russian Direct Investment Fund chief
-                        </li>
-                    </ul>
-
-                     <ul>
-                        <li dir="auto"><strong>Anton Siluanov : </strong>
-                            Finance minister
-                        </li>
-                    </ul>
-
-                    <p> Andrei Belousov, currently serving as defense minister since 2024, is a relatively new appointee to the position. 
-                        His background, however, is not in defense. 
-                        Trained as an economist, he previously headed the Ministry of Economic Development and served as a presidential aide on economic affairs. 
-                        With the exception of just over a year as defense minister, his career has been overwhelmingly focused on economic policy.
+                    <p> The resulting backbone network (N=75, E=238, Density = 0.086) reveals a core-periphery structure. 
+                        Medical staff (MED) and Nurses (NUR) form a dense, interconnected core, 
+                        while Patients (PAT) and Administrators (ADM) largely occupy the periphery.
                     </p>
 
-                    <p> Among the three economic figures, the most noteworthy is Kirill Dmitriev, CEO of the Russian Direct Investment Fund (RDIF). 
-                        Since the beginning of President Trump's term, Dmitriev has frequently appeared in negotiations related to the war. 
-                        The RDIF functions as Russia's sovereign wealth fund for foreign direct investment, 
-                        established to attract international capital into the Russian economy and to strategically support sectors such as infrastructure, energy, and natural resources.
-                    </p>
-
-                    <p> Dmitriev also has strong ties to the United States: he studied at Stanford and Harvard and previously worked at Goldman Sachs. 
-                        Few could be better positioned to facilitate economic cooperation with the U.S. His presence at the summit signaled a distinct economic focus in Russia's approach. 
-                        Moreover, he has long emphasized energy development in the Arctic as a Kremlin priority. 
-                        Although issues such as Arctic energy were not part of the Alaska Summit's official agenda, 
-                        his involvement offers important clues to Russia's broader strategic intentions.
-                    </p>
-
-                    <p> Moscow now appears eager to bring economic concerns to the negotiation table sooner rather than later. 
-                        Its concession on Article 5–style guarantees - once framed as a non-negotiable demand - may represent less a shift in security policy than a strategic maneuver to create space for discussions on economic issues with the United States.
-                    </p>
-
-                    <p> Why would Russia, which had prosecuted the war with determination despite extensive sanctions, suddenly signal readiness for a policy adjustment? 
-                        The answer lies in the mounting strains within its own economy.
-                    </p>
-
-
-                    <div style="text-align: center;">  <!-- place this picture in the center   -->
-                        <figure>    
-                         <img src="img/post/ru_gdp.png" style="width:100%">
-                           <figcaption style="font-size:12px; color:gray; margin-top:5px;">
-                                Real GDP growth (annual percent change), Russian Federation (IMF DataMapper)
-                            </figcaption>
-                        </figure>
-                      </div>
-
-                    <p> The year 2025 marks a critical inflection point: 
-                        for the first time since the war began, significant economic vulnerabilities have become visible. 
-                        Against most expectations, Russia had previously sustained robust growth of over 4 percent, buoyed by expanded trade with China, 
-                        Turkey, the UAE, and neighboring states, as well as by large-scale state support for the military sector. 
-                        These factors helped soften the impact of sanctions and insulated the economy in the short term. 
-                        That insulation is now eroding. 
-                        Growth has slowed sharply under the combined weight of declining oil prices, a widening fiscal deficit, persistent inflation, 
-                        soaring military expenditures, and acute labor shortages.
-                    </p>
-
-                    <p> At the St. Petersburg International Economic Forum in June 2025, Economic Minister Maxim Reshetnikov acknowledged that the economy stood 'on the brink of recession.' 
-                        Although intended as a warning rather than a definitive forecast, his remarks underscored a new reality: 
-                        in 2025, Russia is waging not only a war in Ukraine but also an intensifying struggle against economic contraction.
-                    </p>
-
-                    <p> This backdrop helps to explain why Putin's five-person delegation to the Alaska Summit included three senior economic officials, 
-                        signaling that Moscow increasingly views its wartime strategy through the prism of economic sustainability.
-                    </p>
-
-
-                <h3>Simplifying the Analysis Through a Game-Theoretic Lens</h3>
-
-
-                    <p> Until now, the core issues in negotiations over the Russia–Ukraine war have centered on the Donbas oblasts and NATO. 
-                        Beginning this year, however, an additional factor has entered the equation: Russia's looming recession. 
-                        How, then, might bargaining over the resolution of the war unfold under these circumstances? While countless variables must be taken into account, 
-                        a simplified formal model can still offer useful insights into Russia's strategy as the dominant actor on both the battlefield and at the negotiating table.
-                    </p>
-
-                     <div style="text-align: center;">  <!-- place this picture in the center   -->
+                      <div style="text-align: center;">  <!-- place this picture in the center   -->
                         <figure>   
-                        <img src="img/post/range.png" style="width:100%">
+                        <img src="img/post/backbone.png" style="width:100%">
                         <figcaption style="font-size:12px; color:gray; margin-top:5px;">
-                                    Visualization by the author
+                                    Figure 4. The Exposure Backbone Network. Colors represent roles
                             </figcaption>
                         </figure> 
                       </div>
 
-                    <p> The bargaining model of the Russia–Ukraine war can be represented in a simplified payoff diagram. 
-                        In this framework, P reflects Russia's expected probability of victory(or standardized payoff), while C denotes the costs of war. 
-                        Thus, Russia's reservation value is therefore P - (Russia's cost). 
-                        Since the current situation favors Moscow, the area representing Russia's share (RUS) is larger.
+                      <h4>Modeling Framework: Network Simulation with ERGMs</h4>
+
+                      <p> To simulate epidemics over dynamic networks, I utilized the EpiModel package in R. 
+                        This framework integrates network estimation with disease simulation through a two-step workflow:
+                      </p>
+
+                      <p> <strong>1. Network Estimation:</strong> 
+                        An Exponential-family Random Graph Model (ERGM) is estimated to capture the structural properties of the observed contact network. 
+                        EpiModel estimates a separable temporal ERGM (STERGM) by specifying (i) a formation model and (ii) a dissolution model.
+                      </p> 
+                      
+                      <p> <strong>2. Epidemic Simulation:</strong> Disease dynamics (e.g., SI, SIR) are simulated over dynamic networks generated from the estimated model.
+                        Mathematically, the probability of observing a specific network configuration y is given by the ERGM equation:
                     </p>
 
-                    <p> Ukraine, conversely, receives the payoff from the opposite side of Russia's outcome. 
-                        As the costs of war increase, Ukraine's reservation value decreases, making its expected value P + (Ukraine's cost) in the diagram.
-                    </p>
+                    $$
+                        \Pr(Y=y)=\frac{\exp\{\boldsymbol{\theta}^\top \mathbf{g}(y)\}}{\kappa(\boldsymbol{\theta})},
+                    $$
 
-                    <p> P lies within the bargaining range. 
-                        If both sides reach an agreement at some point within this range, 
-                        Russia and Ukraine can each secure a payoff greater than what they would obtain by continuing the war 
-                        (that is, more than the respective RUS and UKR areas). 
-                        Thus, a deal can be struck within the bargaining range. 
-                        For Russia, however, certain issues - such as Ukraine's neutrality and demilitarization - fall outside the bargaining range, 
-                        since they are treated as non-negotiable.
-                    </p>
-
-
-                    <p> By contrast, Article 5–style security guarantees appear to lie within the range, making them a potential focus of negotiation. 
-                        In practice, this means the bargaining is likely to revolve around different variants of Article 5–style guarantees, 
-                        with the details determining the eventual outcome.
-                    </p>
+                    <p>where \(Y\) is the adjacency matrix, \(\mathbf{g}(y)\) is a vector of network statistics (e.g., number of edges, mixing patterns by role), 
+                        \(\boldsymbol{\theta}\) represents the model parameters, and \(\kappa(\boldsymbol{\theta})\) is a normalizing constant.</p>
                     
-                    <p> As the agenda setter, Russia holds the initiative. Moscow can present Ukraine with a demand package, 'X'. 
-                        If 'X' lies outside the bargaining range and cuts into Ukraine's share, Kyiv will reject it. 
-                        If 'X' falls within the range, Ukraine will weigh it against its current expected payoff before deciding whether to accept. 
-                        In a simple static model, Russia will typically place 'X' at the far-right end of the bargaining range - the point that maximizes its own payoff. 
-                        This, in turn, becomes the equilibrium outcome of the static game.
+                    <p> In this essay, the formation model is \(g(y) = (edges, nodefactor(label))\), which captures baseline density and differences in activity by role. 
+                        Dissolution is modeled with \(offset(edges)\) and a specified mean edge duration.
                     </p>
 
-                    <p> In reality, however, the situation is considerably more complex than a simple static model. Since Russia is negotiating with both Ukraine and Western powers, 
-                        the uncertainty surrounding the bargaining game is amplified.
+                    <h4>Disease Dynamics: The SI Model</h4>
+                    <p> Given the hospital setting and the relatively short observation window, I employed a Susceptible-Infected (SI) model rather than an SIS or SIR model. 
+                        This assumes that within the short timeframe, individuals do not recover or lose immunity.
                     </p>
 
-                    <p> More importantly, the model must now account for dynamics. As Russia faces a looming recession, its costs are likely to rise sharply over time. 
-                        The repercussions of the recession will affect not only the broader Russian economy but also its military capacity, 
-                        thereby altering the payoffs in fundamental ways.
+
+                    <h4>Transmission Probability</h4>
+                    <p>Standard EpiModel simulations typically rely on two parameters:</p>
+
+                        <ul>
+                        <li dir="auto"><strong>inf.prob: </strong>
+                            The probability of transmission per distinct contact act.
+                        </li>
+                        <li dir="auto"><strong>act.rate: </strong>
+                            The average number of transmissible acts per partnership per unit time.
+                        </li>
+                    </ul>
+
+                    <p> In the standard formulation, the transmission probability \(p_{ij}\) per step for a discordant edge 
+                        (between an infected individual i and a susceptible individual j) is:
                     </p>
 
-                    <p> In the diagram above, as Russia's mounting costs rise over time, the bargaining range widens accordingly. 
-                        At the same time, Russia's expected payoff from continuing the war declines. 
-                        This means that from Moscow's perspective, securing a bargaining deal this year could yield a higher payoff than achieving the same deal a year later. 
-                        From Moscow's perspective, the longer negotiations drag on, the less favorable its payoff becomes.
+                    $$p_{ij} = 1 - (1-\texttt{inf.prob})^{\texttt{act.rate}}$$
+
+                    <p> Here, if act.rate > 1, multiple acts within a time step reduce the probability of escaping infection (1-inf.prob).
                     </p>
 
-                    <p> From a bargaining-theoretic perspective, Russia's rising costs have lowered its reservation value and expanded the feasible set of agreements, 
-                        making settlement more likely. 
-                        The shift of once non-negotiable issues into the bargaining range illustrates how changing material conditions - here, 
-                        the onset of recession - alter the structure of payoffs and redefine the space of possible agreements.
-                    </p>
 
-                    <p> Russia is now fighting on two fronts: the war in Ukraine and a mounting battle against economic decline. With recession eroding its resilience, 
-                        time is no longer on Moscow's side.
-                    </p>
+                    <h4>Adaptation for Cumulative Exposure</h4>
                     
+                    <p> However, as noted in the data transformation section, this study utilizes cumulative dyadic exposure based on a threshold (≥ 10 minutes). 
+                        Therefore, I adapted the transmission probability to be a function of exposure duration:
+                    </p>
+
+                    $$p_{ij} = 1 - \exp(-\beta \, W_{ij}),$$
+
+                    <p>where \(\beta\) represents the per-minute transmission hazard, and \(W_{ij}\) is the total contact time between individuals i and j.</p>
+
+
+                    <h4>Simulation Experiment: Low vs. High Contagiousness</h4>
+
+                    <p> Let \(X_j(t)\) denote the infection status of individual j at time t. 
+                        A susceptible individual j becomes infected at time t+1 if they have contact with any infected neighbor \(i \in N_I(j,t)\). 
+                        The probability of this state transition is:
+                    </p>
+
+                    $$\Pr(X_j(t+1)=I \mid X_j(t)=S) = 1 - \prod_{i\in N_I(j,t)} \big(1-p_{ij}(t)\big)$$
+
+                    <p> Based on this framework, I designed a simulation experiment comparing two disease scenarios:
+                    </p>
+
+                         <ul>
+                        <li dir="auto"><strong>LOW Contagion: </strong>
+                            `inf.prob = 0.0002` (representing a pathogen with lower transmissibility).
+                        </li>
+                        <li dir="auto"><strong>HIGH Contagion:  </strong>
+                            `inf.prob = 0.001` (representing a highly infectious pathogen).
+                        </li>
+                    </ul>
+
+                    <p> For each scenario, the infection was seeded in a single randomly selected individual from a specific role (ADM, MED, NUR, or PAT). 
+                        Stochastic simulations were repeated to generate robust distributions of outcomes.
+                    </p>
+
+                    <p>This experimental design addresses a clear policy question:</p>
+                                        
+                    <p><em>If the index case appears in a specific role, how large might the outbreak become under different levels of contagiousness?</em></p>
+
+
+
+
+
+                    <h3>Results: The Two-Regime System (Firebreak vs. Wildfire)</h3>
+                    
+                            <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/lowhigh.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 5. Simulation results comparing Low vs. High contagiousness
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+
+                      <p> The simulation results reveal that the hospital network behaves as a non-linear system. 
+                        It switches between two distinct states — Containment vs. Saturation 
+                        — depending on the pathogen’s ability to bridge the structural gaps in the network.
+                      </p>
+
+
+
+                      <head>
+                        <style>
+                            table {
+                            font-family: arial, sans-serif;
+                            border-collapse: collapse;
+                            width: 96%;
+                            font-size: 14px;
+                                }
+
+                            td, th {
+                            border: 1px solid #dddddd;
+                            text-align: left;
+                            padding: 8px;
+                                }
+
+                            tr:nth-child(even) {
+                            background-color: #dddddd;
+                                }
+                        </style>
+                    </head>
+                   
+                
+               <table>
+                    
+                        <tr>
+                            <th>Index Role</th>
+                            <th>LOW Regime (Takeoff Prob)</th>
+                            <th>HIGH Regime (Takeoff Prob)</th>
+                            <th>Risk Multiplier</th>
+                        </tr>
+  
+                        <tr>
+                            <td>MED (Physician)</td>
+                            <td>4.0%</td>
+                            <td>92.5%</td>
+                            <td>23x</td>
+                        </tr>
+
+                           <tr>
+                            <td>NUR (Nurse)</td>
+                            <td>5.0%</td>
+                            <td>91.0%</td>
+                            <td>18x</td>
+                        </tr>
+
+                           <tr>
+                            <td>ADM (Admin)</td>
+                            <td>1.0%</td>
+                            <td>54.5%</td>
+                            <td>54x</td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td>PAT (Patient)</td>
+                            <td>0.5%</td>
+                            <td>52.5%</td>
+                            <td>105x</td>
+                        </tr>
+
+                   <caption>Table 1. Simulation Outcomes (SI Model on Exposure Backbone)</caption>
+                   
+                    </table>
+
+                <br>
+                <h4>A. The “Firebreak” Regime (Low Contagion)</h4>
+                <p>In the Low scenario, the network topology works for us.</p>
+                   <ul>
+                        <li dir="auto"><strong>Outcome: </strong>
+                            The takeoff probability is negligible across all roles (≤ 5%).
+                        </li>
+                        <li dir="auto"><strong>Mechanism:  </strong>
+                            The structural holes between patient rooms and the sparsity of the backbone act as natural firebreaks. 
+                            Even when a Nurse (NUR) is the seed, the infection typically burns out before establishing a chain of transmission.
+                        </li>
+                    </ul>
+
+                <br>
+                <h4>B. The “Saturation” Regime (High Contagion)</h4>
+                <p>In the High scenario, the system undergoes a phase transition.</p>
+                   <ul>
+                        <li dir="auto"><strong>Outcome: </strong>
+                            The clinical core (MED/NUR) transforms into a “super-highway.” 
+                            If the infection starts in a Physician, there is a 92.5% probability of a sustained outbreak.
+                        </li>
+                        <li dir="auto"><strong>Structural Equivalence:  </strong>
+                            Notably, Physicians (92.5%) and Nurses (91.0%) are effectively equivalent super-spreaders. 
+                            Both roles act as the “ignition switch” for the ward.
+                        </li>
+                    </ul>
+
+                <br>         
+                <h4>C. The Critical Transition</h4>
+                <p>The most important finding is the fragility of the Admin/Patient periphery.</p>
+                   <ul>
+                        <li dir="auto">- In the Low scenario, ADM/PAT seeds are negligible risks (< 1.0% takeoff).
+                        </li>
+                        <li dir="auto"><strong>Structural Equivalence:  </strong>
+                            Notably, Physicians (92.5%) and Nurses (91.0%) are effectively equivalent super-spreaders. 
+                            Both roles act as the “ignition switch” for the ward.
+                        </li>
+                    </ul>
+
+
+                <h3>Policy Implications: Adaptive Precision IPC</h3>
+                
+                <p> The contrast between the two scenarios supports a strategy of Adaptive Precision Infection Prevention and Control(IPC). 
+                    Policies should switch gears based on the estimated transmissibility (R0) of the threat.
+                </p>
+
+                <h4>1. Baseline Mode (For Low-Contagion / Endemic Pathogens)</h4>
+                       <ul>
+                        <li dir="auto"><strong>Context: </strong>
+                            MRSA, seasonal flu (lower R0).
+                        </li>
+                        <li dir="auto"><strong>Strategy:  </strong>
+                            Standard Precautions & Symptomatic Testing.
+                        </li>
+                         <li dir="auto"><strong>Rationale:  </strong>
+                            The simulation shows that for lower `inf.prob`, the network’s natural topology effectively contains spread. 
+                            Identifying and isolating symptomatic “seeds” is sufficient because the network resists “takeoff.”
+                        </li>
+                    </ul>
+
+     
+                <h4>2. Surge Mode (For High-Contagion / Pandemic Pathogens)</h4>
+                       <ul>
+                        <li dir="auto"><strong>Context: </strong>
+                            COVID-19 (Omicron), Measles, Novel Respiratory Viruses.
+                        </li>
+                        <li dir="auto"><strong>Strategy:  </strong>
+                            Structural Fragmentation (Cohorting).
+                        </li>
+                         <li dir="auto"><strong>Rationale:  </strong>
+                            When ‘inf.prob’ is high, the natural network barriers fail. We must artificially induce the “Low Regime” by cutting edges in the network.
+                            <ul>
+                                <li dir="auto"> Action: Implement “Pod Nursing” (Assigning specific nurses to specific rooms exclusively) to manually recreate the structural holes that the virus has learned to jump.
+                                </li>
+                                <li dir="auto"> Action: Ban “Floating” staff (who move between wards), as they provide the bridging ties that allow the high-contagion wildfire to spread between components.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+
+                 <h4>3. Physician-Specific Interventions</h4>
+                       <ul>
+                        <li dir="auto"><strong>Insight: </strong>
+                            In the Low contagion scenario, Nurses presented a slightly higher risk of initiating an outbreak than Physicians. 
+                            However, in the High contagion scenario, the dynamic shifts: Physicians become the primary “global” bridges, 
+                            exhibiting the highest probability of connecting otherwise disjointed patient groups.
+                        </li>
+                        <li dir="auto"><strong>Policy:  </strong>
+                            Consequently, physician workflows should be modified to prioritize “virtual rounds” or “tele-consultations” 
+                            during high-transmissibility surges. 
+                            This intervention directly reduces the number of physical edges physicians create in the network graph, 
+                            effectively severing the “super-highway” of transmission while maintaining clinical oversight.
+                        </li>
+                   </ul>
+              
+
+
+
                     
 
 
             <br>
             <h3 data-heading="Reference" dir="auto">References</h3>
             
-                <p dir="auto"> Alaska Beacon. (2025, August 15). Anchorage summit appears to be part of Russia’s ongoing hybrid war. https://alaskabeacon.com/2025/08/15/anchorage-summit-appears-to-be-part-of-russias-ongoing-hybrid-war </p> 
-                <p dir="auto"> Associated Press. (2025, August 15). Putin agrees that US, Europe could offer NATO-style security guarantees to Ukraine, Trump envoy says. https://apnews.com/article/trump-witkoff-ukraine-russia-putin-war-048aa829a69b4020ca368577bfe18aee </p>
-                <p dir="auto"> Business Insider. (2025, June). Putin's war-fueled economy is 'on the brink' of recession, minister says. https://www.businessinsider.com/russia-on-brink-recession-inflation-economy-minister-putin-2025-6 </p>
-                <p dir="auto"> Hilgenstock, B., and Ribakova , E. (2025, July 16). Why Russia’s economic model no longer delivers. Peterson Institute for International Economics. https://www.piie.com/blogs/realtime-economics/2025/why-russias-economic-model-no-longer-delivers </p>
-                <p dir="auto"> International Monetary Fund. (2025). World Economic Outlook Database: Real GDP growth (annual percent change), Russian Federation [NGDP_RPCH]. IMF DataMapper. https://www.imf.org/en/Publications/WEO </p>
-                <p dir="auto"> International Republican Institute. (2014, April). Public opinion survey of Ukraine, March 14–26, 2014. https://www.iri.org/wp-content/uploads/2014/04/201420April20520IRI20Public20Opinion20Survey20of20Ukraine2C20March2014-262C202014.pdf </p>
-                <p dir="auto"> Mearsheimer, J. J. (1993). The case for a Ukrainian nuclear deterrent. Foreign affairs, 50-66. </p>
-                <p dir="auto"> NATO. Collective defence and Article 5. https://www.nato.int/cps/en/natohq/topics_110496.htm </p>
-                <p dir="auto"> New York Times. (2024, June 15). Ukraine-Russia Peace is as Elusive as Ever. But in 2022 They were Talking. https://www.nytimes.com/interactive/2024/06/15/world/europe/ukraine-russia-ceasefire-deal.html </p>
-                <p dir="auto"> Reuters. (2025, July 3). Putin tells Trump he won’t back down on goals in Ukraine, Kremlin says. https://www.reuters.com/world/europe/putin-tells-trump-he-wont-back-down-goals-ukraine-kremlin-says-2025-07-03/ </p>
-                <p dir="auto"> The Guardian. (2025, August 15).US-Russia talks on Ukraine: who’s who in the delegations to Alaska? https://www.theguardian.com/world/2025/aug/15/who-are-the-us-and-russian-delegates-meeting-in-alaska-to-discuss-ukraine-putin-trump </p>
-                <p dir="auto"> The Guardian. (2025, August 16). Zelenskyy to fly to Washington as Merz says US ready to be part of Ukraine security guarantees – as it happened. https://www.theguardian.com/world/live/2025/aug/15/trump-putin-alaska-meeting-summit-news-updates </p>
-                <p dir="auto"> Ukrainian Census. (2001). All-Ukrainian population census: National composition of population. State Statistics Committee of Ukraine. https://web.archive.org/web/20111217151026/http://2001.ukrcensus.gov.ua/eng/results/general/nationality/ </p>
-                <p dir="auto"> Yost, D. S. (2015). The Budapest memorandum and Russia's intervention in Ukraine. International Affairs, 91 (3), 505-538. </p>
+                <p dir="auto"> Jenness et al. (2018). EpiModel: An R Package for Mathematical Modeling of Infectious Disease over Networks. Journal of Statistical Software, 84, 8. </p> 
+                <p dir="auto"> Vanhems et al. (2013). Estimating Potential Infection Transmission Routes in Hospital Wards Using Wearable Proximity Sensors. PLOS ONE, 8(9), e73970. </p>
                 
                      
 
