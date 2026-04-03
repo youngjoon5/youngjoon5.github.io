@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Preview : ctrl+k v   or   ctrl+shift+v   -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Young Joon Oh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ 
+    <!-- MathJax for LaTeX -->    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="research.html">My Research</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Computational Social Science Post</a>
+                    </li>
+                    <li>
+                        <a href="teaching.html">Teaching</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/fall1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Computational Social Science Post</h1>
+                        <h2 class="subheading">Tips on R, Netlogo, and Python</h2>
+                       <!--  <span class="meta"><i>&emsp;Posted on Dec.1, 2020</i></span>   -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+ 
+
+  <!--For making Rmarkdown style <code>  
+        <style type="text/css">
+            code {
+             color: inherit;
+             background-color: rgba(0, 0, 0, 0.04);
+                  }
+        </style>
+
+   --> 
+
+
+
+     <!--                      Post Content                   -->
+    <!--                      Post Content                   -->
+   <!--                      Post Content                   -->
+
+
+
+
+
+
+
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+                    <div id="css1"><!-- id for refering this part   -->
+
+
+                    <h1> Computational Modeling of the 2026 U.S.–Israel–Iran Conflict (Managed Stalemate at the Strait)</h1>
+                       <span class="meta"><i>&emsp;Posted on Mar.31, 2026</i></span>
+                    
+                    
+                     
+                       <br></br>
+
+                         <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_netlogo.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Hormuz Escalation Agent-Based Model using Netlogo
+                            </figcaption>
+                        </figure> 
+                      </div>
+                    
+                    <br></br> 
+
+                     <h3>Introduction: The Epistemological Trap</h3>                 
+                    <P> As of late March 2026, the Middle East stands at a critical geopolitical crossroads. 
+                        Following coordinated U.S.–Israeli airstrikes on Iran, the region entered a conflict whose consequences extended far beyond the battlefield. 
+                        Iran retaliated asymmetrically and effectively closed the Strait of Hormuz to much of international shipping, 
+                        turning a military confrontation into a crisis of energy, access, and market stability. 
+                        In such an environment, the central analytical problem is not simply that the crisis is dangerous. 
+                        It is that it is extraordinarily difficult to think rigorously about it in real time.
+                    </P>
+
+                    <p> Analysts confronting an active multi-theater conflict face an epistemological trap. 
+                        The strategic environment is saturated with interconnected variables: alliance pressure, military signaling, oil prices, shipping disruption, 
+                        insurer confidence, domestic political constraints, and bargaining under uncertainty. 
+                        In the fog of crisis, what is abundant is qualitative information — fragmented intelligence, official statements, expert commentary, and continuous news coverage. 
+                        What is scarce is the kind of stable quantitative evidence that conventional statistical forecasting generally requires. 
+                        By the time rich data exist, the crisis itself has already passed.
+                    </p>
+
+                    <p>That is why an agent-based model is useful here. The point of the model is not to replace evidence with simulation. 
+                        It is to formalize strategic reasoning when evidence remains partial and fragmented. 
+                        Instead of asking whether the crisis ends in “war” or “peace,” the model asks a more disciplined question: 
+                        under what conditions does military de-escalation fail to produce commercial normalization? The answer that emerges is clear. 
+                        Under current structural conditions, full resolution is exceptionally rare. 
+                        What emerges more readily is a layered equilibrium of managed stalemate.
+                    </p>
+
+
+                    <h3>A Layered Model of Coercion</h3>
+
+                    <p> The model departs from binary conflict frameworks by representing the crisis as a four-layer process. 
+                        At each tick, the simulation classifies the system into a military layer, an economic-war layer, a maritime-access layer, 
+                        and a diplomacy layer. 
+                        The military layer distinguishes military pause, limited exchange, active military war, and ground war. 
+                        The economic-war layer distinguishes oil-price coercion, prolonged economic war, and war-driven oil shock. 
+                        The maritime-access layer distinguishes selective passage, partial closure, and contested reopening. 
+                        The diplomacy layer distinguishes no talks, backchannel bargaining, ceasefire talks, and fragile arrangement.
+                    </p>
+
+                    <p> This layered structure is critical because the crisis does not move in lockstep across domains. 
+                        A reduction in direct violence does not automatically restore maritime access. Improved access does not necessarily produce normal diplomacy. 
+                        The model is designed to allow those domains to diverge — and the simulations show that they often do. 
+                        Scenario 4 (I tested several scenarios) is especially useful because it is not an easy-peace scenario and not a maximal-war scenario. 
+                        It is best understood as a de-escalation-friendly but normalization-resistant case: 
+                        uncertainty is relatively low, Israeli pressure is real but not overwhelming, Iranian coercive capacity is substantial but not maximal, 
+                        and bargaining over passage remains possible. 
+                        That makes it the best setting for testing my essay’s central question: 
+                        whether military de-escalation can occur without full commercial normalization.
+                    </p>
+
+                    <p> In Scenario 4, the dominant endpoint is not resolution but selective passage under prolonged economic war. 
+                        Military pause appears frequently, but it does not define all non-ground-war runs; 
+                        the model also sustains limited exchange and active military pressure alongside bargaining and incomplete access normalization. 
+                        The model’s asymmetry is deliberate. 
+                        Selective passage is easier to sustain than contested reopening. Full ceasefire requires a demanding conjunction of restored throughput, 
+                        high insurer confidence, reliable navigation, rising diplomatic momentum, 
+                        Israeli security above threshold, and Iranian regime stability above its survival floor. 
+                        Selective passage, by contrast, survives under much looser conditions. 
+                        That is not a technical quirk. 
+                        It encodes the substantive proposition that coercive access control is structurally easier to sustain than full commercial normalization.
+                    </p>
+
+
+                    <h3>Formal Modeling: Asymmetric Utilities, Belief Updating, and Chokepoint Throughput</h3>
+
+                    <p> To clarify the strategic structure of the model, 
+                        the NetLogo simulation can be represented as a stylized three-actor stochastic game embedded in a maritime chokepoint.
+                    </p>
+
+                    <p>Let the strategic actors be<br>                        
+                    $$
+                    N = \{U, I, Z\},
+                    $$
+                    where \(U\) denotes the United States, \(I\) denotes Iran, and \(Z\) denotes Israel. At each tick \(t\), 
+                    the crisis is described by the layered state <br>
+
+                    $$
+                    L_t = (M_t, E_t, A_t, D_t),
+                    $$
+                    where \(M_t\)​ is the military layer, \(E_t\)​ the economic-war layer, \(A_t\)​ the maritime-access layer, and \(D_t\)​ the diplomacy layer. 
+                    The overall strategic regime is a mapping <br>
+
+                    $$
+                    R_t = \Gamma(M_t, E_t, A_t, D_t).
+                    $$
+
+                    Each actor chooses an action from an actor-specific set by maximizing expected utility under stochastic decision noise:
+                    $$
+                    b_{i,t+1} = \frac{P(e_t \mid H)b_{i,t}} {P(e_t \mid H)b_{i,t} + P(e_t \mid \neg H)(1-b_{i,t})}.
+                    $$
+                    </p>
+
+                    <p> In the model, Bayesian updating is most explicit in two places: the U.S. updates its belief that Iran is bluffing, 
+                        and Iran updates its belief that the U.S. will invade. Israel also updates perceptions, 
+                        but those updates are heuristic rather than fully Bayesian. This distinction matters because the crisis is not only a problem of material damage. 
+                        It is also a problem of interpretation. 
+                        Mine deployment, shipping harassment, selective passage, and missile escalation do not communicate the same thing. 
+                        They shift beliefs differently. The model therefore simulates action under conditions of inference and misperception.
+                    </P>
+                    
+                    <p> The key material variable is effective strait throughput, which the model treats not as a purely physical measure but as the interaction of physical navigability, 
+                        commercial conditions, navigational reliability, and political permission. In stylized form:
+                    $$
+                    T_t^{eff} \approx T_t^{phys} \cdot A_t^{climate} \cdot R_t,
+                    $$
+                    
+                    where \(A_t^{climate}\)​ is a weighted composite of commercial throughput, navigational reliability, and political permission, 
+                    and \(R_t\)​ is a recovery factor. Brent crude(\(B_t\)) then rises as effective throughput falls and crisis panic increases:
+                    $$
+                    B_t = \bar{B} + \alpha (1 - T_t^{eff}) + \beta \Pi_t.
+                    $$
+                    This is the mechanism through which the model captures chokepoint leverage: oil is not merely an outcome of war, but a strategic channel of coercion.
+                    </p>
+
+                    <p> The model’s central proposition can therefore be stated directly:
+                    $$
+                    \text{Military de-escalation} \nRightarrow \text{commercial normalization}.
+                    $$
+                    
+                    More concretely, the model readily generates layered configurations such as
+                    $$
+                    M_t = \text{Military_Pause},~ E_t = \text{Prolonged_Economic_War},~ A_t = \text{Selective_Passage},
+                    $$
+                    showing how military restraint, economic coercion, and constrained maritime access can coexist.
+                    </p>
+
+
+                    <h3>Pathway Analysis and Event Timing</h3>
+
+                    <p> A model of this complexity should not be evaluated solely by its terminal state. 
+                        The most interesting theoretical content lies in the temporal pathway: 
+                        when selective passage appears, when diplomacy begins, when military pause becomes possible, 
+                        and why a subset of runs collapses into ground war. 
+                        The revised analysis therefore shifts attention from end-state frequencies to trajectories.
+                    </p>
+
+ 
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig1.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 1:Regime Heatmap
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                
+                <p> Figure 1 visualizes 50 runs of Scenario 4 as layered trajectories sorted by terminal outcome. 
+                    The ordering makes the pattern legible: 
+                    ground-war runs cluster at the top, while more bargaining-oriented runs appear lower in the figure. 
+                    The most striking result, however, is not the military layer. It is the rigidity of the economic-war layer. 
+                    The economic layer is overwhelmingly locked in prolonged economic war even while the military and diplomacy layers evolve more variably.
+                </p>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig2.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 2:Pathways
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                <p> Figure 2 compares the canonical pathways: ground war, pause plus backchannel, and pause plus talks. 
+                    Ground-war runs generate early casualties and settle into a sharply degraded equilibrium with low throughput, low insurance, 
+                    and very high oil prices. 
+                    The pause-oriented runs do not move toward normality in any simple sense. Throughput improves only modestly, 
+                    insurer confidence improves strongly over time, and Brent crude remains well above normal levels. 
+                    What separates a “better” run from a catastrophic one is not simply its final label. 
+                    It is the sequence through which the layered domains decouple.
+                </p>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig3.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 3:Event Timing
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                <p> Figure 3 makes this chronology explicit. Selective passage and diplomacy begin at tick 0 across the sample. 
+                    Military pause tends to emerge later, around ticks 7 to 9. 
+                    Ground war, when it occurs, generally arrives between ticks 8 and 15. 
+                    This means that the first phase of the crisis is structurally similar across pathways. 
+                    Bifurcation occurs only later, around the point at which military pause either consolidates or fails. 
+                    In theoretical terms, bargaining does not wait for complete calm, 
+                    and selective access control becomes institutionalized before the military layer actually settles.
+                </p>
+
+
+
+                <h3>The Long-Horizon Test: Delayed Recovery or Blocked Recovery?</h3>
+
+                <p> The strongest evidence for the managed-stalemate thesis comes from the long-horizon comparison at 120, 200, and 300 ticks. 
+                    If the model were merely slow to normalize, then giving it more time should generate open passage, restored throughput, 
+                    falling oil prices, and a decisive diplomatic transition. That is not what happens.
+                </p>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig4.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 4:Recovery
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                <p> Figure 4 shows the key result. Over longer horizons, insurance recovers dramatically. 
+                    Brent crude declines from its earlier crisis peak. Yet throughput never crosses the 0.40 recovery threshold. 
+                    By the 300-tick horizon, insurance approaches roughly 0.94, while throughput rises only from about 0.24 to about 0.29. 
+                    The asymmetry is unmistakable: the route becomes more trusted than it becomes open. 
+                    No run achieves meaningful full recovery in physical access.
+                </p>
+
+                <p> This is my essay’s most important finding. The principal bottleneck is no longer only market fear. 
+                    It is persistent physical and political contestation: mines, permissions, and selective access control. 
+                    The crisis therefore resolves economically without resolving physically. 
+                    The long-horizon test refines the model’s strongest claim. The simulations do not imply endless collapse. 
+                    They imply incomplete recovery.
+                </p>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig5.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 5:Diplomatic Layer
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                      <br></br>
+
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig6.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 6:Military Layer
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                <p> Figures 5 and 6 reveal a crucial cross-layer divergence in the crisis process. 
+                    Over time, a larger share of runs moves in the military layer toward military pause, 
+                    while the diplomatic layer increasingly concentrates in fragile arrangement. 
+                    But these shifts should not be mistaken for full normalization. 
+                    They indicate movement away from immediate escalation, not a return to stable peace. 
+                    The system becomes less overtly violent and more diplomatically organized, 
+                    yet it remains far from restored commercial confidence or settled political order.
+                </p>
+
+                <p> This divergence lies at the core of the model’s argument: 
+                    military de-escalation and diplomatic structuring can occur without producing durable settlement, commercial normalization, 
+                    or a genuine restoration of regional stability.
+                </p>
+
+                    
+                    <div style="text-align: center;">  <!-- place this picture in the center   -->
+                        <figure>   
+                        <img src="img/post/hormuz_fig7.png" style="width:100%">
+                        <figcaption style="font-size:12px; color:gray; margin-top:5px;">
+                                    Figure 7:Final tick distribution
+                            </figcaption>
+                        </figure> 
+                      </div>
+
+                <P> Figure 7 reinforces this visually. 
+                    The final-tick distributions by horizon show that insurance shifts dramatically upward as the horizon lengthens, 
+                    while throughput moves only modestly. Brent declines, but not toward a genuinely normal range. 
+                    Confidence recovers; access does not.
+                </P>
+                
+
+
+                <h3>The Structural Asymmetry of Utilities and Historical Memory</h3>
+
+                <p> The model demonstrates why a crisis of this kind settles into layered coercion rather than clean resolution. 
+                    The three actors face fundamentally different incentive structures, and it is the collision of those structures 
+                    — not the behavior of any single actor — that produces the managed-stalemate equilibrium.
+                </p>
+
+                <p> <strong>The United States</strong> seeks an off-ramp because its utility declines as oil prices rise, casualties accumulate, 
+                    and domestic political costs grow. But even if Washington enforces a military pause, 
+                    it cannot unilaterally halt the economic war. Only Tehran holds the keys to the chokepoint.
+                </p>
+
+                <p> <strong>Iran</strong> does not need a battlefield victory to preserve leverage. 
+                    Selective passage and economic warfare remain useful precisely 
+                    because they keep pressure on global markets while avoiding the regime-threatening costs of a U.S. ground invasion. 
+                    Iran’s strategy is not to win the kinetic war. 
+                    It is to make the economic consequences of continued conflict costlier than the concessions required to end it.
+                </p>
+
+                <p> <strong>Israel</strong> remains hawkish because incomplete degradation of Iran remains strategically unsatisfactory. 
+                    From Jerusalem’s perspective, any settlement that leaves Iranian coercive capacity intact is not a resolution but a deferral.
+                </p>
+
+                <p> These colliding asymmetries generate the model’s central result: military de-escalation does not imply commercial normalization.
+                    The conclusion also has a temporal dimension. Commercial actors eventually adapt. 
+                    Insurers learn to price the new normal. 
+                    Markets stop treating every day of disruption as a fresh shock. 
+                    But physical and political access remain much harder to normalize. 
+                    That lag is what allows oil and time to function as strategic weapons. 
+                    The crisis need not be kinetically victorious to be strategically effective. 
+                    Selective passage, constrained throughput, and partial market adaptation can themselves become an equilibrium.
+                </p>
+
+
+
+                <h3>What the Model Shows — and What It Does Not</h3>
+
+                <p> The model should not be read as a deterministic forecast of catastrophe. Its contribution is narrower and stronger. 
+                    It shows why clean resolution is structurally difficult. 
+                    Under the conditions represented here, the most plausible equilibrium is neither simple war nor full peace. 
+                    It is managed stalemate, characterized by military pause or limited exchange, selective passage, prolonged economic war, 
+                    and fragile diplomatic arrangement.
+                </p>
+
+                <p> That claim is persuasive precisely because it is not a point prediction. 
+                    The model does not say that the future must unfold in only one way. 
+                    It says that, given this strategic architecture, full normalization is rare, while layered coercive stability is common. 
+                    The critical decoupling is not accidental. It is produced by actor asymmetries, imperfect observation, chokepoint structure, 
+                    and the unequal pace at which markets and physical access recover.
+                </p>
+
+
+
+                <h3>Conclusion</h3>
+
+                <p> The most important implication of this analysis is conceptual rather than predictive. 
+                    Chokepoint crises cannot be understood as if the only relevant question is whether states escalate or de-escalate militarily. 
+                    In the Strait of Hormuz, access control, insurer confidence, operator caution, 
+                    and oil-price politics can outlast and outpace the military layer. That is why the model reframes resolution itself. 
+                    What matters is not only whether violence falls, but whether access normalizes.
+                </p>
+
+                <p> In these simulations, that normalization rarely occurs. Military pause, ceasefire talks, and fragile arrangement may emerge, 
+                    but they do so alongside continued economic coercion and selective Iranian passage. 
+                    Over time, the route may become more trusted, but it does not become fully open. That is not a failure of the model. 
+                    It is the model’s strongest theoretical insight into the future of geoeconomic warfare.
+                </p>
+                    
+
+
+            <br></br>
+            <h3 dir="auto">Appendix : Brief ODD(Overview, Design concepts, and Details) Protocol</h3>
+            
+            <p>
+            <h4> 1 Purpose</h4>
+                The model explains how a Strait of Hormuz crisis can evolve into layered coercive equilibrium rather than simple war or peace. 
+                It examines how military de-escalation can coexist with continued economic war, selective passage, 
+                and incomplete diplomatic stabilization. The model is explanatory rather than point-predictive. 
+                Its central analytical question is not “does the crisis end?” but “how does coercive access control persist even when battlefield intensity declines?”    
+            </p>
+            
+            <p>
+                <h4>2 Entities, State Variables, and Scales</h4>
+                <strong>Entities:</strong> three strategic actors (United States, Iran, Israel), mine agents, and a patch-based maritime environment with shipping lanes.
+                <br>
+                <strong>Actor variables:</strong> risk tolerance, security perception, regime stability, alliance friction, and key beliefs about bluffing and invasion.
+                <br>
+                <strong>System variables:</strong> physical throughput, commercial throughput, permission factor, insurance, GNSS(Global Navigation Satellite System) reliability, military degradation, U.S. casualties, Brent crude price, diplomatic momentum, the four layered regime states, and persistence counters for selective passage, partial closure, and reopening.
+                <br>
+                <strong>Scale:</strong> one tick is interpreted as approximately one day.
+            </p>
+
+            <p>
+                <h4>3 Process Overview and Scheduling</h4>
+                Each tick follows the same sequence: observe with noise, update beliefs, select actions, execute actions, 
+                update market and access conditions, classify the four layers, update persistence counters, and check stop conditions. 
+                This ordering matters because crisis outcomes are path-dependent.
+            </p>
+
+            <p>
+                <h4>4 Design Concepts</h4>
+                <strong>Emergence:</strong> the main emergent outcome is a layered strategic regime in which military pause, prolonged economic war, selective passage, and fragile arrangement can coexist.
+                <br>
+                <strong>Adaptation:</strong> actors adapt by choosing actions according to changing utilities.
+                <br>
+                <strong>Sensing:</strong> actors do not perfectly observe one another; perception is filtered through observation error.
+                <br>
+                <strong>Stochasticity:</strong> uncertainty enters through both observation error and decision noise.
+            </p>
+
+
+            <p>
+                <h4>5 Initialization</h4>
+                The model begins from an already-active crisis: commercial stress, low insurer confidence, preexisting mines, 
+                and coercive pressure. 
+                Initial conditions therefore represent a conflict already underway rather than a peaceful pre-crisis baseline.
+            </p>
+
+
+            <p>
+               <h4>6 Input Data and Calibration</h4>
+                The model is anchored by scenario calibration against plausible crisis signatures: 
+                elevated Brent prices, depressed throughput, weak insurance confidence, persistent selective passage, 
+                and military pause without full normalization. 
+                Trajectory analysis and long-horizon comparison are then used to evaluate whether the model reproduces those layered crisis dynamics. 
+            </p>
+
+
+            <p>
+                <h4>7 Submodels</h4>
+                <strong>Belief updating:</strong> Bayesian inference from noisy perceived actions.
+                <br>
+                <strong>Utility-based decision:</strong>  menu evaluation under stochastic noise.
+                <br>
+                <strong>Maritime access:</strong> physical throughput multiplied by commercial and political constraints.
+                <br>
+                <strong>Layer classification:</strong> threshold-based classification into military, economic-war, access, and diplomacy layers.
+                <br>
+                <strong>Persistence tracking:</strong> streak and cumulative counters used to identify durable regimes.
+            </p>
+                
+
+
+
+                    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<!-- blockquote 
+<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+<mark> test</mark>
+-->
+
+
+
+
+<!-- Begin : pager back to Computational social science post -->
+
+<ul class="pager">
+                        <li class="next">
+                            <a href="post.html">Return to Post List &rarr;</a>
+                        </li>
+                    </ul>
+                
+<!-- End : pager back to Computational social science post -->
+                  
+
+
+                    <br></br>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
+
+    <hr>
+
+
+
+
+   
+
+
+
+
+
+
+    <!--            Footer            -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                    
+                        <li>
+                        <a href="https://www.linkedin.com/in/young-joon-oh-16670a37/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>                        
+                        
+                        
+                    <li>
+                            <a href="https://www.youtube.com/user/yjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                         <a href="https://medium.com/@youngjoonoh" target="_blank" aria-label="Medium">
+                               <span class="fa-stack fa-lg">
+                                 <i class="fa fa-circle fa-stack-2x"></i>
+                                 <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                               </span>
+                         </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="https://github.com/youngjoon5">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Start Bootstrap 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
