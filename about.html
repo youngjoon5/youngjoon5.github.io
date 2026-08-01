@@ -22,6 +22,61 @@
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+    <!-- Page-specific readability improvements -->
+    <style>
+        .about-content p {
+            margin: 0 0 24px;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .about-heading {
+            margin: 42px 0 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #0085a1;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .about-heading:first-child {
+            margin-top: 0;
+        }
+
+        .committee-list {
+            margin: -6px 0 26px 22px;
+            padding-left: 18px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .committee-list li {
+            margin-bottom: 6px;
+        }
+
+        .about-actions {
+            margin-top: 38px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .about-actions .btn {
+            margin: 0 10px 10px 0;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .about-content p {
+                font-size: 18px;
+                line-height: 1.65;
+            }
+
+            .about-heading {
+                margin-top: 34px;
+            }
+        }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -76,7 +131,7 @@
                     <div class="page-heading">
                         <h1>About Me</h1>
                         <hr class="small">
-                        <span class="subheading">I am...</span>
+                        <span class="subheading">Political Economy &middot; Computational Social Science &middot; Public Policy</span>
                     </div>
                 </div>
             </div>
@@ -87,8 +142,10 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p> My name is Young Joon Oh — without a middle name. 
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 about-content">
+                <h2 class="about-heading">Background</h2>
+
+                <p>My name is Young Joon Oh—without a middle name. 
                     In my case, Young Joon (including the space) is my first name. 
                     When I applied for my passport, it was common for Koreans to separate the two syllables of an English first name with a space or hyphen. 
                     Although combining them—for example, <em>Youngjoon</em>—has since become more common, I have kept the original spelling. 
@@ -96,50 +153,66 @@
                 
         <!--    <p>I am currently actively seeking new academic and research opportunities. </p>      -->
                                     
-                <p> I was born and raised in South Korea. I earned my B.A. in Political Science, with a minor in Economics, from Chung-Ang University. 
+                <p>I was born and raised in South Korea. I earned my B.A. in Political Science, with a minor in Economics, from Chung-Ang University. 
                     I then completed an M.A. at Seoul National University, where I studied voting behavior through rational-choice and formal modeling.
                     This early effort to connect substantive political questions with analytical methods continues to shape my approach to both research and teaching.
                 </p>
 
-                <p> Before beginning my doctoral studies, I spent approximately seven years as a legislative aide in the National Assembly of the Republic of Korea. 
-                    My work supported legislative activity across several committees, 
-                    including the National Policy Committee; National Defense Committee; Environment and Labor Committee; Commerce, Industry and Energy Committee; 
-                    National Policy Committee(covering government administration, competition policy, and financial policy and regulation) ; 
-                    and Foreign Affairs, Trade and Unification Committee. 
+                <h2 class="about-heading">Public Service</h2>
+
+                <p>Before beginning my doctoral studies, I spent approximately seven years as a legislative aide in the National Assembly of the Republic of Korea. 
+                    My legislative portfolio spanned five committees:
+                </p>
+
+                <ul class="committee-list">
+                    <li><strong>National Policy</strong>—government administration, competition policy, and financial policy and regulation</li>
+                    <li><strong>National Defense</strong></li>
+                    <li><strong>Environment and Labor</strong></li>
+                    <li><strong>Commerce, Industry and Energy</strong></li>
+                    <li><strong>Foreign Affairs, Trade and Unification</strong></li>
+                </ul>
+
+                <p>
                     I contributed to policy research, bill analysis, committee preparation, and legislative strategy across these diverse policy areas. 
                     I also served on campaign teams during several major national elections, 
                     including the 2004 National Assembly election, the 2006 Seoul mayoral election, and the 2007 presidential election. 
+                </p>
+
+                <p>
                     These experiences gave me a firsthand understanding of how institutions, competing interests, electoral incentives, 
                     and policy ideas interact in the actual process of governance—an understanding that continues to inform my research in political economy and public policy.
                 </p>
+
+                <h2 class="about-heading">Academic Career</h2>
                 
-                <p> In 2015, I received my Ph.D. in Public Policy and Political Economy from the University of Texas at Dallas. 
+                <p>In 2015, I received my Ph.D. in Public Policy and Political Economy from the University of Texas at Dallas. 
                     My dissertation used agent-based and network simulation models to examine bank failures, systemic resilience, and prolonged economic recovery. 
                     That project established the foundation for my broader research agenda: 
                     using computational models to investigate how interactions among individual actors generate unexpected—and sometimes destabilizing—outcomes at the system level.
                 </p>
                 
 
-                <p> After completing my Ph.D., I joined the Julie Ann Wrigley Global Institute of Sustainability at Arizona State University as a Postdoctoral Research Associate. 
+                <p>After completing my Ph.D., I joined the Julie Ann Wrigley Global Institute of Sustainability at Arizona State University as a Postdoctoral Research Associate. 
                     There, I contributed to interdisciplinary research on resilient infrastructure systems and worked across the boundaries of public policy, engineering, and sustainability science.
                 </p>
 
-                <p> I am currently a Visiting Assistant Professor of Political Science at New College of Florida, where I teach statistical modeling and social network analysis. 
+                <h2 class="about-heading">Current Work</h2>
+
+                <p>I am currently a Visiting Assistant Professor of Political Science at New College of Florida, where I teach statistical modeling and social network analysis. 
                     My broader academic goal is to advance the study of political economy, political behavior, and public policy through computational social science methods and advanced statistical modeling. 
                     By combining substantive political economy questions with simulation modeling, network analysis, and statistical inference, 
                     I examine how individual choices, institutional arrangements, and complex interactions generate larger political and economic outcomes. 
                     Across the different stages of my career—from legislative politics to computational research—I have remained interested in one central question: 
                     how can rigorous analytical methods help us better understand and govern complex social systems?
                 </p>
-                
-                
-                
-                <p></p>
-                <p><a id="pdf" href="files/cv.pdf">Download <b>CV</b></a></p>
-                
-                
-                <p>I can be reached at : </p>
-                <p><a href="mailto:youngjoon_oh@icloud.com">youngjoon_oh@icloud.com</a> </p>
+                <div class="about-actions">
+                    <a id="pdf" class="btn btn-default" href="files/cv.pdf">
+                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download CV
+                    </a>
+                    <a class="btn btn-default" href="mailto:youngjoon_oh@icloud.com">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i> Email Me
+                    </a>
+                </div>
               
 
             </div>
